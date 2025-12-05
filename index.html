@@ -24,11 +24,16 @@
             color: var(--text-main);
         }
 
+        /* Full-page, fixed, scaled background */
         body {
-            /* Replace with your corridor image */
-            background:
+            min-height: 100vh;
+            background-image:
                 linear-gradient(var(--bg-overlay), var(--bg-overlay)),
-                url("images/background-hallway.PNG") center center / cover fixed no-repeat;
+                url("images/zgloom-hallway.png"); /* your corridor image */
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;      /* scale to cover whole page */
+            background-attachment: fixed;/* keep image fixed while scrolling */
         }
 
         .page-wrap {
