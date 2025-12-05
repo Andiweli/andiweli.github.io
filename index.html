@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>ZGloom – moderne Ports des Amiga-Shooters Gloom</title>
+    <title>ZGloom – Modern Ports of the Amiga Shooter Gloom</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
         :root {
@@ -13,9 +13,7 @@
             --text-muted: #c3c3c3;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         html, body {
             margin: 0;
@@ -27,7 +25,7 @@
         }
 
         body {
-            /* HIER deinen Korridor-Hintergrund eintragen */
+            /* Replace with your corridor image */
             background:
                 linear-gradient(var(--bg-overlay), var(--bg-overlay)),
                 url("zgloom-corridor-bg.jpg") center center / cover fixed no-repeat;
@@ -105,9 +103,7 @@
             line-height: 1.5;
         }
 
-        .section {
-            margin-bottom: 1.8rem;
-        }
+        .section { margin-bottom: 1.8rem; }
 
         .screenshots {
             display: grid;
@@ -142,9 +138,7 @@
         }
 
         @media (max-width: 550px) {
-            .ports-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
+            .ports-grid { grid-template-columns: minmax(0, 1fr); }
         }
 
         .port-button {
@@ -162,10 +156,7 @@
             letter-spacing: 0.08em;
             font-size: 0.8rem;
             box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7);
-            transition:
-                transform 0.12s ease-out,
-                box-shadow 0.12s ease-out,
-                filter 0.12s ease-out;
+            transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
         }
 
         .port-button span {
@@ -198,95 +189,83 @@
 <div class="page-wrap">
     <main class="card">
         <header>
-            <h1>ZGloom – moderne Ports des Amiga-Shooters Gloom</h1>
+            <h1>ZGloom – Modern Ports of the Amiga FPS Gloom</h1>
             <p class="subtitle">
-                Spiele Gloom, Gloom Deluxe, Gloom&nbsp;3 und Zombie Massacre heute auf
-                Windows, macOS, Android/OUYA und PlayStation&nbsp;Vita – mit verbessertem
-                Renderer, Widescreen-Support und komfortablen In-Game-Optionen.
+                Play Gloom, Gloom Deluxe, Gloom 3 and Zombie Massacre today on Windows,
+                macOS, Android/OUYA and PlayStation&nbsp;Vita with enhanced rendering,
+                widescreen support and extended quality-of-life features.
             </p>
         </header>
 
         <section class="content-grid">
-            <!-- Linke Spalte: Text -->
+
+            <!-- Left column -->
             <div>
                 <section class="section">
-                    <h2>Was ist Gloom?</h2>
+                    <h2>What is Gloom?</h2>
                     <p>
-                        Gloom ist ein 1995 erschienener Doom-ähnlicher Ego-Shooter von
-                        Black Magic Software für den Commodore Amiga. Bekannt für seine
-                        blutigen, schnellen Gefechte und den hohen Hardware-Hunger, wurde
-                        der Titel später zur Basis weiterer Spiele wie Gloom Deluxe /
-                        Ultimate Gloom, Gloom&nbsp;3 und Zombie Massacre. ZGloom setzt
-                        diese Engine als moderne, plattformübergreifende Portierung neu um.
+                        Gloom is a 1995 Amiga first-person shooter by Black Magic Software,
+                        known for its fast action, gory combat and heavy hardware demands at
+                        the time. Later expanded into Gloom Deluxe / Ultimate Gloom,
+                        Gloom&nbsp;3 and Zombie Massacre, the game has become a cult classic.
+                        ZGloom is a modern multi-platform re-implementation of the engine.
                     </p>
                 </section>
 
                 <section class="section">
-                    <h2>ZGloom – zentrale Features</h2>
+                    <h2>ZGloom Features</h2>
                     <ul>
-                        <li>Moderne C++-Engine mit SDL2, optimiert für aktuelle Systeme.</li>
-                        <li>Unterstützt Gloom, Gloom Deluxe / Ultimate, Gloom&nbsp;3 und Zombie Massacre.</li>
-                        <li>Verbesserter Renderer mit gefixter Perspektive, dynamischen Licht- und Mündungsblitzen.</li>
-                        <li>Optionale Post-Processing-Effekte: Vignette, Filmkorn, Scanlines für CRT-Look.</li>
-                        <li>Umschaltbare 4:3- und 16:9-Ansicht, anpassbares Sichtfeld (FOV).</li>
-                        <li>Multi-Game-Launcher, Save/Load-Positionsfunktion und erweiterte In-Game-Optionen.</li>
-                        <li>Gamepad-optimierte Steuerung auf Konsolen-/Android-Geräten.</li>
+                        <li>SDL2-based modern C++ engine for current hardware.</li>
+                        <li>Supports Gloom, Gloom Deluxe, Gloom&nbsp;3 and Zombie Massacre.</li>
+                        <li>Improved renderer with fixed perspective, muzzle flash, lights and polish.</li>
+                        <li>Optional post-processing: vignette, film-grain, scanlines CRT look.</li>
+                        <li>4:3 or 16:9 widescreen modes, adjustable field of view.</li>
+                        <li>Multi-game launcher, in-game settings, Save/Load features.</li>
+                        <li>Gamepad-friendly controls on console and mobile platforms.</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2 class="ports-title">Ports &amp; Downloads</h2>
+                    <h2 class="ports-title">Ports & GitHub</h2>
                     <div class="ports-grid">
-                        <a class="port-button"
-                           href="https://github.com/Andiweli/ZGloom-x86"
-                           target="_blank" rel="noopener">
+                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-x86" target="_blank" rel="noopener">
                             Windows (x86)
-                            <span>Desktop-Port</span>
+                            <span>PC Build</span>
                         </a>
-                        <a class="port-button"
-                           href="https://github.com/Andiweli/ZGloom-macOS"
-                           target="_blank" rel="noopener">
+                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-macOS" target="_blank" rel="noopener">
                             macOS (Universal)
-                            <span>Intel &amp; Apple&nbsp;Silicon</span>
+                            <span>Intel & Apple Silicon</span>
                         </a>
-                        <a class="port-button"
-                           href="https://github.com/Andiweli/ZGloom-Android"
-                           target="_blank" rel="noopener">
-                            Android &amp; OUYA
-                            <span>TV &amp; Handheld</span>
+                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-Android" target="_blank" rel="noopener">
+                            Android / OUYA
+                            <span>Mobile & TV</span>
                         </a>
-                        <a class="port-button"
-                           href="https://github.com/Andiweli/ZGloom-Vita-Vita2D"
-                           target="_blank" rel="noopener">
-                            PS&nbsp;Vita / PSTV
-                            <span>Vita2D-Port</span>
+                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-Vita-Vita2D" target="_blank" rel="noopener">
+                            PlayStation&nbsp;Vita
+                            <span>Vita2D Port</span>
                         </a>
                     </div>
                 </section>
             </div>
 
-            <!-- Rechte Spalte: Screenshots -->
+            <!-- Right column -->
             <div>
                 <section class="section">
                     <h2>Screenshots</h2>
                     <div class="screenshots">
-                        <!-- Screenshot-Beispiel aus dem Android-Repo – bei Bedarf ersetzen -->
                         <figure>
                             <img src="https://private-user-images.githubusercontent.com/11447150/519899523-617ad5bb-8bb4-4449-a830-a730fda007ef.png"
-                                 alt="ZGloom – Kollage mit Menüs, In-Game-Szenen und Gloom-Cover" />
-                            <small>Menüs, Effekte-Optionen und In-Game-Action der ZGloom-Ports.</small>
+                                 alt="ZGloom gameplay and menu collage" />
+                            <small>Collage from current ZGloom builds.</small>
                         </figure>
 
-                        <!-- Optional weitere Screenshots (lokale Dateien oder andere URLs) -->
                         <figure>
-                            <img src="zgloom-screen-01.png"
-                                 alt="ZGloom Gameplay Screenshot 1" />
-                            <small>Beispiel-Screenshot – Pfad im <code>src</code>-Attribut anpassen.</small>
+                            <img src="zgloom-screen-01.png" alt="ZGloom screenshot 1" />
+                            <small>Replace the file with your own image.</small>
                         </figure>
                         <figure>
-                            <img src="zgloom-screen-02.png"
-                                 alt="ZGloom Gameplay Screenshot 2" />
-                            <small>Weitere Szene aus Gloom / Gloom Deluxe.</small>
+                            <img src="zgloom-screen-02.png" alt="ZGloom screenshot 2" />
+                            <small>Another in-game scene example.</small>
                         </figure>
                     </div>
                 </section>
@@ -294,9 +273,8 @@
         </section>
 
         <p class="footer-note">
-            Hinweis: Hintergrundbild und lokale Screenshot-Dateien bitte nach Bedarf
-            benennen und die Pfade in den <code>url()</code>- bzw.
-            <code>&lt;img src&gt;</code>-Angaben anpassen.
+            Background image and local screenshot files can be renamed freely – adjust
+            paths under <code>url()</code> and <code>src</code> accordingly.
         </p>
     </main>
 </div>
