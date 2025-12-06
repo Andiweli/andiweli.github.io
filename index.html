@@ -23,10 +23,11 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                          Roboto, sans-serif;
             color: var(--text-main);
-            background: #000; /* Fallback, wird von .bg-fixed überdeckt */
+            /* komplett transparent – nur das Bild im bg-fixed-Layer ist sichtbar */
+            background: transparent;
         }
 
-        /* fixer Hintergrund-Layer – NUR das Bild, kein schwarzer Overlay mehr */
+        /* fixer Hintergrund-Layer – nur das Bild */
         .bg-fixed {
             position: fixed;
             inset: 0;
@@ -43,16 +44,17 @@
             align-items: center;
             justify-content: center;
             padding: 2rem 1.5rem;
+            background: transparent; /* außerhalb der Karte transparent */
         }
 
         .card {
             max-width: 1100px;
             width: 100%;
-            /* leicht transparent, damit das Bild auch unter der Karte leicht durchscheinen kann */
+            /* nur innerhalb des grünen Rahmens abdunkeln */
             background: rgba(5, 5, 5, 0.82);
             border-radius: 18px;
-            border: 1px solid rgba(111, 214, 115, 0.35);
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(111, 214, 115, 0.8); /* grüner Rahmen */
+            box-shadow: none; /* keine Schattenfläche außerhalb des Rahmens */
             padding: 2.5rem 2.25rem 2.75rem;
             backdrop-filter: blur(8px);
         }
@@ -136,7 +138,6 @@
             display: block;
             border-radius: 12px;
             border: 1px solid rgba(111, 214, 115, 0.35);
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.7);
         }
 
         .screenshots small {
@@ -180,8 +181,6 @@
             letter-spacing: 0.08em;
             font-size: 0.96rem;
             line-height: 1.2;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7);
-            transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
             text-align: center;
         }
 
@@ -197,12 +196,10 @@
         .port-button:focus-visible {
             filter: brightness(1.08);
             transform: translateY(-1px);
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.85);
         }
 
         .port-button:active {
             transform: translateY(0);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.75);
         }
     </style>
 </head>
