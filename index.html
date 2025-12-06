@@ -230,16 +230,9 @@
         .port-button:active {
             transform: translateY(0);
         }
-            .badge-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 1.2rem;
-    }
 
-    .badge-row-vertical {
+    .badge-column {
         margin-bottom: 1.2rem;
-        line-height: 2.1; /* Abstand der einzelnen Zeilen */
     }
 
     .badge {
@@ -254,6 +247,7 @@
         text-transform: uppercase;
         color: #f4f4f4;
         white-space: nowrap;
+        margin-bottom: 6px; /* vertikaler Abstand zwischen den Badges */
     }
 
     .badge-label {
@@ -261,6 +255,7 @@
         margin-right: 0.35rem;
     }
 </style>
+    
 </head>
 <body>
 <div class="bg-fixed"></div>
@@ -296,10 +291,16 @@
                     </p>
                 </section>
 
-<div class="badge-row-vertical">
-    <span class="badge"><span class="badge-label">Platform</span>Windows · macOS · Android · Vita</span><br>
-    <span class="badge"><span class="badge-label">Engine</span>ZGloom C++</span><br>
-    <span class="badge"><span class="badge-label">Code</span>SDL2 · C++17</span><br>
+<div class="badge-column">
+    <div class="badge">
+        <span class="badge-label">Platform</span>Windows · macOS · Android · Vita
+    </div>
+    <div class="badge">
+        <span class="badge-label">Engine</span>ZGloom C++
+    </div>
+    <div class="badge">
+        <span class="badge-label">Code</span>SDL2 · C++17
+    </div>
 </div>
                 
                 <section class="section">
