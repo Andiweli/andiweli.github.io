@@ -232,11 +232,15 @@
         }
 
     .badge-column {
+        display: inline-flex;        /* Container selbst so breit wie der längste Badge */
+        flex-direction: column;      /* Badges untereinander */
+        align-items: flex-start;
+        gap: 6px;                    /* vertikaler Abstand zwischen den Badges */
         margin-bottom: 1.2rem;
     }
 
     .badge {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         padding: 0.28rem 0.75rem;
         border-radius: 999px;
