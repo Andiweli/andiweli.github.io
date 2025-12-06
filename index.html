@@ -148,46 +148,83 @@
             .ports-grid { grid-template-columns: minmax(0, 1fr); }
         }
 
-        .port-button {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 0.8rem 1.1rem;
-            border-radius: 999px;
-            border: none;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: #071208;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-size: 0.96rem;
-            line-height: 1.2;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7);
-            transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
-            text-align: center;
-        }
+/* PORT BUTTONS – with platform icons */
 
-        .port-button span {
-            font-size: 0.86rem;
-            opacity: 0.9;
-            text-transform: none;
-            letter-spacing: 0.03em;
-            margin-left: 0;
-        }
+.port-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    padding: 0.8rem 1.1rem;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #071208;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.96rem;
+    line-height: 1.2;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7);
+    transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+    text-align: left;
+}
 
-        .port-button:hover,
-        .port-button:focus-visible {
-            filter: brightness(1.08);
-            transform: translateY(-1px);
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.85);
-        }
+.port-button:hover,
+.port-button:focus-visible {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.85);
+}
 
-        .port-button:active {
-            transform: translateY(0);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.75);
-        }
+.port-button:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.75);
+}
+
+.port-icon {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: rgba(7, 18, 8, 0.14);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.port-icon svg {
+    width: 14px;
+    height: 14px;
+    fill: #071208;
+}
+
+/* label: two lines */
+.port-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.port-label-main {
+    text-transform: uppercase;
+}
+
+.port-label-sub {
+    font-size: 0.86rem;
+    letter-spacing: 0.03em;
+    text-transform: none;
+    opacity: 0.9;
+}
+
+/* small tweaks for narrow screens */
+@media (max-width: 550px) {
+    .port-button {
+        justify-content: center;
+        text-align: center;
+    }
+}
 
         .footer-note {
             margin-top: 2rem;
@@ -239,24 +276,63 @@
 
                 <section>
                     <h2 class="ports-title">Ports & GitHub</h2>
-                    <div class="ports-grid">
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-x86" target="_blank" rel="noopener">
-                            Windows x86
-                            <span>PC build</span>
-                        </a>
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-macOS" target="_blank" rel="noopener">
-                            macOS
-                            <span>Universal build</span>
-                        </a>
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-Android" target="_blank" rel="noopener">
-                            Android &amp; OUYA
-                            <span>Mobile &amp; TV</span>
-                        </a>
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-Vita-Vita2D" target="_blank" rel="noopener">
-                            PlayStation&nbsp;Vita
-                            <span>Vita2D port</span>
-                        </a>
-                    </div>
+<div class="ports-grid">
+    <!-- Windows x86 -->
+    <a class="port-button" href="https://github.com/Andiweli/ZGloom-x86" target="_blank" rel="noopener">
+        <span class="port-icon" aria-hidden="true">
+            <!-- simple Windows logo -->
+            <svg viewBox="0 0 16 16">
+                <path d="M1 2.1l6-1v6.4H1V2.1zm7 13l7 1V8.3H8v6.8zM1 8.3v5.6l6 0.9V8.3H1zm7-1h7V1.9l-7 1v4.4z"/>
+            </svg>
+        </span>
+        <span class="port-label">
+            <span class="port-label-main">Windows x86</span>
+            <span class="port-label-sub">PC build</span>
+        </span>
+    </a>
+
+    <!-- macOS -->
+    <a class="port-button" href="https://github.com/Andiweli/ZGloom-macOS" target="_blank" rel="noopener">
+        <span class="port-icon" aria-hidden="true">
+            <!-- simple Apple-style logo -->
+            <svg viewBox="0 0 16 16">
+                <path d="M11.5 2.2c-.7.1-1.5.5-2 .9-.4.4-.8 1.1-.7 1.8.8.1 1.5-.3 2-.8.5-.4.8-1.1.7-1.9zM8.3 3.7C7.3 3.7 6.5 4.3 6 4.3c-.5 0-1.3-.6-2.1-.6C2.3 3.8 1 4.9 1 7c0 1.2.4 2.5 1 3.4.5.8 1.2 1.7 2 1.7.8 0 1.1-.5 2.1-.5 1 0 1.2.5 2.1.5.8 0 1.5-.8 2-1.6.6-1 .9-2.1.9-2.2-.1 0-1.8-.7-1.8-2.6 0-1.7 1.4-2.4 1.4-2.4-.8-1.2-2-1.3-2.4-1.3-.9 0-1.6.5-2.1.5z"/>
+            </svg>
+        </span>
+        <span class="port-label">
+            <span class="port-label-main">macOS</span>
+            <span class="port-label-sub">Universal build</span>
+        </span>
+    </a>
+
+    <!-- Android / OUYA -->
+    <a class="port-button" href="https://github.com/Andiweli/ZGloom-Android" target="_blank" rel="noopener">
+        <span class="port-icon" aria-hidden="true">
+            <!-- simple Android robot -->
+            <svg viewBox="0 0 16 16">
+                <path d="M5.2 2.1L4.3.9l.5-.4.9 1.3A3.8 3.8 0 0 1 8 1.7c.9 0 1.7.3 2.3.8l.9-1.3.5.4-1 1.2A3.7 3.7 0 0 1 12 5.2H4a3.7 3.7 0 0 1 1.2-3.1zM5 4.2c-.3 0-.5-.3-.5-.6 0-.3.2-.6.5-.6.3 0 .5.3.5.6 0 .3-.2.6-.5.6zm6 0c-.3 0-.5-.3-.5-.6 0-.3.2-.6.5-.6.3 0 .5.3.5.6 0 .3-.2.6-.5.6zM3.2 5.4h9.6V11c0 .6-.4 1-.9 1H4.1c-.5 0-.9-.4-.9-1V5.4zM2 5.7c.3 0 .5.2.5.5v3.7c0 .3-.2.5-.5.5S1.5 10.2 1.5 10V6.2c0-.3.2-.5.5-.5zm12 0c.3 0 .5.2.5.5V10c0 .3-.2.5-.5.5s-.5-.2-.5-.5V6.2c0-.3.2-.5.5-.5z"/>
+            </svg>
+        </span>
+        <span class="port-label">
+            <span class="port-label-main">Android &amp; OUYA</span>
+            <span class="port-label-sub">Mobile &amp; TV</span>
+        </span>
+    </a>
+
+    <!-- PlayStation Vita -->
+    <a class="port-button" href="https://github.com/Andiweli/ZGloom-Vita-Vita2D" target="_blank" rel="noopener">
+        <span class="port-icon" aria-hidden="true">
+            <!-- simple gamepad icon -->
+            <svg viewBox="0 0 16 16">
+                <path d="M3.5 5c-.9 0-1.6.6-1.8 1.4L1 9.8c-.2.9.4 1.8 1.3 2 .4.1.8 0 1.1-.2L4.8 11h6.4l1.4.7c.3.2.7.3 1.1.2.9-.2 1.5-1.1 1.3-2l-.7-3.4C14.1 5.6 13.4 5 12.5 5h-9zM5 6.7h1v1H7v1H6v1H5v-1H4v-1h1v-1zm6.8.5c.3 0 .5.3.5.5 0 .3-.2.5-.5.5a.5.5 0 0 1 0-1zm-1.3 1.8c.3 0 .5.2.5.5 0 .2-.2.4-.5.4a.5.5 0 0 1 0-1zm0-1.7c.3 0 .5.2.5.5 0 .2-.2.4-.5.4a.5.5 0 0 1 0-1zm1.3 1.8c.3 0 .5.3.5.5 0 .3-.2.5-.5.5a.5.5 0 0 1 0-1z"/>
+            </svg>
+        </span>
+        <span class="port-label">
+            <span class="port-label-main">PlayStation&nbsp;Vita</span>
+            <span class="port-label-sub">Vita2D port</span>
+        </span>
+    </a>
+</div>
                 </section>
             </div>
 
