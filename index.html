@@ -42,60 +42,72 @@
             overflow: hidden;
         }
 
+        /* Gesamt-Layout: Überschrift über Karte, alles zentriert,
+           transparenter Abstand um den grünen Rahmen */
         .page-wrap {
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem;      /* transparenter Abstand um den grünen Rahmen */
+            padding: 2rem;
             background: transparent;
+            text-align: center;
         }
 
+        /* Überschrift-Bereich VOR der Karte, ohne Hintergrund,
+           direkt auf der Hintergrundbild-Ebene */
+        .hero-header {
+            margin: 0 0 1.5rem;
+        }
+
+        .hero-header h1 {
+            margin: 0 0 0.25rem;
+            font-size: clamp(2.8rem, 3.5vw, 3.2rem);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .hero-header h2 {
+            margin: 0;
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.85);
+        }
+
+        /* Grün umrandete Karte weiter unten – darunter nur Hintergrundbild sichtbar */
         .card {
-            position: relative;
             max-width: 1100px;
             width: 100%;
-            max-height: calc(100vh - 4rem);  /* Abstand oben/unten beibehalten */
-            background: rgba(5, 5, 5, 0.82); /* Abdunkelung nur innerhalb des Rahmens */
+            /* Platz für Header oben einkalkulieren:
+               2rem (page padding) + ~5.5rem (Header) + 1.5rem (Abstand) */
+            max-height: calc(100vh - 2rem - 5.5rem - 1.5rem);
+            background: rgba(5, 5, 5, 0.82);   /* Abdunkelung nur innerhalb des Rahmens */
             border-radius: 18px;
             border: 1px solid rgba(111, 214, 115, 0.8); /* grüner Rahmen */
-            padding: 3.5rem 2.25rem 2.75rem; /* extra Platz oben für das absolute h1 */
+            padding: 2.5rem 2.25rem 2.75rem;
             backdrop-filter: blur(8px);
-            overflow: auto;                  /* Inhalt in der Karte scrollt */
+            overflow: auto;                    /* Inhalt der Karte scrollt */
+            text-align: left;
         }
 
         @media (max-width: 768px) {
             .page-wrap {
                 padding: 1.5rem;
             }
-            .card {
-                max-height: calc(100vh - 3rem);
-                padding: 3.2rem 1.5rem 2.2rem;
+            .hero-header h1 {
+                font-size: 2.4rem;
             }
-        }
-
-        /* H1 außerhalb des grünen Rahmens */
-        h1 {
-            position: absolute;
-            top: -2.2rem;               /* klar oberhalb der Rahmenkante */
-            left: 50%;
-            transform: translateX(-50%);
-            margin: 0;
-            font-size: clamp(2.4rem, 3vw, 2.8rem);
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            text-align: center;
-            /* leichte Lesbarkeit auf dem Hintergrund, aber kein Rahmen */
-            text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
-        }
-
-        /* Tagline als h2 direkt in der Karte unter dem Rahmen */
-        .tagline {
-            margin: 0 0 1.2rem;
-            font-size: 1.45rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
+            .hero-header h2 {
+                font-size: 1.1rem;
+            }
+            .card {
+                max-height: calc(100vh - 1.5rem - 5rem - 1.2rem);
+                padding: 2.0rem 1.5rem 2.2rem;
+            }
         }
 
         .subtitle {
@@ -179,6 +191,7 @@
             }
         }
 
+        /* zweizeilige Buttons, ohne Icons */
         .port-button {
             display: inline-flex;
             flex-direction: column;
@@ -220,10 +233,15 @@
 <div class="bg-fixed"></div>
 
 <div class="page-wrap">
+    <!-- Überschrift-Bereich NUR auf Hintergrundbild, außerhalb des grünen Rahmens -->
+    <header class="hero-header">
+        <h1>ZGLOOM</h1>
+        <h2>MODERN PORTS OF THE AMIGA FPS GLOOM</h2>
+    </header>
+
+    <!-- Grün umrandete, nach unten gerückte Karte -->
     <main class="card">
         <header>
-            <h1>ZGLOOM</h1>
-            <h2 class="tagline">Modern Ports of the Amiga FPS Gloom</h2>
             <p class="subtitle">
                 Play Gloom, Gloom Deluxe, Gloom 3 and Zombie Massacre today on Windows,
                 macOS, Android/OUYA and PlayStation&nbsp;Vita with enhanced rendering,
