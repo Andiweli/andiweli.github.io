@@ -26,7 +26,7 @@
             background: transparent;
         }
 
-        /* Hintergrund-Bild: fix im Viewport, scrollt nicht mit */
+        /* Fixes Hintergrundbild */
         .bg-fixed {
             position: fixed;
             inset: 0;
@@ -37,31 +37,31 @@
             background-size: cover;
         }
 
-        /* Seite selbst nicht scrollen – gescrollt wird nur IN der Karte */
+        /* Kein Body-Scroll, nur Karte scrollt */
         body {
             overflow: hidden;
         }
 
-        /* Karte mittig mit konstantem Abstand zum Rand */
         .page-wrap {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;          /* transparenter Abstand rund um den grünen Rahmen */
+            padding: 2rem;
             background: transparent;
         }
 
         .card {
+            position: relative;
             max-width: 1100px;
             width: 100%;
-            max-height: calc(100vh - 4rem);  /* 2rem oben + 2rem unten Abstand erhalten */
-            background: rgba(5, 5, 5, 0.82); /* Abdunkelung nur innerhalb des Rahmens */
+            max-height: calc(100vh - 4rem); /* Abstand oben/unten beibehalten */
+            background: rgba(5, 5, 5, 0.82);
             border-radius: 18px;
-            border: 1px solid rgba(111, 214, 115, 0.8);
-            padding: 2.5rem 2.25rem 2.75rem;
+            border: 1px solid rgba(111, 214, 115, 0.8); /* grüner Rahmen */
+            padding: 3.5rem 2.25rem 2.75rem; /* extra Platz oben für schwebenden Titel */
             backdrop-filter: blur(8px);
-            overflow: auto;                  /* Inhalt der Karte scrollt */
+            overflow: auto; /* Inhalt der Karte scrollt */
         }
 
         @media (max-width: 768px) {
@@ -70,20 +70,33 @@
             }
             .card {
                 max-height: calc(100vh - 3rem);
-                padding: 1.8rem 1.5rem 2.2rem;
+                padding: 3.2rem 1.5rem 2.2rem;
             }
         }
 
-        /* +30% Headline-Größe */
+        /* "ZGLOOM" über dem grünen Rahmen als schwebendes Badge */
+        .title-badge {
+            position: absolute;
+            top: -2.2rem;           /* über dem Kartenrand */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.45rem 2.8rem;
+            background: rgba(5, 5, 5, 0.9);
+            border: 1px solid rgba(111, 214, 115, 0.9);
+            border-radius: 999px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        /* H1 in der Badge */
         h1 {
-            margin-top: 0;
-            margin-bottom: 0.15rem;
-            font-size: clamp(2.6rem, 3.2vw, 3.1rem);
-            letter-spacing: 0.12em;
+            margin: 0;
+            font-size: clamp(2.2rem, 3vw, 2.6rem); /* etwas kompakter im Badge */
+            letter-spacing: 0.18em;
             text-transform: uppercase;
         }
 
-        /* Tagline als h2 direkt unter dem Titel */
+        /* Tagline direkt in der Karte unter dem Badge */
         .tagline {
             margin: 0 0 1.2rem;
             font-size: 1.45rem;
@@ -217,7 +230,9 @@
 <div class="page-wrap">
     <main class="card">
         <header>
-            <h1>ZGLOOM</h1>
+            <div class="title-badge">
+                <h1>ZGLOOM</h1>
+            </div>
             <h2 class="tagline">Modern Ports of the Amiga FPS Gloom</h2>
             <p class="subtitle">
                 Play Gloom, Gloom Deluxe, Gloom 3 and Zombie Massacre today on Windows,
@@ -256,19 +271,19 @@
                 <section>
                     <h2 class="ports-title">Ports & GitHub</h2>
                     <div class="ports-grid">
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-x86" target="_blank" rel="noopener">
+                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-x86/releases" target="_blank" rel="noopener">
                             Windows x86
                             <span>PC build</span>
                         </a>
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-macOS" target="_blank" rel="noopener">
+                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-macOS/releases" target="_blank" rel="noopener">
                             macOS
                             <span>Universal build</span>
                         </a>
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-Android" target="_blank" rel="noopener">
+                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-Android/releases" target="_blank" rel="noopener">
                             Android &amp; OUYA
                             <span>Mobile &amp; TV</span>
                         </a>
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-Vita-Vita2D" target="_blank" rel="noopener">
+                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-Vita-Vita2D/releases" target="_blank" rel="noopener">
                             PlayStation&nbsp;Vita
                             <span>Vita2D port</span>
                         </a>
