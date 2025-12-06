@@ -19,23 +19,17 @@
         html, body {
             margin: 0;
             padding: 0;
-            min-height: 100%;
+            height: 100%;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                          Roboto, sans-serif;
             color: var(--text-main);
-            /* komplett transparent – nur das Bild im bg-fixed-Layer ist sichtbar */
-            background: transparent;
         }
 
-        /* fixer Hintergrund-Layer – nur das Bild */
-        .bg-fixed {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background-image: url("images/background.png");
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        /* Hintergrundbild fest an den Viewport "pinnen" */
+        body {
+            min-height: 100vh;
+            background:
+                url("images/background.png") center center / cover fixed no-repeat;
         }
 
         .page-wrap {
@@ -44,7 +38,7 @@
             align-items: center;
             justify-content: center;
             padding: 2rem 1.5rem;
-            background: transparent; /* außerhalb der Karte transparent */
+            background: transparent;
         }
 
         .card {
@@ -53,8 +47,8 @@
             /* nur innerhalb des grünen Rahmens abdunkeln */
             background: rgba(5, 5, 5, 0.82);
             border-radius: 18px;
-            border: 1px solid rgba(111, 214, 115, 0.8); /* grüner Rahmen */
-            box-shadow: none; /* keine Schattenfläche außerhalb des Rahmens */
+            border: 1px solid rgba(111, 214, 115, 0.8);
+            box-shadow: none;
             padding: 2.5rem 2.25rem 2.75rem;
             backdrop-filter: blur(8px);
         }
@@ -74,7 +68,7 @@
             text-transform: uppercase;
         }
 
-        /* h2 direkt unter dem Titel als Tagline */
+        /* Tagline als h2 direkt unter dem Titel */
         .tagline {
             margin: 0 0 1.2rem;
             font-size: 1.45rem;
@@ -204,9 +198,6 @@
     </style>
 </head>
 <body>
-<!-- fixer Hintergrund-Layer -->
-<div class="bg-fixed"></div>
-
 <div class="page-wrap">
     <main class="card">
         <header>
