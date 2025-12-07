@@ -2,10 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>OUYAlaunch – Fast OUYA-themed Android launcher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-        content="Fast, OUYA-styled Android launcher for the OUYA micro-console with favorites, genre tabs and automatic icon caching.">
+  <title>OUYAlaunch – Fast OUYA-styled launcher for the OUYA micro-console</title>
+
+  <meta name="description" content="OUYAlaunch is a fast, OUYA-styled Android launcher for the original OUYA micro-console with favourites, genre tabs and controller-only navigation.">
+  <meta name="keywords" content="OUYA, OUYAlaunch, Android launcher, micro-console, retro gaming, launcher replacement">
+
+  <link rel="canonical" href="https://andiweli.github.io/ouyalaunch/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OUYAlaunch – Fast OUYA-styled launcher for the OUYA micro-console">
+  <meta property="og:description" content="Fast, OUYA-themed launcher with genre tabs, favourites and controller-only navigation for the original OUYA console.">
+  <meta property="og:url" content="https://andiweli.github.io/ouyalaunch/">
+  <meta property="og:image" content="https://andiweli.github.io/ouyalaunch/images/ouya.jpg">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OUYAlaunch – Fast OUYA-styled launcher for the OUYA micro-console">
+  <meta name="twitter:description" content="Fast, OUYA-themed launcher for the original OUYA console with favourites and genre tabs.">
+  <meta name="twitter:image" content="https://andiweli.github.io/ouyalaunch/images/ouya.jpg">
+
   <style>
     :root {
       --ouya-bg: #050608;
@@ -339,29 +356,30 @@ body {
     }
 
     /* OUYAlaunch – großes Hintergrundbild rechts */
+/* OUYAlaunch – großes Bild rechts ohne Verlaufsmaske */
 body::after {
     content: "";
     position: fixed;
     top: 0;
     right: 0;
 
-    /* Bild */
-    width: 900px;               /* kannst du anpassen – Breite nach links */
-    height: 1080px;             /* wie gewünscht */
+    /* Bildposition und -größe */
+    width: 900px;                 /* wie weit das Bild nach links reichen soll */
+    height: 1080px;               /* gewünschte Höhe */
     background-image: url("images/ouya.jpg");
     background-size: cover;
     background-position: top right;
 
-    opacity: 0.5;               /* 50% durchscheinen */
-    pointer-events: none;       /* klickt nicht über Inhalte hinweg */
-    z-index: 0;                 /* hinter Inhalt */
+    opacity: 0.5;                 /* ~50 % durchscheinen */
+    pointer-events: none;         /* klickt nicht über Inhalte */
+    z-index: 0;                   /* hinter dem Inhalt */
 
-    /* weicher Auslauf nach links */
-    mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+    /* WICHTIG: keine Maske / kein Verlauf mehr */
+    mask-image: none;
+    -webkit-mask-image: none;
 }
 
-/* Inhalt über das Bild heben */
+/* Inhaltsebene über das Bild legen */
 body > * {
     position: relative;
     z-index: 1;
