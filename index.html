@@ -441,6 +441,32 @@
             border-color: #ff6a28;
         }
 
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    /* Bild */
+    background-image: url("images/wallpaper.jpg");
+    background-size: cover;
+    background-position: top right;
+
+    opacity: 0.5;               /* 50% durchscheinen */
+    pointer-events: none;       /* klickt nicht über Inhalte hinweg */
+    z-index: 0;                 /* hinter Inhalt */
+
+    /* weicher Auslauf nach links */
+    mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+/* Inhalt über das Bild heben */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+        
     </style>
 </head>
 
