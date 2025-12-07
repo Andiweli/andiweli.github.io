@@ -63,11 +63,19 @@
         html, body {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            min-height: 100%;
+            height: auto;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, sans-serif;
             background-color: #000; /* verhindert weiß beim Overscroll */
+    background-image:
+        radial-gradient(circle at top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95)),
+        url("images/wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Hintergrund scrollt nicht mit */
             color: var(--text-main);
-            position: relative;
             overscroll-behavior: none;
             overflow-y: auto;
         }
@@ -433,31 +441,11 @@
             border-color: #ff6a28;
         }
 
-        .site-bg {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-
-            z-index: -1;
-            pointer-events: none;
-
-            /* hier dein bisheriges Hintergrundbild eintragen */
-            background-image: url("images/wallpaper.jpg");
-            background-repeat: no-repeat;
-
-            /* Bild rechtsbündig, über die Höhe skaliert */
-            background-size: auto 100%;
-            background-position: right top;
-        }
-        
     </style>
 </head>
 
 <body>
-<div class="site-bg" aria-hidden="true"></div>
-<main class="page">
+<main>
 <header class="hero">
     <div class="hero-top">
         <div class="hero-avatar">
