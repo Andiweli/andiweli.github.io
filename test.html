@@ -268,30 +268,31 @@ h1 {
         }
 
         /* Link-Inhalt in den unteren Kacheln als Spalte, damit wir die Badge nach unten schieben können */
-.repo-card-media .repo-card-link {
+/* Untere 3 Kacheln: Inhalt als Spalte anordnen */
+.media-projects-grid .repo-card {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100%;              /* Kachel füllt die Höhe der Zeile */
 }
 
-/* Abstand zwischen Titel / Textblöcken */
-.repo-card-media .repo-card-header,
-.repo-card-media .repo-card-description,
-.repo-card-media .repo-card-meta {
-    margin-bottom: 0.5rem;
+/* Optionale Abstände innerhalb der Kachel (oben) */
+.media-projects-grid .repo-title,
+.media-projects-grid .repo-description,
+.media-projects-grid .repo-meta {
+    margin-bottom: 0.4rem;
 }
 
-/* Badge unten links, Breite nur so groß wie der Text */
-.repo-card-media .repo-card-badge {
-    margin-top: auto;            /* schiebt die Badge ans untere Ende der Kachel */
-    align-self: flex-start;
-    display: inline-block;       /* nur textbreit */
-    font-size: 0.75rem;
+/* Badge unten links, nur so breit wie der Text */
+.media-projects-grid .repo-pill {
+    margin-top: auto;          /* schiebt die Badge ans untere Ende der Kachel */
+    align-self: flex-start;    /* links ausrichten */
+    display: inline-block;     /* Breite = Textbreite */
     padding: 0.1rem 0.5rem;
     border-radius: 999px;
-    background: rgba(31, 136, 61, 0.12);  /* wie bisher */
-    color: #1f883d;
+    font-size: 0.75rem;
     font-weight: 500;
+    background: rgba(31, 136, 61, 0.12);  /* GitHub-Grün angedeutet */
+    color: #1f883d;
 }
 
         .highlight-card {
@@ -559,7 +560,7 @@ h1 {
     </section>
 
     <section aria-labelledby="media-packs-themes">
-        <h2 id="media-packs-themes">Other projects</h2>
+        <h2 id="media-packs-themes">Some other projects</h2>
         <p class="section-intro">
             Covers, themes and visual content for PS&nbsp;Vita launchers, Sega EverDrive and other classic systems.
         </p>
