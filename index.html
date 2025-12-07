@@ -315,6 +315,21 @@ h1 {
             outline: none;
         }
 
+        /* Ergänzend ins vorhandene CSS aufnehmen */
+
+.highlight-grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* Ab einer sinnvollen Breite (z.B. Tablets quer / Desktop) zwei Spalten */
+@media (min-width: 720px) {
+  .highlight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
+        
         a {
             color: var(--accent);
         }
@@ -354,6 +369,9 @@ h1 {
         </div>
     </header>
 
+<!-- Bestehende ZGloom-Highlight-Section + neue OUYAlaunch-Section
+     gemeinsam in einen Wrapper legen: -->
+<div class="highlight-grid">
     <!-- Hervorgehobene ZGloom-Unterseite -->
     <section class="highlight-card" aria-labelledby="zgloom-highlight">
         <div class="highlight-label">Featured project</div>
@@ -377,12 +395,13 @@ h1 {
             and controller-only.
         </p>
         <a class="highlight-link"
-           href="https://andiweli.github.io/ouyalaunch/"
+           href="https://andiweli.github.io/OUYAlaunch/"
            target="_blank"
            rel="noopener">
-            Open OUYAlaunch
+            Open OUYAlaunch Overview
         </a>
     </section>
+</div>
 
     <section aria-labelledby="core-projects">
         <h2 id="core-projects">Core projects</h2>
