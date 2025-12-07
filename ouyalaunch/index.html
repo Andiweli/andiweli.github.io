@@ -355,31 +355,30 @@ body {
       }
     }
 
-    /* OUYAlaunch – großes Hintergrundbild rechts */
-/* OUYAlaunch – großes Bild rechts ohne Verlaufsmaske */
+/* OUYAlaunch – großes Hintergrundbild rechts */
 body::after {
     content: "";
     position: fixed;
     top: 0;
     right: 0;
 
-    /* Bildposition und -größe */
-    width: 900px;                 /* wie weit das Bild nach links reichen soll */
-    height: 1080px;               /* gewünschte Höhe */
+    /* Bild */
+    width: 900px;               /* kannst du anpassen – Breite nach links */
+    height: 1080px;             /* wie gewünscht */
     background-image: url("images/ouya.jpg");
     background-size: cover;
     background-position: top right;
 
-    opacity: 0.5;                 /* ~50 % durchscheinen */
-    pointer-events: none;         /* klickt nicht über Inhalte */
-    z-index: 0;                   /* hinter dem Inhalt */
+    opacity: 0.5;               /* 50% durchscheinen */
+    pointer-events: none;       /* klickt nicht über Inhalte hinweg */
+    z-index: 0;                 /* hinter Inhalt */
 
-    /* WICHTIG: keine Maske / kein Verlauf mehr */
-    mask-image: none;
-    -webkit-mask-image: none;
+    /* weicher Auslauf nach links */
+    mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
-/* Inhaltsebene über das Bild legen */
+/* Inhalt über das Bild heben */
 body > * {
     position: relative;
     z-index: 1;
