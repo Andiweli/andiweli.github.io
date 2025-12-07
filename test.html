@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Andreas “Andiweli” – Retro Gaming Ports, Launchers & Themes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Basic SEO -->
+    <meta name="description"
+          content="Overview of Andreas “Andiweli” Stürmer on GitHub – developer of ZGloom Amiga FPS ports, OUYAlaunch, HexFlow cover packs, GameStick assets, Sega EverDrive themes and more retro gaming projects." />
+    <meta name="robots" content="index,follow" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://andiweli.github.io/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Andreas “Andiweli” Stürmer – Retro Gaming Ports, Launchers & Themes" />
+    <meta property="og:description"
+          content="Explore ZGloom Amiga FPS ports, OUYAlaunch, HexFlow cover packs, GameStick assets, Sega EverDrive themes and other retro gaming projects by Andreas “Andiweli”." />
+    <meta property="og:url" content="https://andiweli.github.io/" />
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/11447150?v=4" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Andreas “Andiweli” Stürmer – Retro Gaming Ports, Launchers & Themes" />
+    <meta name="twitter:description"
+          content="Amiga Gloom source ports, OUYA launcher, PS Vita cover packs, GameStick assets, Sega EverDrive themes and more retro projects." />
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/11447150?v=4" />
+
+    <!-- Structured Data (Person) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Andreas",
+      "alternateName": "Andiweli",
+      "url": "https://github.com/andiweli",
+      "sameAs": [
+        "https://github.com/andiweli",
+        "https://andiweli.github.io/zgloom/"
+      ],
+      "jobTitle": "Software Developer",
+      "description": "Developer of retro gaming ports, launchers, themes and asset packs for platforms like Amiga, OUYA, PS Vita, GameStick and Sega Mega Drive."
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #050608;
+            --bg-card: #101316;
+            --bg-card-soft: #15191e;
+            --accent: #6fd673;
+            --accent-soft: rgba(111, 214, 115, 0.22);
+            --accent-dark: #3f8c45;
+            --text-main: #f4f4f4;
+            --text-muted: #b7b7b7;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 0;
+            height: auto;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, sans-serif;
+            background-color: #000; /* verhindert weiß beim Overscroll */
+            background-image: radial-gradient(circle at top, #151922 0, #050608 55%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            overscroll-behavior: none;
+            overflow-y: auto;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            padding: 2.5rem 1.5rem;
+        }
+
+        main {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1.8rem 1.1rem;
+            }
+        }
+
+        .hero {
+            padding: 1.6rem 1.6rem 1.5rem;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #12161c, #090b0f);
+            border: 1px solid var(--accent-soft);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+            margin-bottom: 2rem;
+        }
+
+.hero-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.hero-avatar {
+    flex: 0 0 auto;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--accent-soft);
+    background: #000;
+}
+
+.hero-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Name + Handle untereinander (aber als Block rechts vom Avatar) */
+.hero-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.hero-title {
+    display: flex;
+    flex-direction: column;   /* H1 oben, Handle darunter */
+    align-items: flex-start;
+    gap: 0.1rem;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.hero-handle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.hero-subtitle {
+    margin: 0.4rem 0 0.8rem;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+}
+
+        .hero-keyline {
+            margin: 0.6rem 0 0;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.9rem;
+        }
+
+        .tag {
+            padding: 0.15rem 0.65rem;
+            border-radius: 999px;
+            border: 1px solid var(--accent-soft);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            color: var(--text-muted);
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            margin: 0 0 0.6rem;
+            font-size: 1.45rem;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+        }
+
+        p {
+            margin: 0 0 0.8rem;
+            line-height: 1.6;
+            font-size: 1.02rem;
+        }
+
+        .section-intro {
+            margin-bottom: 1rem;
+            font-size: 0.98rem;
+            color: var(--text-muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.9rem;
+        }
+
+        .repo-card {
+            display: flex;
+            flex-direction: column;
+            padding: 0.85rem 1rem 1rem;
+            border-radius: 14px;
+            background: radial-gradient(circle at top left, #1c222b, var(--bg-card));
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-decoration: none;
+            color: var(--text-main);
+            transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
+                        border-color 0.12s ease-out, background 0.12s ease-out;
+        }
+
+        .repo-card:hover,
+        .repo-card:focus-visible {
+            transform: translateY(-2px);
+            border-color: var(--accent-soft);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8);
+            outline: none;
+        }
+
+        .repo-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.4rem;
+            align-items: center;
+            margin-bottom: 0.3rem;
+        }
+
+        .repo-name {
+            font-size: 0.98rem;
+            font-weight: 600;
+        }
+
+        .repo-pill {
+            padding: 0.12rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid var(--accent-soft);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .repo-desc {
+            margin: 0.2rem 0 0.6rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .repo-meta {
+            margin-top: auto;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .highlight-card {
+            margin-bottom: 2rem;
+            padding: 1rem 1.1rem 1.1rem;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #182020, #101315);
+            border: 1px solid var(--accent);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.8);
+        }
+
+        .highlight-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .highlight-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .highlight-body {
+            font-size: 0.96rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .highlight-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid var(--accent-soft);
+            background: #050708;
+            font-size: 0.86rem;
+            text-decoration: none;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .highlight-link:hover,
+        .highlight-link:focus-visible {
+            border-color: var(--accent);
+            color: var(--accent-dark);
+            outline: none;
+        }
+
+.highlight-grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* Ab einer sinnvollen Breite (z.B. Tablets quer / Desktop) zwei Spalten */
+@media (min-width: 720px) {
+  .highlight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
+        
+        a {
+            color: var(--accent);
+        }
+
+        a:hover {
+            color: var(--accent-dark);
+        }
+
+
+/* OUYA-Farben für die OUYAlaunch-Highlight-Kachel */
+.highlight-card-ouya {
+    background: #141414;          /* dunkles OUYA-Grau */
+    border-color: #ff4e00;        /* OUYA-Orange */
+}
+
+.highlight-card-ouya .highlight-label {
+    color: #ff4e00;
+}
+
+.highlight-card-ouya .highlight-title {
+    color: #ffffff;
+}
+
+.highlight-card-ouya .highlight-link {
+    background: #ff4e00;
+    border-color: #ff4e00;
+    color: #ffffff;
+}
+
+.highlight-card-ouya .highlight-link:hover,
+.highlight-card-ouya .highlight-link:focus-visible {
+    background: #ff6a28;          /* leicht hellere Hover-Farbe */
+    border-color: #ff6a28;
+}
+
+/* GitHub-Grün als Standard-Akzentfarbe für normale Kacheln */
+.project-card,
+.media-card,
+.repo-card {
+    border-color: #1f883d;
+}
+
+/* Titel / Sektionen mit GitHub-Grün als Akzent */
+.section-title,
+.project-section-title {
+    border-bottom: 2px solid #1f883d;
+}
+
+/* Links in den Kacheln beim Hover mit GitHub-Grün hervorheben */
+.project-card a:hover,
+.project-card a:focus-visible,
+.media-card a:hover,
+.media-card a:focus-visible {
+    color: #1f883d;
+}
+
+/* Optional: leichter Glow beim Hover über die ganze Kachel */
+.project-card:hover,
+.media-card:hover,
+.repo-card:hover {
+    box-shadow: 0 0 0 1px #1f883d;
+}
+    </style>
+  
+</head>
+<body>
+<main>
+<header class="hero">
+    <div class="hero-top">
+        <div class="hero-avatar">
+            <img src="https://avatars.githubusercontent.com/u/11447150?v=4"
+                 alt="Andreas GitHub avatar">
+        </div>
+        <div class="hero-text">
+            <h1>Andreas Stürmer</h1>
+            <div class="hero-handle">@andiweli on GitHub</div>
+        </div>
+    </div>
+
+    <p class="hero-subtitle">
+        Retro gaming ports, launchers, themes and asset packs for Amiga Gloom, OUYA, PS&nbsp;Vita,
+        GameStick, Sega Mega Drive and more.
+    </p>
+
+    <p class="hero-keyline">
+        Focused on keeping classic games and hardware alive with modern ports, polished UIs and ready-to-use assets.
+    </p>
+        <div class="tags">
+            <span class="tag">Amiga &amp; Gloom</span>
+            <span class="tag">OUYA &amp; Android</span>
+            <span class="tag">GameStick</span>
+            <span class="tag">PS Vita</span>
+        </div>
+    </header>
+
+<!-- Bestehende ZGloom-Highlight-Section + neue OUYAlaunch-Section
+     gemeinsam in einen Wrapper legen: -->
+<div class="highlight-grid">
+    <!-- Hervorgehobene ZGloom-Unterseite -->
+    <section class="highlight-card" aria-labelledby="zgloom-highlight">
+        <div class="highlight-label">Featured project</div>
+        <div id="zgloom-highlight" class="highlight-title">ZGloom Collection</div>
+        <p class="highlight-body">
+            Learn more about the modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS&nbsp;Vita,
+            including screenshots, feature overview and direct download links.
+        </p>
+        <a class="highlight-link" href="https://andiweli.github.io/zgloom/" target="_blank" rel="noopener">
+            Open ZGloom Ports
+        </a>
+    </section>
+
+    <!-- Hervorgehobene OUYAlaunch-Unterseite -->
+<!-- Featured OUYAlaunch project -->
+<section class="highlight-card highlight-card-ouya" aria-labelledby="ouya-highlight">
+    <div class="highlight-label">Featured project</div>
+    <div id="ouya-highlight" class="highlight-title">OUYAlaunch</div>
+    <p class="highlight-body">
+        Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs
+        and icon caching – designed to match the original OUYA look while keeping navigation fast
+        and controller-only.
+    </p>
+    <a class="highlight-link" href="https://andiweli.github.io/ouyalaunch/" target="_blank" rel="noopener">
+        Open OUYAlaunch
+    </a>
+</section>
+</div>
+
+    <section aria-labelledby="core-projects">
+        <h2 id="core-projects">Core projects</h2>
+        <p class="section-intro">
+            Selected repositories that define my work around ports, my OUYA launcher and
+            PS&nbsp;Vita content.
+        </p>
+        <div class="grid">
+            <a class="repo-card" href="https://github.com/Andiweli/ZGloom-Android" target="_blank" rel="noopener">
+                <div class="repo-header">
+                    <div class="repo-name">ZGloom-Android</div>
+                    <div class="repo-pill">Android</div>
+                </div>
+                <p class="repo-desc">
+                    Modern source port of the Amiga FPS Gloom for Android with focus on OUYA and Android TV-style boxes.
+                </p>
+                <div class="repo-meta">Amiga Gloom engine · SDL2 · C++</div>
+            </a>
+
+            <a class="repo-card" href="https://github.com/Andiweli/ZGloom-x86" target="_blank" rel="noopener">
+                <div class="repo-header">
+                    <div class="repo-name">ZGloom-x86</div>
+                    <div class="repo-pill">Windows</div>
+                </div>
+                <p class="repo-desc">
+                    Windows x86 port of ZGloom with improved renderer, extended in-game options and subtle post-processing effects.
+                </p>
+                <div class="repo-meta">PC build of Gloom engine</div>
+            </a>
+
+            <a class="repo-card" href="https://github.com/Andiweli/ZGloom-macOS" target="_blank" rel="noopener">
+                <div class="repo-header">
+                    <div class="repo-name">ZGloom-macOS</div>
+                    <div class="repo-pill">macOS</div>
+                </div>
+                <p class="repo-desc">
+                    Universal macOS build of ZGloom bringing the full Amiga Gloom collection to Apple silicon and Intel Macs.
+                </p>
+                <div class="repo-meta">Universal binary · SDL2</div>
+            </a>
+
+            <a class="repo-card" href="https://github.com/Andiweli/ZGloom-Vita-Vita2D" target="_blank" rel="noopener">
+                <div class="repo-header">
+                    <div class="repo-name">ZGloom-Vita-Vita2D</div>
+                    <div class="repo-pill">PS&nbsp;Vita</div>
+                </div>
+                <p class="repo-desc">
+                    GPU-accelerated Vita2D port of Gloom, Gloom Deluxe, Gloom&nbsp;3 and Zombie Massacre for PS&nbsp;Vita / PSTV.
+                </p>
+                <div class="repo-meta">Vita homebrew · Vita2D</div>
+            </a>
+
+            <a class="repo-card" href="https://github.com/Andiweli/OUYAlaunch" target="_blank" rel="noopener">
+                <div class="repo-header">
+                    <div class="repo-name">OUYAlaunch</div>
+                    <div class="repo-pill">OUYA</div>
+                </div>
+                <p class="repo-desc">
+                    Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs and icon caching.
+                </p>
+                <div class="repo-meta">Android launcher · Java</div>
+            </a>
+
+            <a class="repo-card" href="https://github.com/Andiweli/GameStick-Assets" target="_blank" rel="noopener">
+                <div class="repo-header">
+                    <div class="repo-name">GameStick-Assets</div>
+                    <div class="repo-pill">GameStick</div>
+                </div>
+                <p class="repo-desc">
+                    Forwarders, cover images and metadata for PlayJam GameStick games, prepared for use on OUYA and modern GameStick-based systems.
+                </p>
+                <div class="repo-meta">Assets &amp; artwork</div>
+            </a>
+        </div>
+    </section>
+
+    <section aria-labelledby="media-packs-themes">
+        <h2 id="media-packs-themes">Media packs &amp; themes</h2>
+        <p class="section-intro">
+            Covers, themes and visual content for PS&nbsp;Vita launchers, Sega EverDrive and other classic systems.
+        </p>
+        <div class="grid">
+            <a class="repo-card" href="https://github.com/Andiweli/HexFlow-Covers" target="_blank" rel="noopener">
+                <div class="repo-header">
+                    <div class="repo-name">HexFlow-Covers</div>
+                    <div class="repo-pill">PS&nbsp;Vita</div>
+                </div>
+                <p class="repo-desc">
+                    Cover, background and music database for HexFlow / RetroFlow launchers on PS&nbsp;Vita.
+                </p>
+                <div class="repo-meta">Covers · backgrounds · BGM</div>
+            </a>
+
+            <a class="repo-card" href="https://github.com/Andiweli/Sega-EverDrive-Themes" target="_blank" rel="noopener">
+                <div class="repo-header">
+                    <div class="repo-name">Sega-EverDrive-Themes</div>
+                    <div class="repo-pill">MegaDrive</div>
+                </div>
+                <p class="repo-desc">
+                    Static and animated menu themes for Krikzz’s Mega EverDrive Pro on Sega Mega Drive / Genesis.
+                </p>
+                <div class="repo-meta">.bgr themes · 16-bit style</div>
+            </a>
+
+            <a class="repo-card" href="https://github.com/Andiweli/OPL-Theme-PS2pops" target="_blank" rel="noopener">
+                <div class="repo-header">
+                    <div class="repo-name">OPL-Theme-PS2pops</div>
+                    <div class="repo-pill">PS2</div>
+                </div>
+                <p class="repo-desc">
+                    “PS2/POPS” theme for Open PS2 Loader with optimised graphics, loader animation and HD layout.
+                </p>
+                <div class="repo-meta">Open PS2 Loader theme</div>
+            </a>
+
+            <a class="repo-card" href="https://github.com/Andiweli/RaspberryPi-Welcome" target="_blank" rel="noopener">
+                <div class="repo-header">
+                    <div class="repo-name">RaspberryPi-Welcome</div>
+                    <div class="repo-pill">Raspberry</div>
+                </div>
+                <p class="repo-desc">
+                    ASCII-art MOTD welcome messages for Raspberry Pi, Pi-hole, ioBroker, Minecraft servers and more.
+                </p>
+                <div class="repo-meta">Shell · MOTD scripts</div>
+            </a>
+        </div>
+    </section>
+
+    <section aria-labelledby="github-link">
+        <h2 id="github-link">Find me on GitHub</h2>
+        <p>
+            Full list of repositories, forks and contributions:
+            <a href="https://github.com/andiweli" target="_blank" rel="noopener">
+                github.com/andiweli
+            </a>
+        </p>
+    </section>
+</main>
+</body>
+</html>
