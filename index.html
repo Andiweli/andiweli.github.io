@@ -317,8 +317,6 @@ h1 {
             outline: none;
         }
 
-        /* Ergänzend ins vorhandene CSS aufnehmen */
-
 .highlight-grid {
   display: grid;
   gap: 16px;
@@ -339,7 +337,36 @@ h1 {
         a:hover {
             color: var(--accent-dark);
         }
+
+
+/* OUYA-Farben für die OUYAlaunch-Highlight-Kachel */
+.highlight-card-ouya {
+    background: #141414;          /* dunkles OUYA-Grau */
+    border-color: #ff4e00;        /* OUYA-Orange */
+}
+
+.highlight-card-ouya .highlight-label {
+    color: #ff4e00;
+}
+
+.highlight-card-ouya .highlight-title {
+    color: #ffffff;
+}
+
+.highlight-card-ouya .highlight-link {
+    background: #ff4e00;
+    border-color: #ff4e00;
+    color: #ffffff;
+}
+
+.highlight-card-ouya .highlight-link:hover,
+.highlight-card-ouya .highlight-link:focus-visible {
+    background: #ff6a28;          /* leicht hellere Hover-Farbe */
+    border-color: #ff6a28;
+}
+
     </style>
+  
 </head>
 <body>
 <main>
@@ -388,21 +415,19 @@ h1 {
     </section>
 
     <!-- Hervorgehobene OUYAlaunch-Unterseite -->
-    <section class="highlight-card" aria-labelledby="ouyalaunch-highlight">
-        <div class="highlight-label">Featured project</div>
-        <div id="ouyalaunch-highlight" class="highlight-title">OUYAlaunch</div>
-        <p class="highlight-body">
-            Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs
-            and icon caching – designed to match the original OUYA look while keeping navigation fast
-            and controller-only.
-        </p>
-        <a class="highlight-link"
-           href="https://andiweli.github.io/ouyalaunch/"
-           target="_blank"
-           rel="noopener">
-            Open OUYAlaunch
-        </a>
-    </section>
+<!-- Featured OUYAlaunch project -->
+<section class="highlight-card highlight-card-ouya" aria-labelledby="ouya-highlight">
+    <div class="highlight-label">Featured project</div>
+    <div id="ouya-highlight" class="highlight-title">OUYAlaunch</div>
+    <p class="highlight-body">
+        Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs
+        and icon caching – designed to match the original OUYA look while keeping navigation fast
+        and controller-only.
+    </p>
+    <a class="highlight-link" href="https://andiweli.github.io/ouyalaunch/" target="_blank" rel="noopener">
+        Open OUYAlaunch
+    </a>
+</section>
 </div>
 
     <section aria-labelledby="core-projects">
