@@ -23,14 +23,17 @@
       box-sizing: border-box;
     }
 
-    html {
-      /* Verlauf vom Body nach oben auf das Dokument holen,
-         damit er auch beim Overscroll sichtbar bleibt */
-      background:
-        radial-gradient(circle at 0 0, #333842 0, transparent 55%),
-        radial-gradient(circle at 100% 0, #26262b 0, transparent 45%),
-        linear-gradient(to bottom, #14161b 0, #050608 60%, #020203 100%);
-    }
+/* Ersetze die bisherigen background-Definitionen für html und body damit: */
+
+html,
+body {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 0 0, #333842 0, transparent 55%),
+    radial-gradient(circle at 100% 0, #26262b 0, transparent 45%),
+    linear-gradient(to bottom, #14161b 0, #050608 60%, #020203 100%);
+  background-color: #050608; /* Fallback */
+}
 
     body {
       margin: 0;
