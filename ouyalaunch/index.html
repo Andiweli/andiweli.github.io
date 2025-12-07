@@ -24,17 +24,19 @@
     }
 
     html {
-      background: #111111;
+      /* Verlauf vom Body nach oben auf das Dokument holen,
+         damit er auch beim Overscroll sichtbar bleibt */
+      background:
+        radial-gradient(circle at 0 0, #333842 0, transparent 55%),
+        radial-gradient(circle at 100% 0, #26262b 0, transparent 45%),
+        linear-gradient(to bottom, #14161b 0, #050608 60%, #020203 100%);
     }
 
     body {
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 0 0, #333842 0, transparent 55%),
-        radial-gradient(circle at 100% 0, #26262b 0, transparent 45%),
-        linear-gradient(to bottom, #14161b 0, #050608 60%, #020203 100%);
+      background: transparent;
       color: var(--ouya-text);
       -webkit-font-smoothing: antialiased;
     }
