@@ -232,6 +232,29 @@ h1 {
             outline: none;
         }
 
+        /* Media-Karten: Titel oben, Badge direkt darunter */
+.repo-card-media .repo-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.20rem;
+}
+
+.repo-card-media .repo-card-title {
+    margin: 0;
+    font-size: 1rem;          /* ggf. an dein Design anpassen */
+}
+
+.repo-card-media .repo-card-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(31, 136, 61, 0.12);  /* dezente GitHub-Grün-Tönung */
+    color: #1f883d;
+    font-weight: 500;
+}
+
         .repo-header {
             display: flex;
             justify-content: space-between;
@@ -533,55 +556,54 @@ h1 {
     </section>
 
     <section aria-labelledby="media-packs-themes">
-        <h2 id="media-packs-themes">Media packs &amp; themes</h2>
-        <p class="section-intro">
-            Covers, themes and visual content for PS&nbsp;Vita launchers, Sega EverDrive and other classic systems.
-        </p>
-        <div class="grid">
-            <a class="repo-card" href="https://github.com/Andiweli/HexFlow-Covers" target="_blank" rel="noopener">
-                <div class="repo-header">
-                    <div class="repo-name">HexFlow-Covers</div>
-                    <div class="repo-pill">PS&nbsp;Vita</div>
-                </div>
-                <p class="repo-desc">
-                    Cover, background and music database for HexFlow / RetroFlow launchers on PS&nbsp;Vita.
-                </p>
-                <div class="repo-meta">Covers · backgrounds · BGM</div>
-            </a>
+<h2>Media packs &amp; themes</h2>
+<p>
+    Covers, themes and visual content for PS&nbsp;Vita launchers, Sega EverDrive and other classic systems.
+</p>
 
-            <a class="repo-card" href="https://github.com/Andiweli/Sega-EverDrive-Themes" target="_blank" rel="noopener">
-                <div class="repo-header">
-                    <div class="repo-name">Sega-EverDrive-Themes</div>
-                    <div class="repo-pill">MegaDrive</div>
-                </div>
-                <p class="repo-desc">
-                    Static and animated menu themes for Krikzz’s Mega EverDrive Pro on Sega Mega Drive / Genesis.
-                </p>
-                <div class="repo-meta">.bgr themes · 16-bit style</div>
-            </a>
+<div class="project-grid media-projects-grid">
+    <!-- HexFlow-Covers -->
+    <article class="repo-card repo-card-media">
+        <a class="repo-card-link" href="https://github.com/andiweli/HexFlow-Covers" target="_blank" rel="noopener">
+            <div class="repo-card-header">
+                <h3 class="repo-card-title">HexFlow-Covers</h3>
+                <div class="repo-card-badge">PS&nbsp;Vita</div>
+            </div>
+            <p class="repo-card-description">
+                Cover, background and music database for HexFlow / RetroFlow launchers on PS&nbsp;Vita.
+            </p>
+            <p class="repo-card-meta">Covers · backgrounds · BGM</p>
+        </a>
+    </article>
 
-            <a class="repo-card" href="https://github.com/Andiweli/OPL-Theme-PS2pops" target="_blank" rel="noopener">
-                <div class="repo-header">
-                    <div class="repo-name">OPL-Theme-PS2pops</div>
-                    <div class="repo-pill">PS2</div>
-                </div>
-                <p class="repo-desc">
-                    “PS2/POPS” theme for Open PS2 Loader with optimised graphics, loader animation and HD layout.
-                </p>
-                <div class="repo-meta">Open PS2 Loader theme</div>
-            </a>
+    <!-- Sega-EverDrive-Themes -->
+    <article class="repo-card repo-card-media">
+        <a class="repo-card-link" href="https://github.com/andiweli/Sega-EverDrive-Themes" target="_blank" rel="noopener">
+            <div class="repo-card-header">
+                <h3 class="repo-card-title">Sega-EverDrive-Themes</h3>
+                <div class="repo-card-badge">MegaDrive</div>
+            </div>
+            <p class="repo-card-description">
+                Static and animated menu themes for Krikzz’s Mega EverDrive Pro on Sega Mega Drive / Genesis.
+            </p>
+            <p class="repo-card-meta">.bgr themes · 16-bit style</p>
+        </a>
+    </article>
 
-            <a class="repo-card" href="https://github.com/Andiweli/RaspberryPi-Welcome" target="_blank" rel="noopener">
-                <div class="repo-header">
-                    <div class="repo-name">RaspberryPi-Welcome</div>
-                    <div class="repo-pill">Raspberry</div>
-                </div>
-                <p class="repo-desc">
-                    ASCII-art MOTD welcome messages for Raspberry Pi, Pi-hole, ioBroker, Minecraft servers and more.
-                </p>
-                <div class="repo-meta">Shell · MOTD scripts</div>
-            </a>
-        </div>
+    <!-- OPL-Theme-PS2pops -->
+    <article class="repo-card repo-card-media">
+        <a class="repo-card-link" href="https://github.com/andiweli/OPL-Theme-PS2pops" target="_blank" rel="noopener">
+            <div class="repo-card-header">
+                <h3 class="repo-card-title">OPL-Theme-PS2pops</h3>
+                <div class="repo-card-badge">PS2</div>
+            </div>
+            <p class="repo-card-description">
+                “PS2/POPS” theme for Open PS2 Loader with optimised graphics, loader animation and HD layout.
+            </p>
+            <p class="repo-card-meta">Open PS2 Loader theme</p>
+        </a>
+    </article>
+</div>
     </section>
 
     <section aria-labelledby="github-link">
