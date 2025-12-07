@@ -60,26 +60,6 @@
             box-sizing: border-box;
         }
 
-        .site-bg {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-
-            z-index: -1;
-            pointer-events: none;
-
-            /* hier dein bisheriges Hintergrundbild eintragen */
-            background-image: url("images/wallpaper.jpg");
-            background-repeat: no-repeat;
-
-            /* Bild rechtsbündig, über die Höhe skaliert */
-            background-size: auto 100%;
-            background-position: right top;
-        }
-
-        
         html, body {
             margin: 0;
             padding: 0;
@@ -104,6 +84,25 @@
             width: 100%;
         }
 
+        .site-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            z-index: -1;
+            pointer-events: none;
+
+            /* hier dein bisheriges Hintergrundbild eintragen */
+            background-image: url("images/wallpaper.jpg");
+            background-repeat: no-repeat;
+
+            /* Bild rechtsbündig, über die Höhe skaliert */
+            background-size: auto 100%;
+            background-position: right top;
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 1.8rem 1.1rem;
