@@ -267,6 +267,33 @@ h1 {
             color: var(--accent);
         }
 
+        /* Link-Inhalt in den unteren Kacheln als Spalte, damit wir die Badge nach unten schieben können */
+.repo-card-media .repo-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Abstand zwischen Titel / Textblöcken */
+.repo-card-media .repo-card-header,
+.repo-card-media .repo-card-description,
+.repo-card-media .repo-card-meta {
+    margin-bottom: 0.5rem;
+}
+
+/* Badge unten links, Breite nur so groß wie der Text */
+.repo-card-media .repo-card-badge {
+    margin-top: auto;            /* schiebt die Badge ans untere Ende der Kachel */
+    align-self: flex-start;
+    display: inline-block;       /* nur textbreit */
+    font-size: 0.75rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(31, 136, 61, 0.12);  /* wie bisher */
+    color: #1f883d;
+    font-weight: 500;
+}
+
         .highlight-card {
             margin-bottom: 2rem;
             padding: 1rem 1.1rem 1.1rem;
@@ -336,7 +363,7 @@ h1 {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 /* NEU: iPad Hochformat / schmale Screens → nur 2 Spalten */
@@ -540,31 +567,31 @@ h1 {
             <a class="repo-card" href="https://github.com/Andiweli/HexFlow-Covers" target="_blank" rel="noopener">
                 <div class="repo-header">
                     <div class="repo-name">HexFlow-Covers</div>
-                    <div class="repo-pill">PS&nbsp;Vita</div>
                 </div>
                 <p class="repo-desc">
                     Cover, background and music database for HexFlow / RetroFlow launchers on PS&nbsp;Vita.
                 </p>
+                <div class="repo-pill">PS&nbsp;Vita</div>
             </a>
 
             <a class="repo-card" href="https://github.com/Andiweli/Sega-EverDrive-Themes" target="_blank" rel="noopener">
                 <div class="repo-header">
                     <div class="repo-name">Sega-EverDrive-Themes</div>
-                    <div class="repo-pill">MegaDrive</div>
                 </div>
                 <p class="repo-desc">
                     Static and animated menu themes for Krikzz’s Mega EverDrive Pro on Sega Mega Drive / Genesis.
                 </p>
+                <div class="repo-pill">MegaDrive</div>
             </a>
 
             <a class="repo-card" href="https://github.com/Andiweli/OPL-Theme-PS2pops" target="_blank" rel="noopener">
                 <div class="repo-header">
                     <div class="repo-name">OPL-Theme-PS2pops</div>
-                    <div class="repo-pill">PS2</div>
                 </div>
                 <p class="repo-desc">
                     “PS2/POPS” theme for Open PS2 Loader with optimised graphics, loader animation and HD layout.
                 </p>
+                <div class="repo-pill">PS2</div>
             </a>
         </div>
     </section>
