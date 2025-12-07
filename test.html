@@ -302,6 +302,15 @@ h1 {
     flex: 0 0 auto !important;
 }
 
+        /* Pill-Badge immer nur so breit wie der Text */
+.repo-pill {
+    display: inline-block !important;   /* nicht block/flex */
+    width: auto !important;             /* keine 100% Breite */
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    align-self: flex-start !important;  /* falls das Element Flex-Item ist */
+}
+
         .highlight-card {
             margin-bottom: 2rem;
             padding: 1rem 1.1rem 1.1rem;
