@@ -16,16 +16,14 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Andreas “Andiweli” Stürmer – Retro Gaming Ports, Launchers & Themes" />
-    <meta property="og:description"
-          content="Explore ZGloom Amiga FPS ports, OUYAlaunch, HexFlow cover packs, GameStick assets, Sega EverDrive themes and other retro gaming projects by Andreas “Andiweli”." />
+    <meta property="og:description" content="Explore ZGloom Amiga FPS ports, OUYAlaunch, HexFlow cover packs, GameStick assets, Sega EverDrive themes and other retro gaming projects by Andreas “Andiweli”." />
     <meta property="og:url" content="https://andiweli.github.io/" />
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/11447150?v=4" />
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Andreas “Andiweli” Stürmer – Retro Gaming Ports, Launchers & Themes" />
-    <meta name="twitter:description"
-          content="Amiga Gloom source ports, OUYA launcher, PS Vita cover packs, GameStick assets, Sega EverDrive themes and more retro projects." />
+    <meta name="twitter:description" content="Amiga Gloom source ports, OUYA launcher, PS Vita cover packs, GameStick assets, Sega EverDrive themes and more retro projects." />
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/11447150?v=4" />
 
     <!-- Structured Data (Person) -->
@@ -38,7 +36,8 @@
       "url": "https://github.com/andiweli",
       "sameAs": [
         "https://github.com/andiweli",
-        "https://andiweli.github.io/zgloom/"
+        "https://andiweli.github.io/zgloom/",
+        "https://andiweli.github.io/ouyalaunch/"
       ],
       "jobTitle": "Software Developer",
       "description": "Developer of retro gaming ports, launchers, themes and asset packs for platforms like Amiga, OUYA, PS Vita, GameStick and Sega Mega Drive."
@@ -102,62 +101,62 @@
             margin-bottom: 2rem;
         }
 
-.hero-top {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.6rem;
-}
+        .hero-top {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
+        }
 
-.hero-avatar {
-    flex: 0 0 auto;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid var(--accent-soft);
-    background: #000;
-}
+        .hero-avatar {
+            flex: 0 0 auto;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--accent-soft);
+            background: #000;
+        }
 
-.hero-avatar img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .hero-avatar img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-/* Name + Handle untereinander (aber als Block rechts vom Avatar) */
-.hero-title-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-}
+        /* Name + Handle untereinander (aber als Block rechts vom Avatar) */
+        .hero-title-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
 
-.hero-title {
-    display: flex;
-    flex-direction: column;   /* H1 oben, Handle darunter */
-    align-items: flex-start;
-    gap: 0.1rem;
-}
+        .hero-title {
+            display: flex;
+            flex-direction: column;   /* H1 oben, Handle darunter */
+            align-items: flex-start;
+            gap: 0.1rem;
+        }
 
-h1 {
-    margin: 0;
-    font-size: clamp(2rem, 3vw, 2.6rem);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-}
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 3vw, 2.6rem);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
 
-.hero-handle {
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin: 0;
-}
+        .hero-handle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
 
-.hero-subtitle {
-    margin: 0.4rem 0 0.8rem;
-    font-size: 1.05rem;
-    color: var(--text-muted);
-}
+        .hero-subtitle {
+            margin: 0.4rem 0 0.8rem;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
 
         .hero-keyline {
             margin: 0.6rem 0 0;
@@ -268,48 +267,48 @@ h1 {
         }
 
         /* Link-Inhalt in den unteren Kacheln als Spalte, damit wir die Badge nach unten schieben können */
-/* Untere 3 Kacheln: Inhalt als Spalte anordnen */
-.media-projects-grid .repo-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;              /* Kachel füllt die Höhe der Zeile */
-}
+        /* Untere 3 Kacheln: Inhalt als Spalte anordnen */
+        .media-projects-grid .repo-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;              /* Kachel füllt die Höhe der Zeile */
+        }
 
-/* Optionale Abstände innerhalb der Kachel (oben) */
-.media-projects-grid .repo-title,
-.media-projects-grid .repo-description,
-.media-projects-grid .repo-meta {
-    margin-bottom: 0.4rem;
-}
+        /* Optionale Abstände innerhalb der Kachel (oben) */
+        .media-projects-grid .repo-title,
+        .media-projects-grid .repo-description,
+        .media-projects-grid .repo-meta {
+            margin-bottom: 0.4rem;
+        }
 
-/* Badge unten links, nur so breit wie der Text */
-.media-projects-grid .repo-pill {
-    margin-top: auto;          /* schiebt die Badge ans untere Ende der Kachel */
-    align-self: flex-start;    /* links ausrichten */
-    display: inline-block;     /* Breite = Textbreite */
-    padding: 0.1rem 0.5rem;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    background: rgba(31, 136, 61, 0.12);  /* GitHub-Grün angedeutet */
-    color: #1f883d;
-}
+        /* Badge unten links, nur so breit wie der Text */
+        .media-projects-grid .repo-pill {
+            margin-top: auto;          /* schiebt die Badge ans untere Ende der Kachel */
+            align-self: flex-start;    /* links ausrichten */
+            display: inline-block;     /* Breite = Textbreite */
+            padding: 0.1rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: rgba(31, 136, 61, 0.12);  /* GitHub-Grün angedeutet */
+            color: #1f883d;
+        }
 
         /* Badge in den unteren Kacheln nur so breit wie der Text */
-.media-projects-grid .repo-pill {
-    display: inline-block !important;
-    width: auto !important;
-    flex: 0 0 auto !important;
-}
+        .media-projects-grid .repo-pill {
+            display: inline-block !important;
+            width: auto !important;
+            flex: 0 0 auto !important;
+        }
 
         /* Pill-Badge immer nur so breit wie der Text */
-.repo-pill {
-    display: inline-block !important;   /* nicht block/flex */
-    width: auto !important;             /* keine 100% Breite */
-    max-width: none !important;
-    flex: 0 0 auto !important;
-    align-self: flex-start !important;  /* falls das Element Flex-Item ist */
-}
+        .repo-pill {
+            display: inline-block !important;   /* nicht block/flex */
+            width: auto !important;             /* keine 100% Breite */
+            max-width: none !important;
+            flex: 0 0 auto !important;
+            align-self: flex-start !important;  /* falls das Element Flex-Item ist */
+        }
 
         .highlight-card {
             margin-bottom: 2rem;
@@ -361,45 +360,45 @@ h1 {
             outline: none;
         }
 
-.highlight-grid {
-  display: grid;
-  gap: 16px;
-}
+        .highlight-grid {
+          display: grid;
+          gap: 16px;
+        }
 
-/* Ab einer sinnvollen Breite (z.B. Tablets quer / Desktop) zwei Spalten */
-@media (min-width: 720px) {
-  .highlight-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-  }
-}
+        /* Ab einer sinnvollen Breite (z.B. Tablets quer / Desktop) zwei Spalten */
+        @media (min-width: 720px) {
+        .highlight-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: stretch;
+          }
+        }
 
-/* Standard: 3 Spalten (Desktop) – so wie bisher */
-.core-projects-grid,
-.media-projects-grid,
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-}
+        /* Standard: 3 Spalten (Desktop) – so wie bisher */
+        .core-projects-grid,
+        .media-projects-grid,
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
 
-/* NEU: iPad Hochformat / schmale Screens → nur 2 Spalten */
-@media (max-width: 1024px) {
-    .core-projects-grid,
-    .media-projects-grid,
-    .project-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
+        /* NEU: iPad Hochformat / schmale Screens → nur 2 Spalten */
+        @media (max-width: 1024px) {
+            .core-projects-grid,
+            .media-projects-grid,
+            .project-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
 
-/* Sehr schmale Smartphones → 1 Spalte */
-@media (max-width: 640px) {
-    .core-projects-grid,
-    .media-projects-grid,
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-}
+        /* Sehr schmale Smartphones → 1 Spalte */
+        @media (max-width: 640px) {
+            .core-projects-grid,
+            .media-projects-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         
         a {
             color: var(--accent);
@@ -409,36 +408,34 @@ h1 {
             color: var(--accent-dark);
         }
 
+        /* OUYA-Farben für die OUYAlaunch-Highlight-Kachel */
+        .highlight-card-ouya {
+            background: #141414;          /* dunkles OUYA-Grau */
+            border-color: #ff4e00;        /* OUYA-Orange */
+        }
 
-/* OUYA-Farben für die OUYAlaunch-Highlight-Kachel */
-.highlight-card-ouya {
-    background: #141414;          /* dunkles OUYA-Grau */
-    border-color: #ff4e00;        /* OUYA-Orange */
-}
+        .highlight-card-ouya .highlight-label {
+            color: #ff4e00;
+        }
 
-.highlight-card-ouya .highlight-label {
-    color: #ff4e00;
-}
+        .highlight-card-ouya .highlight-title {
+            color: #ffffff;
+        }
 
-.highlight-card-ouya .highlight-title {
-    color: #ffffff;
-}
+        .highlight-card-ouya .highlight-link {
+            background: #ff4e00;
+            border-color: #ff4e00;
+            color: #ffffff;
+        }
 
-.highlight-card-ouya .highlight-link {
-    background: #ff4e00;
-    border-color: #ff4e00;
-    color: #ffffff;
-}
-
-.highlight-card-ouya .highlight-link:hover,
-.highlight-card-ouya .highlight-link:focus-visible {
-    background: #ff6a28;          /* leicht hellere Hover-Farbe */
-    border-color: #ff6a28;
-}
-
+        .highlight-card-ouya .highlight-link:hover,
+        .highlight-card-ouya .highlight-link:focus-visible {
+            background: #ff6a28;          /* leicht hellere Hover-Farbe */
+            border-color: #ff6a28;
+        }
     </style>
-  
 </head>
+
 <body>
 <main>
 <header class="hero">
@@ -469,38 +466,38 @@ h1 {
         </div>
     </header>
 
-<!-- Bestehende ZGloom-Highlight-Section + neue OUYAlaunch-Section
+    <!-- Bestehende ZGloom-Highlight-Section + neue OUYAlaunch-Section
      gemeinsam in einen Wrapper legen: -->
-<div class="highlight-grid">
+    <div class="highlight-grid">
     <!-- Hervorgehobene ZGloom-Unterseite -->
-    <section class="highlight-card" aria-labelledby="zgloom-highlight">
-        <div class="highlight-label">Featured project</div>
-        <div id="zgloom-highlight" class="highlight-title">ZGloom Collection</div>
-        <p class="highlight-body">
-            Learn more about the modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS&nbsp;Vita,
-            including screenshots, feature overview and direct download links.
-        </p>
-        <a class="highlight-link" href="https://andiweli.github.io/zgloom/" target="_blank" rel="noopener">
-            Open ZGloom Ports
-        </a>
+     <section class="highlight-card" aria-labelledby="zgloom-highlight">
+            <div class="highlight-label">Featured project</div>
+            <div id="zgloom-highlight" class="highlight-title">ZGloom Collection</div>
+            <p class="highlight-body">
+                Learn more about the modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS&nbsp;Vita,
+                including screenshots, feature overview and direct download links.
+            </p>
+            <a class="highlight-link" href="https://andiweli.github.io/zgloom/" target="_blank" rel="noopener">
+                Open ZGloom Ports
+            </a>
     </section>
 
     <!-- Featured OUYAlaunch project -->
     <section class="highlight-card highlight-card-ouya" aria-labelledby="ouya-highlight">   
-        <div class="highlight-label">Featured project</div>
-        <div id="ouya-highlight" class="highlight-title">OUYAlaunch</div>
-        <p class="highlight-body">
-            Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs
-            and icon caching – designed to match the original OUYA look while keeping navigation fast
-            and controller-only.
-        </p>
-        <a class="highlight-link" href="https://andiweli.github.io/ouyalaunch/" target="_blank" rel="noopener">
-            Open OUYAlaunch
-        </a>
+            <div class="highlight-label">Featured project</div>
+            <div id="ouya-highlight" class="highlight-title">OUYAlaunch</div>
+            <p class="highlight-body">
+                Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs
+                and icon caching – designed to match the original OUYA look while keeping navigation fast
+                and controller-only.
+            </p>
+            <a class="highlight-link" href="https://andiweli.github.io/ouyalaunch/" target="_blank" rel="noopener">
+                Open OUYAlaunch
+            </a>
     </section>
     </div>
 
-    <section aria-labelledby="core-projects">
+     <section aria-labelledby="core-projects">
         <h2 id="core-projects">Core projects</h2>
         <p class="section-intro">
             Selected repositories that define my work around ports, my OUYA launcher and
