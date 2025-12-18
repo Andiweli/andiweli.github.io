@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <title>ioBroker Forwarder</title>
+
+  <!-- iOS: optional nicer Homescreen name -->
+  <meta name="apple-mobile-web-app-title" content="Forwarder" />
+  <meta name="theme-color" content="#0b0b0f" />
+
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --card: rgba(255, 255, 255, 0.06);
+      --card2: rgba(255, 255, 255, 0.04);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.68);
+      --hair: rgba(255, 255, 255, 0.10);
+      --accent: #3b82f6; /* link blue */
+      --danger: #ff453a;
+      --ok: #32d74b;
+      --btn: rgba(255, 255, 255, 0.10);
+      --btnHover: rgba(255, 255, 255, 0.14);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(59,130,246,0.18), transparent 60%),
+                  radial-gradient(900px 600px at 80% 20%, rgba(50,215,75,0.12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      font: 16px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: env(safe-area-inset-top) 14px env(safe-area-inset-bottom) 14px;
+      display: grid;
+      place-items: center;
+    }
+
+    .wrap {
+      width: min(520px, 100%);
+      padding: 18px 0;
+    }
+
+    .header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 6px 12px 6px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .pill {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px solid var(--hair);
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border: 1px solid var(--hair);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+    }
+
+    .section {
+      padding: 14px 14px 0 14px;
+    }
+
+    .row {
+      background: var(--card2);
+      border: 1px solid var(--hair);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .row + .row { margin-top: 10px; }
+
+    .rowHead {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+    }
+
+    .label {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 8px 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.7fr 0.7fr;
+      gap: 10px;
+      padding: 12px 14px 14px 14px;
+    }
+
+    @media (max-width: 440px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--hair);
+      background: rgba(0,0,0,0.25);
+      color: var(--text);
+      outline: none;
+      font-size: 16px;
+    }
+
+    input::placeholder { color: rgba(255,255,255,0.35); }
+
+    select {
+      appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.6) 50%),
+        linear-gradient(135deg, rgba(255,255,255,0.6) 50%, transparent 50%);
+      background-position: calc(100% - 18px) 55%, calc(100% - 12px) 55%;
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      padding-right: 34px;
+    }
+
+    .btnRow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 12px 14px 14px 14px;
+    }
+    @media (max-width: 440px) {
+      .btnRow { grid-template-columns: 1fr; }
+    }
+
+    button {
+      border: 1px solid var(--hair);
+      border-radius: 14px;
+      background: var(--btn);
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 650;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: transform .04s ease, background .12s ease;
+    }
+    button:hover { background: var(--btnHover); }
+    button:active { transform: scale(0.99); }
+
+    .primary {
+      background: rgba(59,130,246,0.25);
+      border-color: rgba(59,130,246,0.45);
+    }
+    .primary:hover { background: rgba(59,130,246,0.32); }
+
+    .danger {
+      background: rgba(255,69,58,0.18);
+      border-color: rgba(255,69,58,0.40);
+      color: rgba(255,255,255,0.92);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .note {
+      padding: 12px 14px 14px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--hair);
+    }
+
+    .status {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 10px 14px 14px 14px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.25);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
+      flex: 0 0 auto;
+    }
+    .dot.ok { background: var(--ok); box-shadow: 0 0 0 3px rgba(50,215,75,0.14); }
+    .dot.bad { background: var(--danger); box-shadow: 0 0 0 3px rgba(255,69,58,0.12); }
+
+    .switch {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      user-select: none;
+    }
+    .toggle {
+      position: relative;
+      width: 46px;
+      height: 26px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid var(--hair);
+      border-radius: 999px;
+      cursor: pointer;
+      flex: 0 0 auto;
+    }
+    .toggle::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.85);
+      transition: left .12s ease, background .12s ease;
+    }
+    .toggle.on {
+      background: rgba(50,215,75,0.20);
+      border-color: rgba(50,215,75,0.40);
+    }
+    .toggle.on::after { left: 23px; background: rgba(255,255,255,0.92); }
+
+    .footer {
+      text-align: center;
+      padding: 14px 10px 0 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    .hint {
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.50);
+    }
+    .hint strong { color: rgba(255,255,255,0.78); font-weight: 650; }
+
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div>
+        <div class="title">ioBroker Forwarder</div>
+        <div class="subtitle">Speichert dein Ziel lokal und leitet mit einem Tap weiter.</div>
+      </div>
+      <div class="pill">für iPhone/iPad Homescreen</div>
+    </div>
+
+    <div class="card">
+      <div class="section">
+        <div class="label">Ziel</div>
+        <div class="row">
+          <div class="grid">
+            <div>
+              <div class="label" style="margin:0 0 6px 2px;">Host / IP (optional inkl. Pfad)</div>
+              <input id="host" placeholder="z.B. 100.64.0.10 oder myhost.local/iobroker" autocomplete="off" autocapitalize="none" />
+            </div>
+            <div>
+              <div class="label" style="margin:0 0 6px 2px;">Port</div>
+              <input id="port" placeholder="8091" inputmode="numeric" autocomplete="off" />
+            </div>
+            <div>
+              <div class="label" style="margin:0 0 6px 2px;">Protokoll</div>
+              <select id="scheme">
+                <option value="http">HTTP</option>
+                <option value="https">HTTPS</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="rowHead" style="padding-top: 0;">
+            <div class="switch">
+              <div id="autoToggle" class="toggle" role="switch" aria-checked="false" tabindex="0"></div>
+              <div>
+                <div><strong>Auto-Weiterleitung</strong> beim Öffnen</div>
+                <div class="hint">Praktisch als Homescreen-Icon. (Zum Stoppen einfach <strong>Abbrechen</strong> drücken.)</div>
+              </div>
+            </div>
+            <div class="pill mono" id="preview">—</div>
+          </div>
+
+          <div class="btnRow">
+            <button id="openBtn" class="primary">Öffnen</button>
+            <button id="saveBtn">Speichern</button>
+          </div>
+
+          <div class="btnRow" style="grid-template-columns: 1fr;">
+            <button id="clearBtn" class="danger">Gespeichertes Ziel löschen</button>
+          </div>
+
+          <div class="status">
+            <div id="dot" class="dot"></div>
+            <div id="statusText">Noch kein Ziel gespeichert.</div>
+          </div>
+
+          <div class="note">
+            Löscht den Webview-Cache? Gibt’s hier nicht – dafür ist diese Seite gratis, leicht und macht genau eins:
+            dich schnell weiterleiten. 😄
+            <div class="hint" style="margin-top:10px;">
+              Tipp: In Safari → Teilen → <strong>„Zum Home-Bildschirm“</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>
+        ioBroker Forwarder by <a href="https://andiweli.github.io" target="_blank" rel="noopener">andiweli.github.io</a>
+      </div>
+      <div>
+        Perfect for use with <a href="https://www.tailscale.com" target="_blank" rel="noopener">Tailscale</a>
+      </div>
+      <div>
+        Icons partly by Freepik
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const KEY = {
+        host: "forwarder.host",
+        port: "forwarder.port",
+        scheme: "forwarder.scheme",
+        auto: "forwarder.auto"
+      };
+
+      const elHost = document.getElementById("host");
+      const elPort = document.getElementById("port");
+      const elScheme = document.getElementById("scheme");
+      const elPreview = document.getElementById("preview");
+      const elDot = document.getElementById("dot");
+      const elStatus = document.getElementById("statusText");
+      const elAuto = document.getElementById("autoToggle");
+
+      const btnOpen = document.getElementById("openBtn");
+      const btnSave = document.getElementById("saveBtn");
+      const btnClear = document.getElementById("clearBtn");
+
+      let autoTimer = null;
+
+      function clampPort(p) {
+        const n = Number(p);
+        if (!Number.isFinite(n)) return null;
+        const i = Math.floor(n);
+        if (i < 1 || i > 65535) return null;
+        return i;
+      }
+
+      function splitHostAndRemainder(hostAndPath) {
+        const s = (hostAndPath || "").trim();
+        const idx = s.search(/[\/?#]/);
+        if (idx === -1) return { host: s, rest: "" };
+        return { host: s.slice(0, idx), rest: s.slice(idx) };
+      }
+
+      function normalizeInput(rawHost, rawPort, rawScheme) {
+        let hostInput = (rawHost || "").trim();
+        let scheme = (rawScheme || "http").toLowerCase();
+        let port = clampPort((rawPort || "").trim());
+
+        if (!hostInput) return { ok: false, reason: "Host fehlt." };
+
+        // If user pasted a full URL, parse it
+        try {
+          if (/^https?:\/\//i.test(hostInput)) {
+            const u = new URL(hostInput);
+            scheme = (u.protocol || "http:").replace(":", "").toLowerCase();
+            const host = u.host; // includes port if present
+            const pathEtc = (u.pathname || "") + (u.search || "") + (u.hash || "");
+            hostInput = host + pathEtc;
+
+            if (!port && u.port) port = clampPort(u.port);
+          }
+        } catch (_) {
+          // ignore, treat as host/path
+        }
+
+        // If host includes ":1234" and port field is empty, infer it (simple case)
+        if (!port) {
+          const onlyHost = hostInput;
+          if (!onlyHost.includes("/") && !onlyHost.includes("?") && !onlyHost.includes("#")) {
+            const colonCount = (onlyHost.match(/:/g) || []).length;
+            if (colonCount === 1) {
+              const last = onlyHost.lastIndexOf(":");
+              const h = onlyHost.slice(0, last);
+              const p = onlyHost.slice(last + 1);
+              const inferred = clampPort(p);
+              if (h && inferred) {
+                hostInput = h;
+                port = inferred;
+              }
+            }
+          }
+        }
+
+        // Default port if still empty
+        if (!port) port = 8091;
+
+        const { host, rest } = splitHostAndRemainder(hostInput);
+        if (!host) return { ok: false, reason: "Host fehlt." };
+
+        // IPv6 needs brackets if not already bracketed
+        let hostForUrl = host;
+        const looksLikeIPv6 = host.includes(":") && !host.includes("[") && !host.includes("]");
+        if (looksLikeIPv6) hostForUrl = "[" + host + "]";
+
+        const url = `${scheme}://${hostForUrl}:${port}${rest || ""}`;
+        // Validate URL
+        try {
+          const u = new URL(url);
+          return { ok: true, url: u.toString(), scheme, port, hostAndPath: host + (rest || "") };
+        } catch (e) {
+          return { ok: false, reason: "Ungültige URL." };
+        }
+      }
+
+      function setAuto(on) {
+        elAuto.classList.toggle("on", !!on);
+        elAuto.setAttribute("aria-checked", on ? "true" : "false");
+        localStorage.setItem(KEY.auto, on ? "1" : "0");
+      }
+
+      function getAuto() {
+        return localStorage.getItem(KEY.auto) === "1";
+      }
+
+      function setStatus(ok, text) {
+        elDot.classList.toggle("ok", !!ok);
+        elDot.classList.toggle("bad", ok === false);
+        elStatus.textContent = text;
+      }
+
+      function updatePreview() {
+        const norm = normalizeInput(elHost.value, elPort.value, elScheme.value);
+        if (norm.ok) {
+          elPreview.textContent = norm.url;
+          setStatus(true, "Ziel ist gültig.");
+        } else {
+          elPreview.textContent = "—";
+          if ((elHost.value || "").trim().length === 0) {
+            setStatus(null, "Noch kein Ziel gespeichert.");
+          } else {
+            setStatus(false, norm.reason);
+          }
+        }
+      }
+
+      function load() {
+        const host = localStorage.getItem(KEY.host) || "";
+        const port = localStorage.getItem(KEY.port) || "";
+        const scheme = localStorage.getItem(KEY.scheme) || "http";
+
+        elHost.value = host;
+        elPort.value = port;
+        elScheme.value = scheme.toLowerCase() === "https" ? "https" : "http";
+
+        setAuto(getAuto());
+        updatePreview();
+      }
+
+      function save() {
+        const norm = normalizeInput(elHost.value, elPort.value, elScheme.value);
+        if (!norm.ok) {
+          setStatus(false, norm.reason);
+          return false;
+        }
+        localStorage.setItem(KEY.host, norm.hostAndPath);
+        localStorage.setItem(KEY.port, String(norm.port));
+        localStorage.setItem(KEY.scheme, norm.scheme);
+        setStatus(true, "Gespeichert.");
+        updatePreview();
+        return true;
+      }
+
+      function clearSaved() {
+        localStorage.removeItem(KEY.host);
+        localStorage.removeItem(KEY.port);
+        localStorage.removeItem(KEY.scheme);
+        elHost.value = "";
+        elPort.value = "";
+        elScheme.value = "http";
+        setStatus(null, "Gespeichertes Ziel gelöscht.");
+        updatePreview();
+      }
+
+      function cancelAutoTimer() {
+        if (autoTimer) {
+          clearTimeout(autoTimer);
+          autoTimer = null;
+        }
+      }
+
+      function openNow() {
+        cancelAutoTimer();
+        const norm = normalizeInput(elHost.value, elPort.value, elScheme.value);
+        if (!norm.ok) {
+          setStatus(false, norm.reason);
+          return;
+        }
+        // Save implicitly so Homescreen usage is smooth
+        save();
+        window.location.href = norm.url;
+      }
+
+      function maybeAutoForward() {
+        cancelAutoTimer();
+        if (!getAuto()) return;
+
+        const host = (localStorage.getItem(KEY.host) || "").trim();
+        const port = (localStorage.getItem(KEY.port) || "").trim();
+        const scheme = (localStorage.getItem(KEY.scheme) || "http").trim();
+
+        if (!host) return;
+
+        const norm = normalizeInput(host, port, scheme);
+        if (!norm.ok) return;
+
+        setStatus(true, "Auto-Weiterleitung in 1 Sekunde…");
+
+        autoTimer = setTimeout(() => {
+          window.location.href = norm.url;
+        }, 1000);
+      }
+
+      // Events
+      [elHost, elPort, elScheme].forEach(el => {
+        el.addEventListener("input", updatePreview);
+        el.addEventListener("change", updatePreview);
+      });
+
+      btnSave.addEventListener("click", () => { save(); });
+      btnOpen.addEventListener("click", () => { openNow(); });
+      btnClear.addEventListener("click", () => { clearSaved(); });
+
+      function toggleAuto() {
+        const next = !getAuto();
+        setAuto(next);
+        if (next) maybeAutoForward();
+        else setStatus(true, "Auto-Weiterleitung deaktiviert.");
+      }
+
+      elAuto.addEventListener("click", toggleAuto);
+      elAuto.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleAuto(); }
+      });
+
+      // Cancel auto-forward if user interacts
+      document.addEventListener("pointerdown", cancelAutoTimer, { passive: true });
+      document.addEventListener("keydown", cancelAutoTimer);
+
+      load();
+      // Auto-forward on load if enabled + saved target exists
+      maybeAutoForward();
+    })();
+  </script>
+</body>
+</html>
