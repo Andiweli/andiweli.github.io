@@ -65,8 +65,8 @@
     height: 100%;
     object-fit: cover;
     object-position: center center;
-    filter: blur(12px);
-    transform: scale(1.06);
+    filter: blur(7px);
+    transform: scale(1.04);
     opacity: 0.95;
   }
 
@@ -137,19 +137,27 @@
       padding: clamp(42px, 6vw, 86px) 0 28px;
     }
 
-    .hero-title {
+    .hero-logo-title {
       margin: 0;
-      max-width: 920px;
-      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
-      font-size: clamp(3rem, 6vw, 6.1rem);
-      line-height: 0.9;
-      letter-spacing: 0.035em;
-      text-transform: uppercase;
-      color: #eee8df;
-      text-shadow:
-        0 2px 0 rgba(255, 255, 255, 0.15),
-        0 12px 30px rgba(0, 0, 0, 0.72);
-      filter: contrast(1.08);
+      max-width: 760px;
+      line-height: 1;
+    }
+
+    .hero-logo-title img {
+      display: block;
+      width: min(100%, 720px);
+      height: auto;
+      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.72));
+    }
+
+    @media (max-width: 720px) {
+      .hero-logo-title {
+      max-width: 100%;
+    }
+
+    .hero-logo-title img {
+      width: min(100%, 520px);
+      }
     }
 
     .subtitle {
@@ -387,7 +395,9 @@
     </header>
 
     <section class="hero" aria-labelledby="page-title">
-      <h1 id="page-title" class="hero-title">Unreal-Android</h1>
+      <h1 id="page-title" class="hero-logo-title">
+        <img src="./images/unreal-logo.png" alt="Unreal-Android">
+      </h1>
       <p class="subtitle">Android port of Unreal / Unreal v200 (1998)</p>
 
       <div class="badges" aria-label="Project badges">
