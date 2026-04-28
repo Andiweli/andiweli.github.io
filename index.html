@@ -181,6 +181,56 @@
         line-height: 1.1;
     }
 }
+
+.hero-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 640px) {
+    .hero-top {
+        align-items: center;
+    }
+
+    .hero-avatar {
+        width: 96px;
+        height: 96px;
+    }
+
+    .hero-text {
+        min-height: 96px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-name {
+        display: flex;
+        flex-direction: column;
+        gap: 0.08rem;
+        line-height: 0.98;
+        font-size: 1.9rem;
+        letter-spacing: 0.06em;
+    }
+
+    .hero-name span {
+        display: block;
+    }
+
+    .hero-handle {
+        margin-top: 0.35rem;
+        font-size: 0.98rem;
+        line-height: 1.1;
+    }
+}
         
         h1 {
             margin: 0;
