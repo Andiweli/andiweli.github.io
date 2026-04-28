@@ -1,1 +1,691 @@
-leer
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Unreal-Android – Unreal Engine 1 Android & OUYA Port</title>
+  <meta name="description" content="Unreal-Android is a community-driven Android port of Unreal / Unreal v200 (1998), including Android 8+ support, OUYA 960x540 optimizations, WiFi multiplayer, SDL2, OpenGL ES 2.0 and controller support.">
+  <meta name="keywords" content="Unreal Android, Unreal Engine 1 Android, Unreal v200 Android, OUYA Unreal, Android 8 Unreal, OpenGL ES 2.0, SDL2 Android port, WiFi multiplayer">
+  <meta name="author" content="Andiweli">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://andiweli.github.io/unreal-android/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Unreal-Android – Android port of Unreal / Unreal v200">
+  <meta property="og:description" content="Android port of Unreal / Unreal v200 with Android 8+ support, OUYA 960x540 optimizations and local WiFi multiplayer.">
+  <meta property="og:image" content="images/unreal-bg.png">
+  <meta property="og:url" content="https://andiweli.github.io/unreal-android/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "Unreal-Android",
+    "description": "Android port of Unreal / Unreal v200 (1998), including Android 8+ support, an OUYA low-resolution build and local WiFi multiplayer.",
+    "codeRepository": "https://github.com/Andiweli/Unreal-Android",
+    "programmingLanguage": ["C++", "Java", "CMake"],
+    "runtimePlatform": ["Android", "OUYA"],
+    "isBasedOn": "Unreal Engine 1 v200 source port work"
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #080706;
+      --panel: rgba(11, 10, 10, .66);
+      --panel-strong: rgba(12, 10, 9, .82);
+      --text: #f7f2ea;
+      --muted: #c9c0b3;
+      --dim: #92877a;
+      --line: rgba(255, 227, 194, .30);
+      --line-soft: rgba(255, 227, 194, .16);
+      --accent: #ff9b1a;
+      --accent-2: #ff6f00;
+      --accent-soft: rgba(255, 151, 25, .16);
+      --shadow: 0 24px 90px rgba(0, 0, 0, .56);
+      --radius: 18px;
+      --max: 1720px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--bg);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+      background: var(--bg);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -26px;
+      z-index: -3;
+      background-image: url("images/unreal-bg.png");
+      background-size: cover;
+      background-position: center;
+      filter: blur(13px) brightness(.54) saturate(.94) contrast(1.06);
+      transform: scale(1.045);
+      will-change: transform;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 26% 21%, rgba(255, 154, 35, .19), transparent 24rem),
+        radial-gradient(circle at 77% 28%, rgba(86, 34, 92, .30), transparent 31rem),
+        linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.54) 48%, rgba(0,0,0,.76) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.08) 45%, rgba(0,0,0,.72) 100%);
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 145, 31, .36);
+      background: rgba(8, 7, 7, .72);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(255,255,255,.03);
+    }
+
+    .topbar-inner {
+      width: min(calc(100% - 64px), var(--max));
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      font-size: clamp(1.12rem, 1.65vw, 1.85rem);
+      font-weight: 780;
+      letter-spacing: -.035em;
+      text-shadow: 0 2px 16px rgba(0,0,0,.72);
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.34);
+      background: radial-gradient(circle at 35% 25%, rgba(255,255,255,.32), rgba(255,255,255,.04) 43%, rgba(0,0,0,.25));
+      box-shadow: inset 0 0 18px rgba(255,255,255,.05), 0 0 28px rgba(255,150,20,.10);
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.05rem;
+    }
+
+    .github-link,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 151, 25, .72);
+      color: var(--text);
+      background: rgba(20, 17, 16, .62);
+      font-weight: 700;
+      letter-spacing: .01em;
+      box-shadow: 0 13px 34px rgba(0,0,0,.28);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .github-link:hover,
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 184, 71, .98);
+      background: rgba(40, 30, 22, .72);
+    }
+
+    .github-link svg,
+    .button svg,
+    .chip svg,
+    .card-icon,
+    .info-line svg {
+      flex: 0 0 auto;
+    }
+
+    .wrap {
+      width: min(calc(100% - 64px), var(--max));
+      margin: 0 auto;
+      padding: clamp(38px, 5.4vh, 70px) 0 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero {
+      max-width: 980px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-size: .86rem;
+      font-weight: 850;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(4.2rem, 7.4vw, 8.7rem);
+      line-height: .86;
+      font-weight: 950;
+      letter-spacing: .015em;
+      text-transform: uppercase;
+      color: #f1eee8;
+      text-shadow:
+        0 2px 0 rgba(255,255,255,.18),
+        0 8px 22px rgba(0,0,0,.68),
+        0 0 56px rgba(255,255,255,.06);
+    }
+
+    .title-texture {
+      display: inline-block;
+      background:
+        linear-gradient(180deg, #fff 0%, #d8d0c5 34%, #827a72 66%, #f3ede5 100%),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.22), rgba(0,0,0,.22) 2px, transparent 2px, transparent 8px);
+      background-blend-mode: multiply;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,.14);
+    }
+
+    .subtitle {
+      margin: 20px 0 16px;
+      color: var(--muted);
+      font-size: clamp(1.2rem, 1.9vw, 2rem);
+      font-weight: 650;
+      letter-spacing: -.025em;
+      text-shadow: 0 3px 16px rgba(0,0,0,.62);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 18px 0 24px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 45px;
+      padding: 0 17px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: rgba(13, 12, 12, .62);
+      backdrop-filter: blur(12px);
+      color: #f4eee5;
+      font-size: 1rem;
+      font-weight: 690;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    .chip.hot {
+      color: var(--accent);
+      border-color: rgba(255, 151, 25, .62);
+      background: var(--accent-soft);
+    }
+
+    .intro {
+      max-width: 800px;
+      margin: 0;
+      color: #eee7de;
+      font-size: clamp(1.02rem, 1.35vw, 1.34rem);
+      text-shadow: 0 3px 13px rgba(0,0,0,.72);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 36px 0 36px;
+    }
+
+    .button {
+      min-width: 210px;
+      min-height: 58px;
+      font-size: 1.05rem;
+    }
+
+    .button.primary {
+      background: linear-gradient(180deg, #ff9d22, #db6f00);
+      border-color: rgba(255, 187, 80, .94);
+      color: #fff;
+      text-shadow: 0 1px 0 rgba(0,0,0,.24);
+      box-shadow: 0 18px 42px rgba(255, 116, 0, .22), 0 13px 34px rgba(0,0,0,.36);
+    }
+
+    .button.secondary {
+      color: #ffb24d;
+      background: rgba(10, 9, 8, .56);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 2px;
+    }
+
+    .card,
+    .data-strip {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), transparent 40%),
+        var(--panel);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.05);
+      backdrop-filter: blur(18px);
+    }
+
+    .card {
+      min-height: 215px;
+      padding: 28px 30px 24px;
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      margin: 0 0 17px;
+      color: #f8efe4;
+      font-size: clamp(1.06rem, 1.3vw, 1.42rem);
+      font-weight: 890;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-variant: small-caps;
+    }
+
+    .card-icon {
+      color: var(--accent);
+      width: 38px;
+      height: 38px;
+      stroke-width: 1.8;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0 0 0 24px;
+      color: #e8ded4;
+      font-size: clamp(.96rem, 1.02vw, 1.12rem);
+    }
+
+    li {
+      margin: 7px 0;
+      padding-left: 7px;
+    }
+
+    li::marker {
+      color: var(--accent);
+    }
+
+    .data-strip {
+      margin-top: 24px;
+      padding: 18px 26px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.12)), var(--panel-strong);
+    }
+
+    .info-line {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-height: 39px;
+      color: #e7ddd2;
+      font-size: clamp(.95rem, 1.08vw, 1.14rem);
+    }
+
+    .info-line svg {
+      color: var(--accent);
+      width: 30px;
+      height: 30px;
+      stroke-width: 1.85;
+    }
+
+    .info-line strong {
+      color: #f7eee3;
+      font-weight: 750;
+    }
+
+    .accent {
+      color: var(--accent);
+      font-weight: 850;
+    }
+
+    code {
+      color: #ffb14b;
+      background: rgba(255, 156, 31, .08);
+      border: 1px solid rgba(255, 156, 31, .09);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: .96em;
+      overflow-wrap: anywhere;
+    }
+
+    .notice {
+      margin-top: 10px;
+      padding-top: 13px;
+      border-top: 1px solid var(--line-soft);
+      color: var(--muted);
+    }
+
+    .notice svg {
+      color: #f0e7dc;
+    }
+
+    @media (min-width: 1180px) and (max-height: 840px) {
+      .topbar-inner { min-height: 64px; }
+      .wrap { padding-top: 32px; }
+      h1 { font-size: clamp(3.8rem, 6.6vw, 7.3rem); }
+      .subtitle { margin-top: 16px; }
+      .actions { margin: 27px 0 28px; }
+      .card { min-height: 188px; padding: 22px 26px 20px; }
+      .data-strip { margin-top: 18px; padding-top: 14px; padding-bottom: 14px; }
+    }
+
+    @media (max-width: 960px) {
+      .topbar-inner,
+      .wrap {
+        width: min(calc(100% - 36px), var(--max));
+      }
+
+      .topbar-inner {
+        min-height: 66px;
+      }
+
+      .brand-mark {
+        display: none;
+      }
+
+      .github-link {
+        min-height: 42px;
+        padding-inline: 14px;
+      }
+
+      .wrap {
+        padding-top: 34px;
+      }
+
+      h1 {
+        font-size: clamp(3.1rem, 14vw, 5.3rem);
+        line-height: .9;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .card {
+        min-height: 0;
+      }
+
+      .info-line {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .topbar-inner {
+        gap: 14px;
+      }
+
+      .brand {
+        font-size: 1.1rem;
+      }
+
+      .github-link span {
+        display: none;
+      }
+
+      .github-link {
+        width: 46px;
+        min-width: 46px;
+        padding: 0;
+      }
+
+      .chips {
+        gap: 9px;
+      }
+
+      .chip {
+        min-height: 40px;
+        padding-inline: 12px;
+        font-size: .92rem;
+      }
+
+      .actions {
+        gap: 12px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .data-strip {
+        padding: 17px 17px;
+      }
+
+      .info-line {
+        gap: 13px;
+      }
+
+      body::before {
+        inset: -18px;
+        filter: blur(11px) brightness(.45) saturate(.95);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="topbar" aria-label="Site header">
+      <div class="topbar-inner">
+        <a class="brand" href="#" aria-label="Unreal-Android home">
+          <span class="brand-mark" aria-hidden="true">U</span>
+          <span>Unreal-Android</span>
+        </a>
+
+        <a class="github-link" href="https://github.com/Andiweli/Unreal-Android" aria-label="View Unreal-Android on GitHub">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="23" height="23" fill="currentColor">
+            <path d="M12 .7a11.3 11.3 0 0 0-3.57 22.02c.56.1.77-.24.77-.54v-2.06c-3.13.68-3.8-1.34-3.8-1.34-.51-1.31-1.25-1.66-1.25-1.66-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.64 2.63 3.22 1.88.1-.73.4-1.23.72-1.51-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.46 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.8 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.41.35.77 1.03.77 2.08v3.08c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
+          </svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero" aria-labelledby="main-title">
+        <div class="eyebrow">Unreal Engine 1 · Android Port</div>
+        <h1 id="main-title"><span class="title-texture">Unreal-Android</span></h1>
+        <p class="subtitle">Android port of Unreal / Unreal v200 (1998)</p>
+
+        <div class="chips" aria-label="Project badges">
+          <span class="chip hot">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.4-3.4a6 6 0 0 1-7.9 7.9l-6.6 6.6a2.1 2.1 0 0 1-3-3l6.6-6.6a6 6 0 0 1 7.9-7.9l-3.4 3.4Z"/>
+            </svg>
+            Work in Progress
+          </span>
+
+          <span class="chip">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="7" width="14" height="10" rx="2"/>
+              <path d="M8 7 6.5 4.8M16 7l1.5-2.2M8 17v3M16 17v3M3 10v5M21 10v5"/>
+            </svg>
+            Android 8+
+          </span>
+
+          <span class="chip">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/>
+              <path d="M6.3 17.5h11.4a3.5 3.5 0 0 0 3.45-4.08l-.7-4.2A4 4 0 0 0 16.5 6h-9a4 4 0 0 0-3.95 3.22l-.7 4.2a3.5 3.5 0 0 0 3.45 4.08Z"/>
+            </svg>
+            OUYA 960x540
+          </span>
+
+          <span class="chip">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 13a10 10 0 0 1 14 0"/>
+              <path d="M8.5 16.5a5 5 0 0 1 7 0"/>
+              <path d="M12 20h.01"/>
+              <path d="M2 9a15 15 0 0 1 20 0"/>
+            </svg>
+            WiFi Multiplayer
+          </span>
+        </div>
+
+        <p class="intro">
+          A community-driven Unreal Engine 1 port for Android, including a dedicated low-resolution OUYA build for smoother performance on Tegra 3 hardware.
+        </p>
+
+        <div class="actions" aria-label="Primary actions">
+          <a class="button primary" href="https://github.com/Andiweli/Unreal-Android">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="25" height="25" fill="currentColor">
+              <path d="M12 .7a11.3 11.3 0 0 0-3.57 22.02c.56.1.77-.24.77-.54v-2.06c-3.13.68-3.8-1.34-3.8-1.34-.51-1.31-1.25-1.66-1.25-1.66-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.64 2.63 3.22 1.88.1-.73.4-1.23.72-1.51-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.46 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.8 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.41.35.77 1.03.77 2.08v3.08c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
+            </svg>
+            GitHub Repository
+          </a>
+
+          <a class="button secondary" href="#port-highlights">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z"/>
+              <path d="M14 2v5h5M9 13h6M9 17h6M9 9h1"/>
+            </svg>
+            Port Highlights
+          </a>
+        </div>
+      </section>
+
+      <section id="port-highlights" class="cards" aria-label="Port highlights and requirements">
+        <article class="card">
+          <h2 class="card-title">
+            <svg class="card-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 2.8 2.85 5.78 6.38.93-4.62 4.5 1.09 6.36L12 17.37l-5.7 3 1.09-6.36-4.62-4.5 6.38-.93L12 2.8Z"/>
+            </svg>
+            Highlights
+          </h2>
+          <ul>
+            <li>Android 8+ support on newer devices</li>
+            <li>OUYA build optimized for 960x540</li>
+            <li>Local WiFi multiplayer and botgames</li>
+            <li>Controller-friendly gameplay</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2 class="card-title">
+            <svg class="card-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="7" y="7" width="10" height="10" rx="1.5"/>
+              <path d="M4 10h3M4 14h3M17 10h3M17 14h3M10 4v3M14 4v3M10 17v3M14 17v3"/>
+            </svg>
+            Requirements
+          </h2>
+          <ul>
+            <li>Android 8.0+ or Android 4.x for OUYA</li>
+            <li>OpenGL ES 2.0 compatible device</li>
+            <li>Original Unreal v200 or v205 demo data</li>
+            <li>Game controller recommended</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2 class="card-title">
+            <svg class="card-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m16 18 6-6-6-6M8 6l-6 6 6 6M14.5 4l-5 16"/>
+            </svg>
+            Android Port Changes
+          </h2>
+          <ul>
+            <li>Android Studio / Gradle / NDK setup</li>
+            <li>CMake integration for native UE1 sources</li>
+            <li>SDL2 window, input and lifecycle handling</li>
+            <li>OpenGL ES rendering adjustments</li>
+          </ul>
+        </article>
+      </section>
+
+      <aside class="data-strip" aria-label="Game data information">
+        <div class="info-line">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H9l2 2h7.5A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5Z"/>
+          </svg>
+          <span><strong>Game data folders:</strong> <span class="accent">System</span> · <span class="accent">Maps</span> · <span class="accent">Textures</span> · <span class="accent">Sounds</span> · <span class="accent">Music</span></span>
+        </div>
+
+        <div class="info-line">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14.5 7 5h10l3 9.5"/>
+            <path d="M4 14.5h16v4A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5Z"/>
+            <path d="M8 17h.01M12 17h.01"/>
+          </svg>
+          <span><strong>Expected data folder:</strong> <code>/storage/emulated/0/Android/data/com.ast.unreal/files/Unreal</code></span>
+        </div>
+
+        <div class="info-line notice">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4M12 8h.01"/>
+          </svg>
+          <span>Original Unreal game data not included. Unreal and Unreal Engine are trademarks of Epic Games. This project is not affiliated with or endorsed by Epic Games.</span>
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
