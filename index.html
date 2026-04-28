@@ -329,14 +329,14 @@
             align-self: flex-start !important;  /* falls das Element Flex-Item ist */
         }
 
-        .highlight-card {
-            margin-bottom: 2rem;
-            padding: 1rem 1.1rem 1.1rem;
-            border-radius: 16px;
-            background: rgba(13, 17, 23, 0.85); /* 15 % durchlässig */
-            border: 1px solid var(--accent-green);
-            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.8);
-        }
+.highlight-card {
+    margin-bottom: 0;
+    padding: 1rem 1.1rem 1.1rem;
+    border-radius: 16px;
+    background: rgba(13, 17, 23, 0.85);
+    border: 1px solid var(--accent-green);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.8);
+}
 
         .highlight-label {
             font-size: 0.8rem;
@@ -382,6 +382,7 @@
         .highlight-grid {
           display: grid;
           gap: 16px;
+          margin-bottom: 2rem;
         }
 
         /* Ab einer sinnvollen Breite (z.B. Tablets quer / Desktop) zwei Spalten */
