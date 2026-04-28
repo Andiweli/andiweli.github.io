@@ -140,6 +140,98 @@
             object-fit: cover;
         }
 
+.hero-name span {
+    display: inline;
+}
+
+@media (max-width: 640px) {
+    .hero-top {
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .hero-avatar {
+        width: 96px;
+        height: 96px;
+    }
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: 96px;
+    }
+
+    .hero-name {
+        display: flex;
+        flex-direction: column;
+        gap: 0.08rem;
+        line-height: 0.98;
+        font-size: 1.9rem;
+        letter-spacing: 0.06em;
+    }
+
+    .hero-name span {
+        display: block;
+    }
+
+    .hero-handle {
+        margin-top: 0.35rem;
+        font-size: 0.98rem;
+        line-height: 1.1;
+    }
+}
+
+.hero-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 640px) {
+    .hero-top {
+        align-items: center;
+    }
+
+    .hero-avatar {
+        width: 96px;
+        height: 96px;
+    }
+
+    .hero-text {
+        min-height: 96px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-name {
+        display: flex;
+        flex-direction: column;
+        gap: 0.08rem;
+        line-height: 0.98;
+        font-size: 1.9rem;
+        letter-spacing: 0.06em;
+    }
+
+    .hero-name span {
+        display: block;
+    }
+
+    .hero-handle {
+        margin-top: 0.35rem;
+        font-size: 0.98rem;
+        line-height: 1.1;
+    }
+}
+        
         h1 {
             margin: 0;
             font-size: clamp(2rem, 3vw, 2.6rem);
@@ -480,9 +572,12 @@
                 />
             </div>
             <div class="hero-text">
-                <h1>Andreas Stürmer</h1>
-                <div class="hero-handle">@andiweli on GitHub</div>
-            </div>
+                <h1 class="hero-name">
+                    <span>Andreas</span>
+                    <span>Stürmer</span>
+                </h1>
+            <div class="hero-handle">@andiweli on GitHub</div>
+</div>
         </div>
 
         <p class="hero-subtitle">
@@ -490,7 +585,7 @@
         </p>
 
         <p class="hero-keyline">
-            "Focused on keeping classic games and hardware alive with modern ports, polished UIs and ready-to-use assets."
+            "Retro gaming ports, launchers and assets built for the hardware that still matters."
         </p>
 
         <div class="tags">
