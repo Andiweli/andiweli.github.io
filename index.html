@@ -491,29 +491,27 @@
         z-index: 2;
     }
 
+.highlight-subimg {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    width: clamp(140px, 34%, 260px);
+    height: auto;
+    opacity: 0.78;
+}
+
+.highlight-card-unreal .highlight-subimg {
+    width: clamp(150px, 36%, 280px);
+}
+
+@media (max-width: 640px) {
     .highlight-subimg {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        z-index: 1;
-        pointer-events: none;
-        user-select: none;
-        width: clamp(140px, 34%, 260px);
-        height: auto;
-        opacity: 0.95;
-        transform: translate(12%, 12%);
+        width: clamp(110px, 42%, 190px);
     }
-
-    .highlight-card-unreal .highlight-subimg {
-        width: clamp(150px, 36%, 280px);
-    }
-
-    @media (max-width: 640px) {
-        .highlight-subimg {
-            width: clamp(110px, 42%, 190px);
-            transform: translate(10%, 10%);
-        }
-    }
+}
 
     </style>
 </head>
