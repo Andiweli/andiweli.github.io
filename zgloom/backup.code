@@ -1,567 +1,545 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>ZGloom – Modern Amiga Gloom Source Port for Windows, macOS, Android & PS Vita</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZGLOOM Collection – Modern Amiga Gloom Ports</title>
 
-    <!-- Basic SEO -->
-    <meta name="description"
-          content="ZGloom is a modern source port of the classic Amiga FPS Gloom. Play Gloom, Gloom Deluxe, Gloom 3 and Zombie Massacre on Windows, macOS, Android/OUYA and PlayStation Vita with enhanced rendering, widescreen support and extended features." />
-    <meta name="robots" content="index,follow" />
+  <meta name="description" content="ZGLOOM Collection brings Gloom, Gloom Deluxe, Gloom 3 and Zombie Massacre to modern systems with ports for Windows, macOS, Android, OUYA and PlayStation Vita.">
+  <meta name="keywords" content="ZGLOOM Collection, Amiga Gloom, Gloom Deluxe, Gloom 3, Zombie Massacre, Gloom source port, Windows, macOS, Android, OUYA, PS Vita, Vita2D, SDL2">
+  <meta name="author" content="Andiweli">
+  <meta name="robots" content="index, follow">
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://andiweli.github.io/zgloom/" />
+  <meta property="og:title" content="ZGLOOM Collection">
+  <meta property="og:description" content="Modern ports of the Amiga FPS Gloom Collection for Windows, macOS, Android, OUYA and PlayStation Vita.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://andiweli.github.io/zgloom/">
+  <meta property="og:image" content="https://andiweli.github.io/zgloom/images/gloomcoll-logo.png">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="ZGloom – Modern Ports of the Amiga FPS Gloom" />
-    <meta property="og:description"
-          content="Modern source port of the Amiga Gloom engine. Run Gloom, Gloom Deluxe, Gloom 3 and Zombie Massacre on Windows, macOS, Android/OUYA and PlayStation Vita with improved rendering and widescreen support." />
-    <meta property="og:url" content="https://andiweli.github.io/zgloom/" />
-    <meta property="og:image" content="https://andiweli.github.io/zgloom/images/zgloom-launcher.jpg" />
+  <link rel="canonical" href="https://andiweli.github.io/zgloom/">
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ZGloom – Modern Ports of the Amiga FPS Gloom" />
-    <meta name="twitter:description"
-          content="Open-source Amiga Gloom source port for Windows, macOS, Android/OUYA and PS Vita with modern rendering and features." />
-    <meta name="twitter:image" content="https://andiweli.github.io/zgloom/images/ingame1.jpg" />
-
-    <!-- Structured Data (SoftwareApplication) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "ZGloom",
-      "applicationCategory": "Game",
-      "operatingSystem": "Windows, macOS, Android, PlayStation Vita",
-      "description": "ZGloom is a modern source port of the classic Amiga FPS Gloom, supporting Gloom, Gloom Deluxe, Gloom 3 and Zombie Massacre with improved rendering and widescreen support.",
-      "url": "https://andiweli.github.io/zgloom/",
-      "softwareVersion": "11.2025",
-      "license": "https://opensource.org/licenses"
+  <style>
+    :root {
+      --bg: #050805;
+      --text: #f5f1ea;
+      --muted: #c9c1b7;
+      --soft: rgba(255, 255, 255, 0.72);
+      --panel: rgba(5, 8, 5, 0.62);
+      --panel-strong: rgba(5, 8, 5, 0.78);
+      --border: rgba(255, 255, 255, 0.26);
+      --orange: #6fd673;
+      --orange-light: #95f28d;
+      --shadow: rgba(0, 0, 0, 0.55);
+      --max: 1480px;
     }
-    </script>
-    
-    <style>
-        :root {
-            --accent: #6fd673;
-            --accent-dark: #3f8c45;
-            --text-main: #f4f4f4;
-            --text-muted: #c3c3c3;
-        }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            min-height: 100%;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         Roboto, sans-serif;
-            color: var(--text-main);
-        }
-
-        html {
-            background-color: #000;
-        }
-
-        body {
-            background-color: transparent;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        .bg-fixed {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background-image: url("images/background.png");
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .page-wrap {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 2rem;
-            background: transparent;
-            text-align: center;
-        }
-
-        .hero-header {
-            margin: 0 0 1.6rem;
-        }
-
-        .hero-header h1 {
-            margin: 0 0 0.3rem;
-            font-size: clamp(2.8rem, 3.5vw, 3.2rem);
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
-        }
-
-        .hero-header h2 {
-            margin: 0;
-            font-size: 1.35rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            text-shadow: 0 0 6px rgba(0, 0, 0, 0.85);
-        }
-
-        .card {
-            max-width: 1100px;
-            width: 100%;
-            background: rgba(5, 5, 5, 0.50);
-            border-radius: 18px;
-            border: 1px solid rgba(111, 214, 115, 0.8);
-            padding: 2.5rem 2.25rem 2.75rem;
-            backdrop-filter: blur(8px);
-            text-align: left;
-            margin-bottom: 2rem;
-        }
-
-        /* Text links, Screenshots rechts */
-        .content-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-            gap: 2rem;
-            align-items: flex-start;
-        }
-
-        .content-main,
-        .content-screens {
-            min-width: 0;
-        }
-
-        @media (max-width: 900px) {
-            .content-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-            .content-screens {
-                margin-top: 1.4rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .page-wrap {
-                padding: 1.5rem;
-            }
-            .hero-header h1 {
-                font-size: 2.4rem;
-            }
-            .hero-header h2 {
-                font-size: 1.1rem;
-            }
-            .card {
-                padding: 2.0rem 1.5rem 2.2rem;
-            }
-        }
-
-        h2 {
-            margin-top: 1.6rem;
-            margin-bottom: 0.6rem;
-            font-size: 1.45rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        p {
-            margin-top: 0;
-            margin-bottom: 0.9rem;
-            line-height: 1.6;
-            font-size: 1.05rem;
-        }
-
-        .lead {
-            font-size: 1.3rem;
-            font-style: italic;
-            line-height: 1.6;
-            margin-bottom: 1.4rem;
-        }
-
-        ul {
-            padding-left: 1.3rem;
-            margin-top: 0.2rem;
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        .section {
-            margin-bottom: 1.8rem;
-        }
-
-.badge-column {
-    display: flex;
-    flex-direction: row;   /* eine Zeile */
-    flex-wrap: nowrap;     /* kein Umbruch in 2+1 */
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 1.3rem;
-}
-
-/* Badges nicht auf volle Breite ziehen */
-.badge {
-    flex: 0 0 auto;
-}
-
-/* Wenn die Breite nicht mehr für alle 3 nebeneinander reicht:
-   alle 3 untereinander */
-@media (max-width: 900px) {
-    .badge-column {
-        flex-direction: column;
-        align-items: flex-start;
+    * {
+      box-sizing: border-box;
     }
-}
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            background: #222;
-            border: 1px solid rgba(111, 214, 115, 0.9);
-            font-size: 0.78rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
+    html {
+      min-height: 100%;
+      background: var(--bg);
+    }
 
-        .badge-label {
-            opacity: 0.7;
-            margin-right: 0.35rem;
-        }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      overflow-x: hidden;
+    }
 
-        .ports-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.9rem;
-        }
+    .bg-image {
+      position: fixed;
+      inset: -28px;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: #050805;
+    }
 
-        @media (max-width: 550px) {
-            .ports-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
+    .bg-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: blur(2px);
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
 
-        .port-button {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 0.8rem 1.1rem;
-            border-radius: 10px;
-            border: 1px solid rgba(111, 214, 115, 0.7);
-            background: #111;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 32% 46%, rgba(111, 214, 115, 0.18), transparent 30%),
+        radial-gradient(circle at 75% 18%, rgba(20, 120, 34, 0.25), transparent 42%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.34) 48%, rgba(0, 0, 0, 0.78)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.80));
+    }
 
-        .port-button strong {
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 0.15rem;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .port-button span {
-            font-size: 0.86rem;
-            color: var(--text-muted);
-        }
+    .page {
+      width: min(var(--max), calc(100% - 72px));
+      min-height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+    }
 
-        .port-button:hover,
-        .port-button:focus-visible {
-            border-color: var(--accent);
-        }
+    .topbar {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(111, 214, 115, 0.42);
+    }
 
-        a {
-            color: var(--accent);
-        }
+    .brand {
+      font-size: clamp(1.25rem, 1.7vw, 1.8rem);
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      text-shadow: 0 3px 18px var(--shadow);
+    }
 
-        a:hover {
-            color: var(--accent-dark);
-        }
+    .top-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-height: 44px;
+      padding: 0.65rem 1.15rem;
+      border: 1px solid rgba(111, 214, 115, 0.58);
+      border-radius: 10px;
+      background: rgba(5, 8, 5, 0.55);
+      color: var(--text);
+      font-weight: 650;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
 
-        /* Screenshots: 2 Spalten bei genug Breite, sonst 1 Spalte */
-        .screenshots {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.9rem;
-            margin-top: 0.6rem;
-        }
+    .top-link:hover {
+      transform: translateY(-1px);
+      background: rgba(111, 214, 115, 0.14);
+      border-color: rgba(149, 242, 141, 0.85);
+    }
 
-        @media (max-width: 600px) {
-            .screenshots {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
+    .hero {
+      padding: clamp(42px, 6vw, 86px) 0 28px;
+    }
 
-        .screenshots figure {
-            margin: 0;
-            cursor: pointer;
-        }
+    .hero-logo-title {
+      margin: 0;
+      max-width: 570px;
+      line-height: 1;
+    }
 
-        .screenshots img {
-            width: 100%;
-            display: block;
-            border-radius: 10px;
-            border: 1px solid rgba(111, 214, 115, 0.35);
-        }
+    .hero-logo-title img {
+      display: block;
+      width: min(100%, 540px);
+      height: auto;
+      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.72));
+    }
 
-        .screenshots figcaption {
-            margin-top: 0.25rem;
-            font-size: 0.86rem;
-            color: var(--text-muted);
-        }
+    @media (max-width: 720px) {
+      .hero-logo-title {
+        max-width: 100%;
+      }
 
-        /* Lightbox-Overlay */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5); /* 50% schwarz */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.15s ease-out;
-        }
+      .hero-logo-title img {
+        width: min(100%, 390px);
+      }
+    }
 
-        .lightbox--visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
+    .subtitle {
+      margin: 1rem 0 0;
+      color: var(--soft);
+      font-size: clamp(1.25rem, 2vw, 1.95rem);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
 
-        .lightbox-inner {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-        }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin: 1.35rem 0 0;
+    }
 
-        .lightbox-inner img {
-            max-width: 100%;
-            max-height: 100%;
-            display: block;
-            border-radius: 12px;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
-        }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-height: 44px;
+      padding: 0.55rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 9px;
+      background: rgba(5, 8, 5, 0.56);
+      color: #f7f0e6;
+      font-size: 1rem;
+      font-weight: 650;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
 
-        .lightbox-close {
-            position: absolute;
-            top: -14px;
-            right: -14px;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            font-size: 20px;
-            line-height: 32px;
-            text-align: center;
-            cursor: pointer;
-        }
+    .badge svg {
+      width: 21px;
+      height: 21px;
+      color: var(--orange-light);
+      flex: 0 0 auto;
+    }
 
-        .lightbox-close:focus-visible {
-            outline: 2px solid #fff;
-            outline-offset: 2px;
-        }
-    </style>
+    .intro-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+      margin-top: 1.65rem;
+      width: 100%;
+    }
+
+    .intro {
+      max-width: none;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1.05rem, 1.45vw, 1.34rem);
+      line-height: 1.58;
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.64);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      min-height: 58px;
+      padding: 0.9rem 1.55rem;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #6fd673, #3f8c45);
+      color: #061107;
+      font-size: 1.07rem;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      transition: transform 160ms ease, filter 160ms ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .cta svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.45rem;
+      align-items: stretch;
+      padding: 6px 0 clamp(30px, 5vw, 60px);
+    }
+
+    .download-stack {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+      height: 100%;
+      align-self: stretch;
+    }
+
+    .download-stack .cta {
+      width: 100%;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .card {
+      height: 100%;
+      min-height: 216px;
+      padding: 1.7rem 1.75rem 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+        var(--panel);
+      backdrop-filter: blur(12px);
+      box-shadow:
+        0 24px 58px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .card-heading svg {
+      width: 34px;
+      height: 34px;
+      color: var(--orange-light);
+      flex: 0 0 auto;
+    }
+
+    .card h2 {
+      margin: 0;
+      color: #fff8ed;
+      font-size: clamp(1.08rem, 1.45vw, 1.42rem);
+      line-height: 1.1;
+      letter-spacing: 0.075em;
+      text-transform: uppercase;
+    }
+
+    .card ul {
+      margin: 0;
+      padding: 0 0 0 1.25rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: clamp(0.97rem, 1.1vw, 1.08rem);
+      line-height: 1.65;
+    }
+
+    .card li::marker {
+      color: var(--orange-light);
+      font-size: 1.1em;
+    }
+
+    .card strong {
+      color: #fff;
+    }
+
+    @media (max-width: 1120px) {
+      .page {
+        width: min(100% - 40px, var(--max));
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: auto;
+      }
+
+      .download-stack {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        height: auto;
+      }
+
+      .download-stack .cta {
+        min-height: 58px;
+        height: auto;
+      }
+
+      .cta {
+        width: max-content;
+      }
+
+      .download-stack .cta {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .topbar {
+        height: auto;
+        min-height: 68px;
+        gap: 0.9rem;
+        padding: 0.85rem 0;
+      }
+
+      .top-link {
+        padding: 0.58rem 0.8rem;
+        font-size: 0.92rem;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      .badges {
+        gap: 0.65rem;
+      }
+
+      .badge {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .cta {
+        width: 100%;
+      }
+    }
+
+    .footer-note {
+      max-width: 920px;
+      margin: auto auto 3.6rem;
+      padding-top: 1.05rem;
+      border-top: 1px solid rgba(111, 214, 115, 0.42);
+      color: rgba(255, 255, 255, 0.62);
+      font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+      line-height: 1.55;
+      text-align: center;
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.64);
+    }
+
+    .footer-note a {
+      color: rgba(255, 255, 255, 0.78);
+      font-weight: 700;
+    }
+  </style>
 </head>
-<body>
-<div class="bg-fixed"></div>
 
-<div class="page-wrap">
-    <header class="hero-header">
-        <h1>ZGLOOM</h1>
-        <h2>MODERN PORTS OF THE AMIGA FPS GLOOM</h2>
+<body>
+  <div class="bg-image" aria-hidden="true">
+    <img
+      src="./images/background.png"
+      alt=""
+      onerror="this.onerror=null; this.src='/zgloom/images/background.png';"
+    >
+  </div>
+
+  <div class="bg-overlay" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="topbar" aria-label="Site header">
+      <a class="brand" href="./" aria-label="ZGLOOM Collection home">ZGLOOM Collection</a>
+
+      <a class="top-link" href="https://github.com/Andiweli/ZGloom-x86" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.56.1.77-.24.77-.54v-2c-3.12.68-3.78-1.34-3.78-1.34-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.7 2.63 3.16 1.9.1-.73.39-1.23.71-1.51-2.49-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.52.4.35.76 1.04.76 2.1v3.06c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
+        </svg>
+        View on GitHub
+      </a>
     </header>
 
-    <main class="card">
-        <section class="section">
-            <p class="lead">
-                Play Gloom, Gloom Deluxe, Gloom&nbsp;3 and Zombie Massacre today on Windows, macOS,
-                Android/OUYA and PlayStation&nbsp;Vita with enhanced rendering, widescreen support and
-                extended features.
-            </p>
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title" class="hero-logo-title">
+        <img src="./images/gloomcoll-logo.png" alt="ZGLOOM Collection">
+      </h1>
 
-            <div class="badge-column">
-                <div class="badge">
-                    <span class="badge-label">Platform</span>Win · macOS · Android · Vita
-                </div>
-                <div class="badge">
-                    <span class="badge-label">Engine</span>Black Magic Engine
-                </div>
-                <div class="badge">
-                    <span class="badge-label">Code</span>SDL2 · C++
-                </div>
-            </div>
-        </section>
+      <p class="subtitle">Modern ports of the Amiga FPS Gloom</p>
 
-        <div class="content-grid">
-            <div class="content-main">
-                <section class="section" aria-labelledby="what-is-gloom">
-                    <h2 id="what-is-gloom">What is Gloom?</h2>
-                    <p>
-                        Gloom is a 1995 Amiga first-person shooter by Black Magic Software, known for its fast action,
-                        gory combat and heavy hardware demands at the time. Later expanded into Gloom Deluxe / Ultimate Gloom,
-                        Gloom&nbsp;3 and Zombie Massacre, the game has become a cult classic. ZGloom is a modern
-                        multi-platform re-implementation of the engine.
-                    </p>
-                </section>
+      <div class="badges" aria-label="Project badges">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18.5v-13Zm2.5-.5a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-11Zm2 3h7v2h-7V8Zm0 4h7v2h-7v-2Zm0 4h4v2h-4v-2Z"/>
+          </svg>
+          4 Games · 1 Launcher
+        </span>
 
-                <section class="section" aria-labelledby="zgloom-features">
-                    <h2 id="zgloom-features">ZGloom Features</h2>
-                    <ul>
-                        <li>
-                            <strong>Modern source port of the Amiga Gloom engine</strong><br>
-                            Runs the original Gloom data files using the modern ZGloom C++ engine.
-                        </li>
-                        <li>
-                            <strong>Built-in multi-game launcher</strong><br>
-                            A simple launcher lets you pick what to play at startup.
-                        </li>
-                        <li>
-                            <strong>4:3 and 16:9 display modes with FOV control</strong><br>
-                            Switch between the classic 4:3 Amiga look and a widescreen 16:9 mode and adjust the field of view to match your TV or monitor.
-                        </li>
-                        <li>
-                            <strong>Improved renderer, lighting and effects</strong><br>
-                            Cleaner perspective, fewer glitches and subtle lighting tweaks, including dust particles, dynamic muzzle flashes and colored floor reflections.
-                        </li>
-                        <li>
-                            <strong>Atmospheric post-processing overlays (optional)</strong><br>
-                            Enable vignette, film grain and scanlines for a more gritty, CRT-style presentation without changing gameplay.
-                        </li>
-                        <li>
-                            <strong>Save/Load position and extended options</strong><br>
-                            Save your in-level position (including health, weapon and ammo state) and many more options.
-                        </li>
-                    </ul>
-                </section>
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M4.5 4h15A2.5 2.5 0 0 1 22 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 17.5v-11A2.5 2.5 0 0 1 4.5 4Zm0 2A.5.5 0 0 0 4 6.5v11a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.5-.5h-15Zm3.25 4.3h2.15V8.2h1.75v2.1h2.1v1.75h-2.1v2.1H9.9v-2.1H7.75V10.3Zm8.15 4.25a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3Zm2.25-3.15a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3Z"/>
+          </svg>
+          Windows · macOS · Android · Vita
+        </span>
 
-                <section class="section" aria-labelledby="ports-github">
-                    <h2 id="ports-github">Ports &amp; GitHub</h2>
-                    <div class="ports-grid">
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-x86/releases" target="_blank" rel="noopener">
-                            <strong>Windows x86</strong>
-                            <span>PC build</span>
-                        </a>
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-macOS/releases" target="_blank" rel="noopener">
-                            <strong>macOS</strong>
-                            <span>Silicon build</span>
-                        </a>
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-Android/releases" target="_blank" rel="noopener">
-                            <strong>Android &amp; OUYA</strong>
-                            <span>Mobile &amp; TV</span>
-                        </a>
-                        <a class="port-button" href="https://github.com/Andiweli/ZGloom-Vita-Vita2D/releases" target="_blank" rel="noopener">
-                            <strong>PlayStation&nbsp;Vita</strong>
-                            <span>Vita2D port</span>
-                        </a>
-                    </div>
-                </section>
-            </div>
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 2 4.8 5.2v5.7c0 4.9 3 9.3 7.2 11.1 4.2-1.8 7.2-6.2 7.2-11.1V5.2L12 2Zm0 2.2 5.2 2.3v4.4c0 3.6-2 7-5.2 8.8-3.2-1.8-5.2-5.2-5.2-8.8V6.5L12 4.2Zm-2.1 4.4h4.2v2.2h2.2V15h-2.2v2.2H9.9V15H7.7v-4.2h2.2V8.6Z"/>
+          </svg>
+          Amiga FPS Reborn
+        </span>
+      </div>
 
-            <aside class="content-screens" aria-labelledby="screenshots">
-                <section class="section">
-                    <h2 id="screenshots">Screenshots</h2>
-                    <div class="screenshots">
-                        <figure>
-                            <img src="images/zgloom-launcher.jpg" alt="Screenshot of ZGloom launcher Android" />
-                            <figcaption>Screenshot of ZGloom launcher Android</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="images/zgloom-titlescreen.jpg" alt="Screenshot of Gloom Deluxe titlescreen" />
-                            <figcaption>Screenshot of Gloom Deluxe titlescreen</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="images/zgloom-ingame-menu.jpg" alt="Screenshot of Gloom ingame menu" />
-                            <figcaption>Screenshot of Gloom ingame menu</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="images/zgloom-effects-menu.jpg" alt="Effects options menu of ZGloom" />
-                            <figcaption>Effects options menu of ZGloom</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="images/zgloom-reflections.jpg" alt="Bullet reflections in all builds" />
-                            <figcaption>Bullet reflections in all builds</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="images/zgloom-ingame1.jpg" alt="Ingame screenshot without overlay effects" />
-                            <figcaption>Ingame screenshot without overlay effects</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="images/zgloom-ingame2.jpg" alt="Ingame screenshot without overlay effects" />
-                            <figcaption>Ingame screenshot without overlay effects</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="images/zgloom-ingame3.jpg" alt="Ingame screenshot without Vignette/Filmgrain effect" />
-                            <figcaption>Ingame screenshot without Vignette/Filmgrain effect</figcaption>
-                        </figure>
-                    </div>
-                </section>
-            </aside>
+      <div class="intro-row">
+        <p class="intro">
+          ZGLOOM Collection keeps Black Magic’s wonderfully messy Amiga shooter spirit alive on modern hardware:
+          Gloom, Gloom Deluxe, Gloom 3 and Zombie Massacre with cleaner rendering, widescreen,
+          improved lighting and atmosphere effects.
+        </p>
+      </div>
+    </section>
+
+    <section class="cards" aria-label="ZGLOOM Collection highlights and downloads">
+      <article class="card">
+        <div class="card-heading">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="m12 2.6 2.92 5.92 6.53.95-4.73 4.61 1.12 6.5L12 17.5l-5.84 3.08 1.12-6.5-4.73-4.61 6.53-.95L12 2.6Z"/>
+          </svg>
+          <h2>Highlights</h2>
         </div>
-    </main>
-</div>
 
-<!-- Lightbox-Overlay -->
-<div id="lightbox" class="lightbox" aria-hidden="true">
-    <div class="lightbox-inner">
-        <button class="lightbox-close" type="button" aria-label="Close screenshot">&times;</button>
-        <img id="lightbox-image" src="" alt="" />
-    </div>
-</div>
+        <ul>
+          <li>Modern source-port collection for Gloom-engine games</li>
+          <li>Built-in launcher for all Gloom-engine games</li>
+          <li>4:3 and 16:9 display modes with adjustable FoV</li>
+          <li>Improved renderer, lighting, muzzle flashes, reflections and dust particles</li>
+        </ul>
+      </article>
 
-<script>
-(function () {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-image');
-    const closeBtn = lightbox.querySelector('.lightbox-close');
+      <article class="card">
+        <div class="card-heading">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M9 2h2v3h2V2h2v3h1.5A2.5 2.5 0 0 1 19 7.5V9h3v2h-3v2h3v2h-3v1.5a2.5 2.5 0 0 1-2.5 2.5H15v3h-2v-3h-2v3H9v-3H7.5A2.5 2.5 0 0 1 5 16.5V15H2v-2h3v-2H2V9h3V7.5A2.5 2.5 0 0 1 7.5 5H9V2Zm-1.5 5a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-9ZM9 9h6v6H9V9Z"/>
+          </svg>
+          <h2>Requirements</h2>
+        </div>
 
-    function openLightbox(src, alt) {
-        lightboxImg.src = src;
-        lightboxImg.alt = alt || '';
-        lightbox.classList.add('lightbox--visible');
-        lightbox.setAttribute('aria-hidden', 'false');
-    }
+        <ul>
+          <li>Supported device for the selected port: Windows, macOS, Android/OUYA or PS Vita</li>
+          <li>Original or freely compatible Gloom data files</li>
+          <li>SDL2 / Vita2D runtime dependencies depending on platform build</li>
+          <li>Gamepad recommended for TV and handheld</li>
+        </ul>
+      </article>
 
-    function closeLightbox() {
-        lightbox.classList.remove('lightbox--visible');
-        lightbox.setAttribute('aria-hidden', 'true');
-        lightboxImg.src = '';
-    }
+      <div class="download-stack" aria-label="ZGLOOM Collection downloads">
+        <a class="cta" href="https://github.com/Andiweli/ZGloom-x86/releases" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.56.1.77-.24.77-.54v-2c-3.12.68-3.78-1.34-3.78-1.34-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.7 2.63 3.16 1.9.1-.73.39-1.23.71-1.51-2.49-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.52.4.35.76 1.04.76 2.1v3.06c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
+          </svg>
+          Windows x86
+        </a>
 
-    document.querySelectorAll('.screenshots img').forEach(function (img) {
-        img.addEventListener('click', function () {
-            openLightbox(img.src, img.alt);
-        });
-    });
+        <a class="cta" href="https://github.com/Andiweli/ZGloom-macOS/releases" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.56.1.77-.24.77-.54v-2c-3.12.68-3.78-1.34-3.78-1.34-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.7 2.63 3.16 1.9.1-.73.39-1.23.71-1.51-2.49-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.52.4.35.76 1.04.76 2.1v3.06c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
+          </svg>
+          macOS Silicon
+        </a>
 
-    closeBtn.addEventListener('click', closeLightbox);
+        <a class="cta" href="https://github.com/Andiweli/ZGloom-Android/releases" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.56.1.77-.24.77-.54v-2c-3.12.68-3.78-1.34-3.78-1.34-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.7 2.63 3.16 1.9.1-.73.39-1.23.71-1.51-2.49-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.52.4.35.76 1.04.76 2.1v3.06c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
+          </svg>
+          Android &amp; OUYA
+        </a>
 
-    lightbox.addEventListener('click', function (e) {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
+        <a class="cta" href="https://github.com/Andiweli/ZGloom-Vita-Vita2D/releases" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.56.1.77-.24.77-.54v-2c-3.12.68-3.78-1.34-3.78-1.34-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.7 2.63 3.16 1.9.1-.73.39-1.23.71-1.51-2.49-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.52.4.35.76 1.04.76 2.1v3.06c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
+          </svg>
+          PlayStation Vita
+        </a>
+      </div>
+    </section>
 
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            closeLightbox();
-        }
-    });
-})();
-</script>
+    <footer class="footer-note">
+      ZGLOOM Collection is an open-source project by <a href="https://github.com/andiweli" target="_blank" rel="noopener">@andiweli</a>.
+    </footer>
+  </main>
 </body>
 </html>
