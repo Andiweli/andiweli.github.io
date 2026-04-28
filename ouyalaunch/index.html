@@ -4,27 +4,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OUYAlaunch – Fast OUYA-styled Launcher for the OUYA Micro-console</title>
-  <meta name="description" content="OUYAlaunch is a fast, controller-focused Android launcher for the original OUYA micro-console with favorites, genre tabs, icon caching and the classic OUYA look.">
-  <meta name="keywords" content="OUYAlaunch, OUYA launcher, OUYA Android launcher, Android 4.1 launcher, OUYA home screen, controller launcher, Andiweli">
-  <meta name="author" content="Andreas Stürmer / @andiweli">
 
-  <meta property="og:title" content="OUYAlaunch – Fast OUYA-styled Launcher">
-  <meta property="og:description" content="A modern, focused launcher for the original OUYA console, built around favorites, genre tabs, icon caching and controller-only navigation.">
+  <meta name="description" content="OUYAlaunch is a fast, controller-focused Android launcher for the original OUYA micro-console with favorites, genre tabs, icon caching and the classic OUYA look.">
+  <meta name="keywords" content="OUYAlaunch, OUYA launcher, OUYA Android launcher, Android 4.1 launcher, OUYA home screen, controller launcher, OUYA micro-console, Andiweli">
+  <meta name="author" content="Andiweli">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="OUYAlaunch">
+  <meta property="og:description" content="Fast OUYA-styled launcher for the OUYA micro-console.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="images/ouyalaunch-logo.png">
+  <meta property="og:url" content="https://andiweli.github.io/ouyalaunch/">
+  <meta property="og:image" content="https://andiweli.github.io/ouyalaunch/images/ouyalaunch-screenshot.png">
+
+  <link rel="canonical" href="https://andiweli.github.io/ouyalaunch/">
 
   <style>
     :root {
-      --accent: #ff3d17;
-      --accent-soft: rgba(255, 61, 23, 0.22);
-      --text: #f7f2ef;
-      --muted: rgba(247, 242, 239, 0.76);
-      --dim: rgba(247, 242, 239, 0.56);
-      --panel: rgba(8, 8, 8, 0.58);
-      --panel-strong: rgba(10, 10, 10, 0.74);
-      --line: rgba(255, 61, 23, 0.92);
+      --bg: #070605;
+      --text: #f5f1ea;
+      --muted: #c9c1b7;
+      --soft: rgba(255, 255, 255, 0.72);
+      --panel: rgba(10, 9, 8, 0.62);
+      --panel-strong: rgba(10, 9, 8, 0.78);
       --border: rgba(255, 255, 255, 0.26);
-      --bg-image: url("images/ouyalaunch-screenshot.png");
+      --orange: #ff3d17;
+      --orange-light: #ff6a3a;
+      --shadow: rgba(0, 0, 0, 0.55);
+      --max: 1480px;
     }
 
     * {
@@ -33,40 +39,47 @@
 
     html {
       min-height: 100%;
-      background: #050505;
+      background: var(--bg);
     }
 
     body {
-      min-height: 100%;
+      min-height: 100vh;
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background: #050505;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
       overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
+    .bg-image {
       position: fixed;
       inset: -28px;
-      z-index: -2;
-      background-image: var(--bg-image);
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
-      filter: blur(10px);
-      transform: scale(1.04);
-      opacity: 0.58;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: #070605;
     }
 
-    body::after {
-      content: "";
+    .bg-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: blur(3px);
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+
+    .bg-overlay {
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: 1;
+      pointer-events: none;
       background:
-        radial-gradient(circle at 18% 10%, rgba(255, 61, 23, 0.22), transparent 34%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.82) 55%, #050505 100%);
+        radial-gradient(circle at 32% 46%, rgba(255, 61, 23, 0.18), transparent 30%),
+        radial-gradient(circle at 75% 18%, rgba(255, 61, 23, 0.18), transparent 42%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.34) 48%, rgba(0, 0, 0, 0.78)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.80));
     }
 
     a {
@@ -75,376 +88,371 @@
     }
 
     .page {
-      width: min(1120px, calc(100% - 40px));
+      width: min(var(--max), calc(100% - 72px));
+      min-height: 100vh;
       margin: 0 auto;
-      padding: 72px 0 58px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
     }
 
     .topbar {
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 22px;
+      border-bottom: 1px solid rgba(255, 61, 23, 0.42);
     }
 
-    .site-title {
-      margin: 0;
-      font-size: clamp(2.35rem, 5vw, 4rem);
-      line-height: 0.95;
-      font-weight: 500;
-      letter-spacing: -0.065em;
-      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.78);
+    .brand {
+      font-size: clamp(1.25rem, 1.7vw, 1.8rem);
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      text-shadow: 0 3px 18px var(--shadow);
     }
 
-    .site-title span {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .github-link {
+    .top-link {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
+      gap: 0.65rem;
       min-height: 44px;
-      padding: 9px 0 9px 18px;
+      padding: 0.65rem 1.15rem;
+      border: 1px solid rgba(255, 61, 23, 0.58);
+      border-radius: 10px;
+      background: rgba(10, 9, 8, 0.55);
       color: var(--text);
-      font-size: 1.02rem;
-      font-weight: 500;
-      white-space: nowrap;
-      opacity: 0.94;
-      transition: opacity 160ms ease, transform 160ms ease;
+      font-weight: 650;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
 
-    .github-link:hover {
-      opacity: 1;
+    .top-link:hover {
       transform: translateY(-1px);
+      background: rgba(255, 61, 23, 0.14);
+      border-color: rgba(255, 106, 58, 0.85);
     }
 
-    .github-link svg {
-      width: 23px;
-      height: 23px;
-      fill: currentColor;
-      flex: 0 0 auto;
+    .hero {
+      padding: clamp(42px, 6vw, 86px) 0 28px;
     }
 
-    .divider {
-      width: 100%;
-      height: 2px;
-      margin: 0 0 44px;
-      background: linear-gradient(90deg, var(--accent), rgba(255, 61, 23, 0.55), var(--accent));
-      box-shadow: 0 0 22px rgba(255, 61, 23, 0.18);
+    .hero-logo-title {
+      margin: 0;
+      max-width: 760px;
+      line-height: 1;
     }
 
-    .hero-logo {
+    .hero-logo-title img {
       display: block;
-      width: 100%;
-      max-height: 260px;
-      object-fit: contain;
-      object-position: left center;
-      margin: 0 0 24px;
-      filter: drop-shadow(0 24px 46px rgba(0, 0, 0, 0.45));
+      width: min(100%, 720px);
+      height: auto;
+      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.72));
+    }
+
+    @media (max-width: 720px) {
+      .hero-logo-title {
+        max-width: 100%;
+      }
+
+      .hero-logo-title img {
+        width: min(100%, 520px);
+      }
     }
 
     .subtitle {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: clamp(1.22rem, 2.4vw, 1.72rem);
-      line-height: 1.35;
-      font-weight: 400;
+      margin: 1rem 0 0;
+      color: var(--soft);
+      font-size: clamp(1.25rem, 2vw, 1.95rem);
+      font-weight: 650;
       letter-spacing: -0.03em;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
     }
 
-    .pills {
+    .badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin: 0 0 54px;
+      gap: 0.85rem;
+      margin: 1.35rem 0 0;
     }
 
-    .pill {
+    .badge {
       display: inline-flex;
       align-items: center;
-      min-height: 38px;
-      padding: 7px 18px;
-      border: 2px solid var(--accent);
-      border-radius: 8px;
-      color: var(--accent);
-      background: rgba(0, 0, 0, 0.42);
+      gap: 0.6rem;
+      min-height: 44px;
+      padding: 0.55rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 9px;
+      background: rgba(10, 9, 8, 0.56);
+      color: #f7f0e6;
       font-size: 1rem;
-      line-height: 1;
-      font-weight: 700;
-      box-shadow: inset 0 0 0 1px rgba(255, 61, 23, 0.16);
+      font-weight: 650;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .badge svg {
+      width: 21px;
+      height: 21px;
+      color: var(--orange-light);
+      flex: 0 0 auto;
+    }
+
+    .intro-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 1.65rem;
+      width: 100%;
     }
 
     .intro {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
-      gap: clamp(28px, 7vw, 86px);
-      align-items: center;
-      margin: 0 0 92px;
-    }
-
-    .teaser {
+      max-width: none;
       margin: 0;
-      max-width: 680px;
-      color: var(--text);
-      font-size: clamp(1.08rem, 2vw, 1.35rem);
-      line-height: 1.72;
-      font-weight: 400;
-      letter-spacing: -0.025em;
-      text-shadow: 0 3px 18px rgba(0, 0, 0, 0.72);
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1.05rem, 1.45vw, 1.34rem);
+      line-height: 1.58;
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.64);
     }
 
-    .download {
+    .cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      min-height: 92px;
-      width: 100%;
-      padding: 24px 30px;
+      gap: 0.65rem;
+      min-height: 58px;
+      padding: 0.9rem 1.55rem;
       border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent), #ff5636);
+      background: linear-gradient(180deg, #ff3d17, #a82912);
       color: #fff;
-      font-size: clamp(1.12rem, 2vw, 1.48rem);
-      line-height: 1.1;
+      font-size: 1.07rem;
       font-weight: 800;
+      white-space: nowrap;
       box-shadow:
-        0 22px 48px rgba(0, 0, 0, 0.38),
-        0 0 0 1px rgba(255, 255, 255, 0.14) inset;
+        0 18px 38px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
       transition: transform 160ms ease, filter 160ms ease;
     }
 
-    .download:hover {
-      transform: translateY(-2px);
+    .cta:hover {
+      transform: translateY(-1px);
       filter: brightness(1.08);
     }
 
-    .download svg {
-      width: 34px;
-      height: 34px;
-      fill: currentColor;
-      flex: 0 0 auto;
+    .cta svg {
+      width: 24px;
+      height: 24px;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 26px;
-      margin: 0 0 114px;
+      gap: 1.45rem;
+      padding: 6px 0 clamp(30px, 5vw, 60px);
     }
 
     .card {
-      min-height: 470px;
-      padding: 52px 36px 42px;
+      min-height: 216px;
+      padding: 1.7rem 1.75rem 1.6rem;
       border: 1px solid var(--border);
-      border-radius: 9px;
+      border-radius: 14px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 34%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
         var(--panel);
+      backdrop-filter: blur(12px);
       box-shadow:
-        0 26px 70px rgba(0, 0, 0, 0.34),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.035);
-      backdrop-filter: blur(7px);
+        0 24px 58px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      margin-bottom: 1.15rem;
     }
 
     .card h2 {
-      margin: 0 0 28px;
-      padding-bottom: 26px;
-      color: var(--accent);
-      font-size: clamp(1.55rem, 3vw, 2.1rem);
-      line-height: 1.08;
-      font-weight: 700;
-      text-align: center;
-      letter-spacing: -0.055em;
-      border-bottom: 2px solid var(--accent);
+      margin: 0;
+      color: #fff8ed;
+      font-size: clamp(1.08rem, 1.45vw, 1.42rem);
+      line-height: 1.1;
+      letter-spacing: 0.075em;
+      text-transform: uppercase;
     }
 
     .card ul {
       margin: 0;
-      padding: 0;
-      list-style: none;
+      padding: 0 0 0 1.25rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: clamp(0.97rem, 1.1vw, 1.08rem);
+      line-height: 1.65;
     }
 
-    .card li {
-      position: relative;
-      margin: 0 0 18px;
-      padding-left: 24px;
-      color: rgba(255, 255, 255, 0.88);
-      font-size: 1.05rem;
-      line-height: 1.58;
-      letter-spacing: -0.02em;
+    .card li::marker {
+      color: var(--orange-light);
+      font-size: 1.1em;
     }
 
-    .card li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.74em;
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px rgba(255, 61, 23, 0.55);
+    .card strong {
+      color: #fff;
     }
 
-    .footer-line {
-      width: 100%;
-      height: 2px;
-      margin: 0 0 38px;
-      background: linear-gradient(90deg, var(--accent), rgba(255, 61, 23, 0.42), var(--accent));
-      box-shadow: 0 0 22px rgba(255, 61, 23, 0.16);
-    }
-
-    footer {
-      max-width: 780px;
-      margin: 0 auto;
-      color: var(--dim);
-      font-size: clamp(0.98rem, 1.8vw, 1.13rem);
-      line-height: 1.7;
+    .footer-note {
+      max-width: 920px;
+      margin: auto auto 2.2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(255, 61, 23, 0.42);
+      color: rgba(255, 255, 255, 0.70);
+      font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+      line-height: 1.65;
       text-align: center;
-      text-shadow: 0 3px 18px rgba(0, 0, 0, 0.75);
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.64);
     }
 
-    footer a {
-      color: var(--muted);
-      font-weight: 600;
+    .footer-note a {
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 700;
     }
 
-    @media (max-width: 880px) {
+    @media (max-width: 1120px) {
       .page {
-        width: min(100% - 28px, 720px);
-        padding-top: 42px;
+        width: min(100% - 40px, var(--max));
       }
 
-      .topbar {
-        align-items: flex-start;
-      }
-
-      .github-link {
-        padding-top: 5px;
-        font-size: 0.96rem;
-      }
-
-      .divider {
-        margin-bottom: 28px;
-      }
-
-      .hero-logo {
-        margin-bottom: 20px;
-      }
-
-      .pills {
-        margin-bottom: 34px;
-      }
-
-      .intro {
+      .intro-row {
         grid-template-columns: 1fr;
-        gap: 30px;
-        margin-bottom: 54px;
+        gap: 1.3rem;
       }
 
-      .download {
-        width: min(100%, 420px);
-        min-height: 78px;
+      .cta {
+        width: max-content;
       }
 
       .cards {
         grid-template-columns: 1fr;
-        gap: 18px;
-        margin-bottom: 70px;
       }
 
       .card {
-        min-height: 0;
-        padding: 34px 28px 30px;
-      }
-
-      .card h2 {
-        text-align: left;
+        min-height: auto;
       }
     }
 
-    @media (max-width: 540px) {
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 28px, var(--max));
+      }
+
       .topbar {
-        display: block;
+        height: auto;
+        min-height: 68px;
+        gap: 0.9rem;
+        padding: 0.85rem 0;
       }
 
-      .site-title {
-        margin-bottom: 16px;
+      .top-link {
+        padding: 0.58rem 0.8rem;
+        font-size: 0.92rem;
       }
 
-      .github-link {
-        padding-left: 0;
+      .hero {
+        padding-top: 36px;
       }
 
-      .pill {
+      .hero-title {
+        font-size: clamp(2.55rem, 13vw, 4.4rem);
+      }
+
+      .badges {
+        gap: 0.65rem;
+      }
+
+      .badge {
         width: 100%;
-        justify-content: center;
+        justify-content: flex-start;
       }
 
-      .teaser {
-        line-height: 1.62;
-      }
-
-      .download {
-        min-height: 72px;
-        padding: 20px 22px;
-      }
-
-      .download svg {
-        width: 28px;
-        height: 28px;
+      .cta {
+        width: 100%;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
-    <header class="topbar">
-      <h1 class="site-title"><span>OUYA</span>launch</h1>
+  <div class="bg-image" aria-hidden="true">
+    <img
+      src="./images/ouyalaunch-screenshot.png"
+      alt=""
+      onerror="this.onerror=null; this.src='/images/ouyalaunch-screenshot.png';"
+    >
+  </div>
 
-      <a class="github-link" href="https://github.com/Andiweli/OUYAlaunch" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.21.09 1.85 1.25 1.85 1.25 1.08 1.84 2.83 1.31 3.52 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.47 11.47 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/>
+  <div class="bg-overlay" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="topbar" aria-label="Site header">
+      <a class="brand" href="./" aria-label="OUYAlaunch home">OUYAlaunch</a>
+
+      <a class="top-link" href="https://github.com/Andiweli/OUYAlaunch" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.56.1.77-.24.77-.54v-2c-3.12.68-3.78-1.34-3.78-1.34-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.7 2.63 3.16 1.9.1-.73.39-1.23.71-1.51-2.49-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.52.4.35.76 1.04.76 2.1v3.06c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
         </svg>
         View on GitHub
       </a>
     </header>
 
-    <div class="divider"></div>
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title" class="hero-logo-title">
+        <img src="./images/ouyalaunch-logo.png" alt="OUYAlaunch">
+      </h1>
 
-    <img class="hero-logo" src="images/ouyalaunch-logo.png" alt="OUYAlaunch">
+      <p class="subtitle">Fast OUYA-styled launcher for the OUYA micro-console</p>
 
-    <p class="subtitle">Fast OUYA-styled launcher for the OUYA micro-console</p>
+      <div class="badges" aria-label="Project badges">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M7.2 7.8 5.4 4.7a.7.7 0 1 1 1.2-.7l1.9 3.2a7.9 7.9 0 0 1 7 0L17.4 4a.7.7 0 1 1 1.2.7l-1.8 3.1A7.6 7.6 0 0 1 20 14v1H4v-1a7.6 7.6 0 0 1 3.2-6.2ZM8 12.6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 16h14v4.2a1.8 1.8 0 0 1-1.8 1.8H6.8A1.8 1.8 0 0 1 5 20.2V16Z"/>
+          </svg>
+          Android 4.1.x
+        </span>
 
-    <div class="pills" aria-label="Project tags">
-      <span class="pill">Android 4.1.x</span>
-      <span class="pill">Favorites + Genres</span>
-      <span class="pill">Controller Only</span>
-    </div>
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 2.6 14.92 8.52l6.53.95-4.73 4.61 1.12 6.5L12 17.5l-5.84 3.08 1.12-6.5-4.73-4.61 6.53-.95L12 2.6Z"/>
+          </svg>
+          Favorites + Genres
+        </span>
 
-    <section class="intro" aria-label="OUYAlaunch introduction">
-      <p class="teaser">
-        OUYAlaunch is a custom home screen replacement built for the original OUYA console.
-        It keeps the familiar dark cinematic feel, adds favorites and genre tabs, speeds up browsing
-        with cached icons and stays fully focused on fast, controller-only navigation.
-      </p>
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M4.5 4h15A2.5 2.5 0 0 1 22 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 17.5v-11A2.5 2.5 0 0 1 4.5 4Zm0 2A.5.5 0 0 0 4 6.5v11a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.5-.5h-15Zm3.25 4.3h2.15V8.2h1.75v2.1h2.1v1.75h-2.1v2.1H9.9v-2.1H7.75V10.3Zm8.15 4.25a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3Zm2.25-3.15a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3Z"/>
+          </svg>
+          Controller Only
+        </span>
+      </div>
 
-      <a class="download" href="https://github.com/Andiweli/OUYAlaunch" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.21.09 1.85 1.25 1.85 1.25 1.08 1.84 2.83 1.31 3.52 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.47 11.47 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/>
-        </svg>
-        Download at GitHub
-      </a>
+      <div class="intro-row">
+        <p class="intro">
+          OUYAlaunch is a custom home screen replacement built for the original OUYA console. It keeps the familiar dark cinematic feel, adds favorites and genre tabs, speeds up browsing with cached icons and stays fully focused on fast, controller-only navigation.
+        </p>
+
+        <a class="cta" href="https://github.com/Andiweli/OUYAlaunch" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.56.1.77-.24.77-.54v-2c-3.12.68-3.78-1.34-3.78-1.34-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.7 2.63 3.16 1.9.1-.73.39-1.23.71-1.51-2.49-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.52.4.35.76 1.04.76 2.1v3.06c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
+          </svg>
+          Download at GitHub
+        </a>
+      </div>
     </section>
 
-    <section class="cards" aria-label="OUYAlaunch details">
+    <section class="cards" aria-label="OUYAlaunch highlights">
       <article class="card">
-        <h2>Highlights</h2>
+        <div class="card-heading">
+          <h2>Highlights</h2>
+        </div>
         <ul>
           <li>OUYA-styled clean interface</li>
           <li>Favorites row and six genre tabs</li>
@@ -455,7 +463,9 @@
       </article>
 
       <article class="card">
-        <h2>Requirements</h2>
+        <div class="card-heading">
+          <h2>Requirements</h2>
+        </div>
         <ul>
           <li>OUYA console or Android 4.1.x device</li>
           <li>Game controller / OUYA controller</li>
@@ -465,7 +475,9 @@
       </article>
 
       <article class="card">
-        <h2>How it works</h2>
+        <div class="card-heading">
+          <h2>How it works</h2>
+        </div>
         <ul>
           <li>Scans installed apps on first launch</li>
           <li>Looks for “ouya_icon.png” resources</li>
@@ -476,9 +488,7 @@
       </article>
     </section>
 
-    <div class="footer-line"></div>
-
-    <footer>
+    <footer class="footer-note">
       OUYAlaunch is an open-source side project by
       <a href="https://github.com/andiweli" target="_blank" rel="noopener">@andiweli</a>
       to give the OUYA a modern, focused launcher while staying true to the original console look.
