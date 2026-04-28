@@ -13,22 +13,20 @@
   <meta property="og:title" content="Unreal-Android">
   <meta property="og:description" content="Android and OUYA port of Unreal / Unreal v200 (1998).">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://andiweli.github.io/unreal-android/">
-  <meta property="og:image" content="https://andiweli.github.io/unreal-android/images/unreal-bg.png">
+  <meta property="og:url" content="https://andiweli.github.io/unreal/">
+  <meta property="og:image" content="https://andiweli.github.io/unreal/images/unreal-bg.png">
 
-  <link rel="canonical" href="https://andiweli.github.io/unreal-android/">
+  <link rel="canonical" href="https://andiweli.github.io/unreal/">
 
   <style>
     :root {
       --bg: #070605;
       --text: #f5f1ea;
-      --muted: #c9c1b7;
       --soft: rgba(255, 255, 255, 0.72);
       --panel: rgba(10, 9, 8, 0.62);
-      --panel-strong: rgba(10, 9, 8, 0.78);
       --border: rgba(255, 255, 255, 0.26);
-      --orange: #e2c849;
-      --orange-light: #f1dc6a;
+      --accent: #e2c849;
+      --accent-light: #f1dc6a;
       --shadow: rgba(0, 0, 0, 0.55);
       --max: 1480px;
     }
@@ -45,64 +43,64 @@
     body {
       min-height: 100vh;
       margin: 0;
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background: var(--bg);
       overflow-x: hidden;
+      color: var(--text);
+      background: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     }
-
-  .bg-image {
-    position: fixed;
-    inset: -28px;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-    background: #070605;
-  }
-
-  .bg-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    filter: blur(3px);
-    transform: scale(1.02);
-    opacity: 0.95;
-  }
-
-  .bg-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background:
-      radial-gradient(circle at 32% 46%, rgba(226, 200, 73, 0.18), transparent 30%),
-      radial-gradient(circle at 75% 18%, rgba(90, 32, 92, 0.30), transparent 42%),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.34) 48%, rgba(0, 0, 0, 0.78)),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.80));
-  }
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
+    .bg-image {
+      position: fixed;
+      inset: -28px;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: var(--bg);
+    }
+
+    .bg-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: blur(3px);
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 32% 46%, rgba(226, 200, 73, 0.18), transparent 30%),
+        radial-gradient(circle at 75% 18%, rgba(90, 32, 92, 0.30), transparent 42%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.34) 48%, rgba(0, 0, 0, 0.78)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.80));
+    }
+
     .page {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
       width: min(var(--max), calc(100% - 72px));
       min-height: 100vh;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      z-index: 2;
     }
 
     .topbar {
-      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(242, 140, 18, 0.42);
+      height: 72px;
+      border-bottom: 1px solid rgba(226, 200, 73, 0.42);
     }
 
     .brand {
@@ -118,19 +116,24 @@
       gap: 0.65rem;
       min-height: 44px;
       padding: 0.65rem 1.15rem;
-      border: 1px solid rgba(242, 140, 18, 0.58);
+      border: 1px solid rgba(226, 200, 73, 0.58);
       border-radius: 10px;
-      background: rgba(10, 9, 8, 0.55);
       color: var(--text);
+      background: rgba(10, 9, 8, 0.55);
       font-weight: 650;
       box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
-      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      transition:
+        transform 160ms ease,
+        background 160ms ease,
+        border-color 160ms ease;
     }
 
-    .top-link:hover {
+    .top-link:hover,
+    .top-link:focus-visible {
       transform: translateY(-1px);
-      background: rgba(242, 140, 18, 0.14);
-      border-color: rgba(255, 173, 55, 0.85);
+      border-color: rgba(241, 220, 106, 0.85);
+      background: rgba(226, 200, 73, 0.14);
+      outline: none;
     }
 
     .hero {
@@ -138,8 +141,8 @@
     }
 
     .hero-logo-title {
-      margin: 0;
       max-width: 760px;
+      margin: 0;
       line-height: 1;
     }
 
@@ -148,16 +151,6 @@
       width: min(100%, 720px);
       height: auto;
       filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.72));
-    }
-
-    @media (max-width: 720px) {
-      .hero-logo-title {
-      max-width: 100%;
-    }
-
-    .hero-logo-title img {
-      width: min(100%, 520px);
-      }
     }
 
     .subtitle {
@@ -184,8 +177,8 @@
       padding: 0.55rem 1rem;
       border: 1px solid rgba(255, 255, 255, 0.28);
       border-radius: 9px;
-      background: rgba(10, 9, 8, 0.56);
       color: #f7f0e6;
+      background: rgba(10, 9, 8, 0.56);
       font-size: 1rem;
       font-weight: 650;
       backdrop-filter: blur(8px);
@@ -193,10 +186,10 @@
     }
 
     .badge svg {
+      flex: 0 0 auto;
       width: 21px;
       height: 21px;
-      color: var(--orange-light);
-      flex: 0 0 auto;
+      color: var(--accent-light);
     }
 
     .intro-row {
@@ -204,8 +197,8 @@
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 2rem;
       align-items: center;
-      margin-top: 1.65rem;
       width: 100%;
+      margin-top: 1.65rem;
     }
 
     .intro {
@@ -217,34 +210,38 @@
       text-shadow: 0 6px 18px rgba(0, 0, 0, 0.64);
     }
 
-  .cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    min-height: 58px;
-    padding: 0.9rem 1.55rem;
-    border-radius: 10px;
-    background: linear-gradient(180deg, #e2c849, #a89122);
-    color: #17130a;
-    font-size: 1.07rem;
-    font-weight: 800;
-    white-space: nowrap;
-    box-shadow:
-      0 18px 38px rgba(0, 0, 0, 0.38),
-      inset 0 1px 0 rgba(255, 255, 255, 0.28);
-    transition: transform 160ms ease, filter 160ms ease;
-  }
-  
-  .cta:hover {
-    transform: translateY(-1px);
-    filter: brightness(1.08);
-  }
-  
-  .cta svg {
-    width: 24px;
-    height: 24px;
-  }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      min-height: 58px;
+      padding: 0.9rem 1.55rem;
+      border-radius: 10px;
+      color: #17130a;
+      background: linear-gradient(180deg, #e2c849, #a89122);
+      font-size: 1.07rem;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      transition:
+        transform 160ms ease,
+        filter 160ms ease;
+    }
+
+    .cta:hover,
+    .cta:focus-visible {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      outline: none;
+    }
+
+    .cta svg {
+      width: 24px;
+      height: 24px;
+    }
 
     .cards {
       display: grid;
@@ -253,31 +250,6 @@
       padding: 6px 0 clamp(30px, 5vw, 60px);
     }
 
-.site-footer {
-  margin-top: 0;
-  padding: 22px 0 30px;
-  border-top: 1px solid rgba(226, 200, 73, 0.42);
-  text-align: center;
-}
-
-.site-footer p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.74);
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-
-.site-footer a {
-  color: #e2c849;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  color: #f1dc6a;
-  text-decoration: underline;
-}
-    
     .card {
       min-height: 216px;
       padding: 1.7rem 1.75rem 1.6rem;
@@ -300,10 +272,10 @@
     }
 
     .card-heading svg {
+      flex: 0 0 auto;
       width: 34px;
       height: 34px;
-      color: var(--orange-light);
-      flex: 0 0 auto;
+      color: var(--accent-light);
     }
 
     .card h2 {
@@ -324,12 +296,29 @@
     }
 
     .card li::marker {
-      color: var(--orange-light);
+      color: var(--accent-light);
       font-size: 1.1em;
     }
 
     .card strong {
       color: #fff;
+    }
+
+    .footer-note {
+      max-width: 920px;
+      margin: auto auto 3.6rem;
+      padding-top: 1.05rem;
+      border-top: 1px solid rgba(226, 200, 73, 0.42);
+      color: rgba(255, 255, 255, 0.62);
+      font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+      line-height: 1.55;
+      text-align: center;
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.64);
+    }
+
+    .footer-note a {
+      color: rgba(255, 255, 255, 0.78);
+      font-weight: 700;
     }
 
     @media (max-width: 1120px) {
@@ -376,8 +365,12 @@
         padding-top: 36px;
       }
 
-      .hero-title {
-        font-size: clamp(2.55rem, 13vw, 4.4rem);
+      .hero-logo-title {
+        max-width: 100%;
+      }
+
+      .hero-logo-title img {
+        width: min(100%, 520px);
       }
 
       .badges {
@@ -393,24 +386,6 @@
         width: 100%;
       }
     }
-
-.footer-note {
-  max-width: 920px;
-  margin: auto auto 3.6rem;
-  padding-top: 1.05rem;
-  border-top: 1px solid rgba(226, 200, 73, 0.42);
-  color: rgba(255, 255, 255, 0.62);
-  font-size: clamp(0.78rem, 0.95vw, 0.92rem);
-  line-height: 1.55;
-  text-align: center;
-  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.64);
-}
-
-.footer-note a {
-  color: rgba(255, 255, 255, 0.78);
-  font-weight: 700;
-}
-    
   </style>
 </head>
 
@@ -419,7 +394,7 @@
     <img
       src="./images/unreal-bg.png"
       alt=""
-      onerror="this.onerror=null; this.src='/images/unreal-bg.png';"
+      onerror="this.onerror=null; this.src='/unreal/images/unreal-bg.png';"
     >
   </div>
 
@@ -441,6 +416,7 @@
       <h1 id="page-title" class="hero-logo-title">
         <img src="./images/unreal-logo.png" alt="Unreal-Android">
       </h1>
+
       <p class="subtitle">Android port of Unreal (1998)</p>
 
       <div class="badges" aria-label="Project badges">
@@ -527,10 +503,9 @@
       </article>
     </section>
 
-<footer class="footer-note">
-  Unreal Android is an open-source project by <a href="https://github.com/andiweli" target="_blank" rel="noopener">@andiweli</a>.
-</footer>
-    
+    <footer class="footer-note">
+      Unreal Android is an open-source project by <a href="https://github.com/andiweli" target="_blank" rel="noopener">@andiweli</a>.
+    </footer>
   </main>
 </body>
 </html>
