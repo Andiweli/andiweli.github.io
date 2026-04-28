@@ -491,16 +491,37 @@
         z-index: 2;
     }
 
+.highlight-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight-footer {
+    display: flex;
+    align-items: center;      /* vertikal mittig zum Button */
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.highlight-link {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+}
+
 .highlight-subimg {
-    position: absolute;
-    right: 2px;
-    bottom: 2px;
+    position: relative;
     z-index: 1;
     pointer-events: none;
     user-select: none;
+    margin-left: auto;
     width: clamp(140px, 34%, 260px);
     height: auto;
     opacity: 0.55;
+    display: block;
 }
 
 .highlight-card-unreal .highlight-subimg {
@@ -508,6 +529,10 @@
 }
 
 @media (max-width: 640px) {
+    .highlight-footer {
+        gap: 0.75rem;
+    }
+
     .highlight-subimg {
         width: clamp(110px, 42%, 190px);
     }
@@ -558,10 +583,16 @@
             and icon caching – designed to match the original OUYA look while keeping navigation fast
             and controller-only.
         </p>
+    <div class="highlight-footer">
         <a class="highlight-link" href="https://andiweli.github.io/ouyalaunch/" rel="noopener">
             Open OUYAlaunch
         </a>
-        <img class="highlight-subimg" src="images/sub_ouyalaunch.png" alt="" aria-hidden="true">
+
+        <img class="highlight-subimg"
+             src="images/sub_ouyalaunch.png"
+             alt=""
+             aria-hidden="true">
+    </div>
     </section>
 
     <!-- Featured ZGloom project -->
@@ -572,10 +603,16 @@
             Learn more about the modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS&nbsp;Vita,
             including screenshots, feature overview and direct download links.
         </p>
+    <div class="highlight-footer">
         <a class="highlight-link" href="https://andiweli.github.io/zgloom/" rel="noopener">
             Open ZGloom Ports
         </a>
-        <img class="highlight-subimg" src="images/sub_gloom.png" alt="" aria-hidden="true">
+
+        <img class="highlight-subimg"
+             src="images/sub_gloom.png"
+             alt=""
+             aria-hidden="true">
+    </div>
     </section>
 
     <!-- Featured Unreal Android project -->
@@ -586,10 +623,16 @@
             Discover the Android version of Unreal, including the modern Android 8 build and the specialised
             OUYA edition with controller-focused support for classic hardware.
         </p>
+    <div class="highlight-footer">
         <a class="highlight-link" href="https://andiweli.github.io/unreal/" rel="noopener">
-            OPEN UNREAL ANDROID
+            Open Unreal Android
         </a>
-        <img class="highlight-subimg" src="images/sub_unreal.png" alt="" aria-hidden="true">
+
+        <img class="highlight-subimg"
+             src="images/sub_unreal.png"
+             alt=""
+             aria-hidden="true">
+    </div>
     </section>
 </div>
     
@@ -637,6 +680,17 @@
             <div class="repo-meta">Zendure local polling ・ JavaScript</div>
         </a>
 
+        <a class="repo-card" href="https://github.com/Andiweli/OUYAlaunch" rel="noopener">
+            <div class="repo-header">
+                <div class="repo-name">OUYAlaunch</div>
+                <div class="repo-pill">OUYA</div>
+            </div>
+            <p class="repo-desc">
+                Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs and icon caching.
+            </p>
+            <div class="repo-meta">Android launcher ・ Java</div>
+        </a>
+        
         <a class="repo-card" href="https://github.com/Andiweli/ZGloom-Android" rel="noopener">
             <div class="repo-header">
                 <div class="repo-name">ZGloom-Android</div>
@@ -681,16 +735,17 @@
             <div class="repo-meta">PS Vita build of Amiga Gloom ・ C</div>
         </a>
 
-        <a class="repo-card" href="https://github.com/Andiweli/OUYAlaunch" rel="noopener">
+        <a class="repo-card" href="https://github.com/Andiweli/Gloom-LevelEditor" rel="noopener">
             <div class="repo-header">
-                <div class="repo-name">OUYAlaunch</div>
-                <div class="repo-pill">OUYA</div>
+                <div class="repo-name">Gloom-LevelEditor</div>
+                <div class="repo-pill">Windows</div>
             </div>
             <p class="repo-desc">
-                Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs and icon caching.
+                Standalone Win32/x86 editor prototype for creating, inspecting and editing Gloom-compatible maps.
             </p>
-            <div class="repo-meta">Android launcher ・ Java</div>
-        </a>
+            <div class="repo-meta">Level editor ・ c++</div>
+</a>
+        
     </div>
 </section>
 
