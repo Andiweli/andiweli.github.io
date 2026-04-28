@@ -480,7 +480,41 @@
         border-color: #edd86d;
         color: #111111;
     }
-        
+
+    .highlight-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .highlight-card > *:not(.highlight-subimg) {
+        position: relative;
+        z-index: 2;
+    }
+
+    .highlight-subimg {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        pointer-events: none;
+        user-select: none;
+        width: clamp(140px, 34%, 260px);
+        height: auto;
+        opacity: 0.95;
+        transform: translate(12%, 12%);
+    }
+
+    .highlight-card-unreal .highlight-subimg {
+        width: clamp(150px, 36%, 280px);
+    }
+
+    @media (max-width: 640px) {
+        .highlight-subimg {
+            width: clamp(110px, 42%, 190px);
+            transform: translate(10%, 10%);
+        }
+    }
+
     </style>
 </head>
 
@@ -529,6 +563,7 @@
         <a class="highlight-link" href="https://andiweli.github.io/ouyalaunch/" rel="noopener">
             Open OUYAlaunch
         </a>
+        <img class="highlight-subimg" src="images/sub_ouyalaunch.png" alt="" aria-hidden="true">
     </section>
 
     <!-- Featured ZGloom project -->
@@ -542,6 +577,7 @@
         <a class="highlight-link" href="https://andiweli.github.io/zgloom/" rel="noopener">
             Open ZGloom Ports
         </a>
+        <img class="highlight-subimg" src="images/sub_gloom.png" alt="" aria-hidden="true">
     </section>
 
     <!-- Featured Unreal Android project -->
@@ -555,6 +591,7 @@
         <a class="highlight-link" href="https://andiweli.github.io/unreal/" rel="noopener">
             OPEN UNREAL ANDROID
         </a>
+        <img class="highlight-subimg" src="images/sub_unreal.png" alt="" aria-hidden="true">
     </section>
 </div>
     
