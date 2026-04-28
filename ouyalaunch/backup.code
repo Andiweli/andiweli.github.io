@@ -1,579 +1,493 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OUYAlaunch – Fast OUYA-styled launcher for the OUYA micro-console</title>
+  <title>OUYAlaunch – Fast OUYA-styled Launcher for the OUYA Micro-console</title>
 
-  <meta name="description" content="OUYAlaunch is a fast, OUYA-styled Android launcher for the original OUYA micro-console with favourites, genre tabs and controller-only navigation.">
-  <meta name="keywords" content="OUYA, OUYAlaunch, Android launcher, micro-console, retro gaming, launcher replacement">
+  <meta name="description" content="OUYAlaunch is a fast, controller-focused Android launcher for the original OUYA micro-console with favorites, genre tabs, icon caching and the classic OUYA look.">
+  <meta name="keywords" content="OUYAlaunch, OUYA launcher, OUYA Android launcher, Android 4.1 launcher, OUYA home screen, controller launcher, OUYA micro-console, Andiweli">
+  <meta name="author" content="Andiweli">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="OUYAlaunch">
+  <meta property="og:description" content="Fast OUYA-styled launcher for the OUYA micro-console.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://andiweli.github.io/ouyalaunch/">
+  <meta property="og:image" content="https://andiweli.github.io/ouyalaunch/images/ouyalaunch-screenshot.png">
 
   <link rel="canonical" href="https://andiweli.github.io/ouyalaunch/">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="OUYAlaunch – Fast OUYA-styled launcher for the OUYA micro-console">
-  <meta property="og:description" content="Fast, OUYA-themed launcher with genre tabs, favourites and controller-only navigation for the original OUYA console.">
-  <meta property="og:url" content="https://andiweli.github.io/ouyalaunch/">
-  <meta property="og:image" content="https://andiweli.github.io/ouyalaunch/images/ouya.jpg">
-
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="OUYAlaunch – Fast OUYA-styled launcher for the OUYA micro-console">
-  <meta name="twitter:description" content="Fast, OUYA-themed launcher for the original OUYA console with favourites and genre tabs.">
-  <meta name="twitter:image" content="https://andiweli.github.io/ouyalaunch/images/ouya.jpg">
-
   <style>
     :root {
-      --ouya-bg: #050608;
-      --ouya-bg-soft: #14161b;
-      --ouya-tab: #fd2a00;
-      --ouya-tab-muted: #884231;
-      --ouya-text: #f5f5f5;
-      --ouya-text-muted: #a5abb5;
-      --ouya-accent: #f26c4f;
-      --ouya-border: #2a2e36;
-      --ouya-badge-bg: #181b21;
+      --bg: #070605;
+      --text: #f5f1ea;
+      --muted: #c9c1b7;
+      --soft: rgba(255, 255, 255, 0.72);
+      --panel: rgba(10, 9, 8, 0.62);
+      --panel-strong: rgba(10, 9, 8, 0.78);
+      --border: rgba(255, 255, 255, 0.26);
+      --orange: #ff3d17;
+      --orange-light: #ff6a3a;
+      --shadow: rgba(0, 0, 0, 0.55);
+      --max: 1480px;
     }
 
     * {
       box-sizing: border-box;
     }
 
-/* Ersetze die bisherigen background-Definitionen für html und body damit: */
-
-html,
-body {
-  min-height: 100%;
-  background:
-    radial-gradient(circle at 0 0, #333842 0, transparent 55%),
-    radial-gradient(circle at 100% 0, #26262b 0, transparent 45%),
-    linear-gradient(to bottom, #14161b 0, #050608 60%, #020203 100%);
-  background-color: #050608; /* Fallback */
-}
+    html {
+      min-height: 100%;
+      background: var(--bg);
+    }
 
     body {
+      min-height: 100vh;
       margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: transparent;
-      color: var(--ouya-text);
-      -webkit-font-smoothing: antialiased;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+
+    .bg-image {
+      position: fixed;
+      inset: -28px;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: #070605;
+    }
+
+    .bg-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: blur(3px);
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 32% 46%, rgba(255, 61, 23, 0.18), transparent 30%),
+        radial-gradient(circle at 75% 18%, rgba(255, 61, 23, 0.18), transparent 42%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.34) 48%, rgba(0, 0, 0, 0.78)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.80));
     }
 
     a {
-      color: var(--ouya-accent);
+      color: inherit;
       text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
 
     .page {
-      max-width: 1120px;
+      width: min(var(--max), calc(100% - 72px));
+      min-height: 100vh;
       margin: 0 auto;
-      padding: 32px 20px 40px;
-    }
-
-    /* Hero */
-
-    .hero {
       display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      align-items: stretch;
-      margin-bottom: 40px;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
     }
 
-    .hero-text {
-      flex: 1 1 320px;
-      min-width: 0;
-    }
-
-    .hero-media {
-      flex: 1 1 320px;
-      min-width: 0;
+    .topbar {
+      height: 72px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 61, 23, 0.42);
     }
 
-    .eyebrow {
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 11px;
-      color: var(--ouya-text-muted);
-      margin: 0 0 6px;
+    .brand {
+      font-size: clamp(1.25rem, 1.7vw, 1.8rem);
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      text-shadow: 0 3px 18px var(--shadow);
     }
 
-    h1 {
-      font-size: clamp(32px, 4vw, 40px);
-      margin: 0 0 6px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+    .top-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-height: 44px;
+      padding: 0.65rem 1.15rem;
+      border: 1px solid rgba(255, 61, 23, 0.58);
+      border-radius: 10px;
+      background: rgba(10, 9, 8, 0.55);
+      color: var(--text);
+      font-weight: 650;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
 
-    h2.hero-subtitle {
-      font-weight: 400;
-      font-size: 16px;
-      color: var(--ouya-text-muted);
-      margin: 0 0 16px;
-      max-width: 32rem;
+    .top-link:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 61, 23, 0.14);
+      border-color: rgba(255, 106, 58, 0.85);
     }
 
-    .lede {
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--ouya-text);
-      margin: 0 0 18px;
-      max-width: 36rem;
+    .hero {
+      padding: clamp(42px, 6vw, 86px) 0 28px;
     }
 
-    .meta-badges {
+    .hero-logo-title {
+      margin: 0;
+      max-width: 760px;
+      line-height: 1;
+    }
+
+.hero-logo-title img {
+  display: block;
+  width: min(100%, 540px);
+  height: auto;
+  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.72));
+}
+
+    @media (max-width: 720px) {
+      .hero-logo-title {
+        max-width: 100%;
+      }
+
+      .hero-logo-title img {
+        width: min(100%, 390px);
+      }
+    }
+
+    .subtitle {
+      margin: 1rem 0 0;
+      color: var(--soft);
+      font-size: clamp(1.25rem, 2vw, 1.95rem);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
+      gap: 0.85rem;
+      margin: 1.35rem 0 0;
     }
 
     .badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      border: 1px solid var(--ouya-border);
-      background: var(--ouya-badge-bg);
-      color: var(--ouya-text-muted);
-      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-height: 44px;
+      padding: 0.55rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 9px;
+      background: rgba(10, 9, 8, 0.56);
+      color: #f7f0e6;
+      font-size: 1rem;
+      font-weight: 650;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     }
 
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 22px;
+    .badge svg {
+      width: 21px;
+      height: 21px;
+      color: var(--orange-light);
+      flex: 0 0 auto;
     }
 
-    .btn-primary,
-    .btn-secondary {
+    .intro-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 1.65rem;
+      width: 100%;
+    }
+
+    .intro {
+      max-width: none;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1.05rem, 1.45vw, 1.34rem);
+      line-height: 1.58;
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.64);
+    }
+
+    .cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 9px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: 1px solid transparent;
-      text-decoration: none;
-      cursor: pointer;
+      gap: 0.65rem;
+      min-height: 58px;
+      padding: 0.9rem 1.55rem;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #ff3d17, #a82912);
+      color: #fff;
+      font-size: 1.07rem;
+      font-weight: 800;
       white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--ouya-tab);
-      /* background: linear-gradient(135deg, var(--ouya-tab) 0, #ff7c5c 45%, var(--ouya-tab) 100%); */
-      color: #fff;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 10px 30px rgba(0, 0, 0, 0.75);
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.05);
-      text-decoration: none;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: var(--ouya-border);
-      color: var(--ouya-text);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.04);
-      text-decoration: none;
-    }
-
-    .hero-note {
-      font-size: 11px;
-      color: var(--ouya-text-muted);
-      max-width: 30rem;
-    }
-
-    .screenshot-frame {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
       box-shadow:
-        0 0 0 1px rgba(0, 0, 0, 0.85),
-        0 18px 45px rgba(0, 0, 0, 0.85);
-      background: radial-gradient(circle at 0 0, #3a3b40 0, #17181c 55%, #060709 100%);
+        0 18px 38px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      transition: transform 160ms ease, filter 160ms ease;
     }
 
-    .screenshot-frame::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), transparent 26%);
-      pointer-events: none;
-      mix-blend-mode: screen;
+    .cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
     }
 
-    .screenshot-frame img {
-      display: block;
-      width: 100%;
-      height: auto;
+    .cta svg {
+      width: 24px;
+      height: 24px;
     }
 
-    /* OUYA-style tab strip preview */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.45rem;
+      padding: 6px 0 clamp(30px, 5vw, 60px);
+    }
 
-    .tab-strip {
+    .card {
+      min-height: 216px;
+      padding: 1.7rem 1.75rem 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+        var(--panel);
+      backdrop-filter: blur(12px);
+      box-shadow:
+        0 24px 58px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .card-heading {
       display: flex;
-      gap: 2px;
-      margin-top: 10px;
-      padding: 4px 2px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.02);
-      font-size: 11px;
+      align-items: center;
+      gap: 0.95rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .card h2 {
+      margin: 0;
+      color: #fff8ed;
+      font-size: clamp(1.08rem, 1.45vw, 1.42rem);
+      line-height: 1.1;
+      letter-spacing: 0.075em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--ouya-text-muted);
     }
 
-    .tab-pill {
-      padding: 6px 12px 7px;
-      border-radius: 6px 6px 0 0;
-      background: transparent;
+    .card ul {
+      margin: 0;
+      padding: 0 0 0 1.25rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: clamp(0.97rem, 1.1vw, 1.08rem);
+      line-height: 1.65;
     }
 
-    .tab-pill--active {
-      background: linear-gradient(to bottom, var(--ouya-tab) 0, var(--ouya-tab-muted) 100%);
+    .card li::marker {
+      color: var(--orange-light);
+      font-size: 1.1em;
+    }
+
+    .card strong {
       color: #fff;
     }
 
-    /* Sections */
+.footer-note {
+  max-width: 920px;
+  margin: auto auto 3.6rem;
+  padding-top: 1.05rem;
+  border-top: 1px solid rgba(255, 61, 23, 0.42);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+  line-height: 1.55;
+  text-align: center;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.64);
+}
 
-    section {
-      margin-bottom: 32px;
-      padding: 20px 18px 18px;
-      border-radius: 16px;
-      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.03) 0, transparent 55%),
-                  linear-gradient(to bottom right, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.65));
-      border: 1px solid rgba(255, 255, 255, 0.04);
-    }
+.footer-note a {
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 700;
+}
 
-    section h2 {
-      margin: 0 0 12px;
-      font-size: 18px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    section p {
-      margin: 0 0 10px;
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--ouya-text-muted);
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 18px;
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--ouya-text-muted);
-    }
-
-    li + li {
-      margin-top: 4px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 24px;
-    }
-
-    .small-heading {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--ouya-text);
-      margin: 0 0 6px;
-    }
-
-    .mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 13px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 6px;
-      padding: 8px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      color: #e1e4eb;
-      overflow-x: auto;
-      white-space: pre;
-    }
-
-    footer {
-      margin-top: 8px;
-      padding: 12px 4px 0;
-      font-size: 12px;
-      color: var(--ouya-text-muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    footer a {
-      color: var(--ouya-text);
-      font-weight: 500;
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        flex-direction: column;
-      }
-
-      .hero-media {
-        order: -1;
-      }
-    }
-
-    @media (max-width: 640px) {
+    @media (max-width: 1120px) {
       .page {
-        padding-inline: 14px;
+        width: min(100% - 40px, var(--max));
       }
 
-      section {
-        padding: 16px 14px 14px;
+      .intro-row {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
       }
 
-      .split {
-        grid-template-columns: minmax(0, 1fr);
+      .cta {
+        width: max-content;
       }
 
-      .tab-strip {
-        flex-wrap: wrap;
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: auto;
       }
     }
 
-/* OUYAlaunch – großes Hintergrundbild rechts */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    right: 0;
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 28px, var(--max));
+      }
 
-    /* Bild */
-    width: 900px;               /* kannst du anpassen – Breite nach links */
-    height: 1080px;             /* wie gewünscht */
-    background-image: url("images/ouya.jpg");
-    background-size: cover;
-    background-position: top right;
+      .topbar {
+        height: auto;
+        min-height: 68px;
+        gap: 0.9rem;
+        padding: 0.85rem 0;
+      }
 
-    opacity: 0.7;               /* 50% durchscheinen */
-    pointer-events: none;       /* klickt nicht über Inhalte hinweg */
-    z-index: 0;                 /* hinter Inhalt */
+      .top-link {
+        padding: 0.58rem 0.8rem;
+        font-size: 0.92rem;
+      }
 
-    /* weicher Auslauf nach links */
-    mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
-}
+      .hero {
+        padding-top: 36px;
+      }
 
-/* Inhalt über das Bild heben */
-body > * {
-    position: relative;
-    z-index: 1;
-}
-    
+      .hero-title {
+        font-size: clamp(2.55rem, 13vw, 4.4rem);
+      }
+
+      .badges {
+        gap: 0.65rem;
+      }
+
+      .badge {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .cta {
+        width: 100%;
+      }
+    }
   </style>
-
 </head>
+
 <body>
+  <div class="bg-image" aria-hidden="true">
+    <img
+      src="./images/ouyalaunch-screenshot.png"
+      alt=""
+      onerror="this.onerror=null; this.src='/images/ouyalaunch-screenshot.png';"
+    >
+  </div>
+
+  <div class="bg-overlay" aria-hidden="true"></div>
+
   <main class="page">
-    <header class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">Android · OUYA</p>
-        <h1>OUYAlaunch</h1>
-        <h2 class="hero-subtitle">Fast, OUYA-styled launcher for the OUYA micro-console</h2>
-        <p class="lede">
-          OUYAlaunch is a custom home screen replacement for the original OUYA.
-          It keeps the console’s dark, cinematic look, adds genre tabs and favourites,
-          and focuses entirely on controller-only navigation and fast app launching.
-        </p>
+    <header class="topbar" aria-label="Site header">
+      <a class="brand" href="./" aria-label="OUYAlaunch home">OUYAlaunch</a>
 
-        <div class="meta-badges">
-          <span class="badge">Platform: OUYA · Android 4.1.x</span>
-        </div>
-
-        <div class="cta-row">
-          <a class="btn-primary" href="https://github.com/Andiweli/OUYAlaunch/releases/latest">
-            Download latest APK
-          </a>
-          <a class="btn-secondary" href="https://github.com/Andiweli/OUYAlaunch">
-            View on GitHub
-          </a>
-        </div>
-
-      </div>
-
-      <div class="hero-media">
-        <div class="screenshot-frame">
-          <img
-            src="images/ouyalaunch-screenshot.png"
-            alt="OUYAlaunch favorites and genre tabs on OUYA">
-        </div>
-      </div>
+      <a class="top-link" href="https://github.com/Andiweli/OUYAlaunch" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.56.1.77-.24.77-.54v-2c-3.12.68-3.78-1.34-3.78-1.34-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.7 2.63 3.16 1.9.1-.73.39-1.23.71-1.51-2.49-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.52.4.35.76 1.04.76 2.1v3.06c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
+        </svg>
+        View on GitHub
+      </a>
     </header>
 
-    <section>
-      <h2>Features</h2>
-      <div class="split">
-        <div>
-          <ul>
-            <li><strong>OUYA-styled, clean UI</strong><br>
-              Dark background, OUYA-orange highlights and simple tiles designed to blend in with the stock system.
-            </li>
-            <li><strong>Fast and lightweight</strong><br>
-              Optimised for OUYA’s Android 4.1.2 base with icon caching so the app grid stays responsive even with many games installed.
-            </li>
-            <li><strong>Favorites and genre tabs</strong><br>
-              Separate <em>Favorites</em> row plus six configurable genre tabs for a tidy library.
-            </li>
-            <li><strong>Controller-only navigation</strong><br>
-              Every action can be performed with the OUYA controller.
-            </li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <li><strong>Automatic app discovery</strong><br>
-              Scans all installed apps for an <code>ouya_icon.png</code> in their resources
-              and uses that as the tile art, just like the original OUYA launcher.
-            </li>
-            <li><strong>JSON-based genre names</strong><br>
-              Rename the six genre tabs via a simple JSON config on internal storage.
-            </li>
-            <li><strong>Safe drop-in replacement</strong><br>
-              Can be used alongside or instead of the stock launcher – you choose it when pressing the OUYA / Home button.
-            </li>
-            <li><strong>Shows internet connection status</strong><br>
-              A small icon displays the current connection status via LAN or WiFi.
-            </li>
-          </ul>
-        </div>
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title" class="hero-logo-title">
+        <img src="./images/ouyalaunch-logo.png" alt="OUYAlaunch">
+      </h1>
+
+      <p class="subtitle">Fast OUYA-styled launcher for the OUYA micro-console</p>
+
+      <div class="badges" aria-label="Project badges">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M7.2 7.8 5.4 4.7a.7.7 0 1 1 1.2-.7l1.9 3.2a7.9 7.9 0 0 1 7 0L17.4 4a.7.7 0 1 1 1.2.7l-1.8 3.1A7.6 7.6 0 0 1 20 14v1H4v-1a7.6 7.6 0 0 1 3.2-6.2ZM8 12.6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 16h14v4.2a1.8 1.8 0 0 1-1.8 1.8H6.8A1.8 1.8 0 0 1 5 20.2V16Z"/>
+          </svg>
+          Android 4.1.x
+        </span>
+
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 2.6 14.92 8.52l6.53.95-4.73 4.61 1.12 6.5L12 17.5l-5.84 3.08 1.12-6.5-4.73-4.61 6.53-.95L12 2.6Z"/>
+          </svg>
+          Favorites + Genres
+        </span>
+
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M4.5 4h15A2.5 2.5 0 0 1 22 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 17.5v-11A2.5 2.5 0 0 1 4.5 4Zm0 2A.5.5 0 0 0 4 6.5v11a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.5-.5h-15Zm3.25 4.3h2.15V8.2h1.75v2.1h2.1v1.75h-2.1v2.1H9.9v-2.1H7.75V10.3Zm8.15 4.25a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3Zm2.25-3.15a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3Z"/>
+          </svg>
+          Controller Only
+        </span>
+      </div>
+
+      <div class="intro-row">
+        <p class="intro">
+          OUYAlaunch is a custom home screen replacement built for the original OUYA console. It keeps the familiar feel, adds favorites and genre tabs, speeds up browsing with cached icons and stays fully focused controller-only navigation.
+        </p>
+
+        <a class="cta" href="https://github.com/Andiweli/OUYAlaunch" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.56.1.77-.24.77-.54v-2c-3.12.68-3.78-1.34-3.78-1.34-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.7 2.63 3.16 1.9.1-.73.39-1.23.71-1.51-2.49-.28-5.1-1.24-5.1-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.15a10.7 10.7 0 0 1 5.65 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.52.4.35.76 1.04.76 2.1v3.06c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/>
+          </svg>
+          Download at GitHub
+        </a>
       </div>
     </section>
 
-    <section>
-      <h2>How OUYAlaunch works</h2>
-      <p>
-        On first start, OUYAlaunch scans all installed apps on the console. For each package it looks for
-        an <code>ouya_icon.png</code> anywhere inside the app’s <code>res/</code> folder.
-        Matching icons are cached so the launcher can draw the app grid quickly.
-      </p>
-      <p>
-        Every detected app is initially placed into the second tab <em>“Casual”</em>. From there you can move
-        each title to the genre that fits best or mark it as a favorite. The icon cache can be rebuilt at any time.
-      </p>
+    <section class="cards" aria-label="OUYAlaunch highlights">
+      <article class="card">
+        <div class="card-heading">
+          <h2>Highlights</h2>
+        </div>
+        <ul>
+          <li>OUYA-styled clean interface</li>
+          <li>Fast icon caching for smoother browsing</li>
+          <li>Controller-only navigation</li>
+          <li>Automatic app discovery</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card-heading">
+          <h2>Requirements</h2>
+        </div>
+        <ul>
+          <li>OUYA console or Android 4.1.x device</li>
+          <li>Game controller / OUYA controller</li>
+          <li>APK installation from GitHub releases</li>
+          <li>Apps with “ouya_icon.png” supported best</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card-heading">
+          <h2>How it works</h2>
+        </div>
+        <ul>
+          <li>Scans installed apps on first launch</li>
+          <li>Caches matching icons for fast grid drawing</li>
+          <li>New apps can be moved between genre tabs</li>
+          <li>Favorites and rescan are available anytime</li>
+        </ul>
+      </article>
     </section>
 
-    <section>
-      <h2>Controller mapping</h2>
-      <div class="split">
-        <div>
-          <p class="small-heading">In-grid actions</p>
-          <ul>
-            <li><strong>O</strong> – Launch selected app</li>
-            <li><strong>U</strong> – Move selected app to the next genre tab</li>
-            <li><strong>Y</strong> – Delete an app (hold for ~2 seconds)</li>
-            <li><strong>A</strong> – Mark / unmark an app as Favorite</li>
-          </ul>
-        </div>
-        <div>
-          <p class="small-heading">Navigation &amp; global</p>
-          <ul>
-            <li><strong>L1 / R1</strong> – Switch between <em>Favorites</em> and genre tabs</li>
-            <li><strong>L2 + R2</strong> (together) – Rescan installed apps and rebuild the icon cache</li>
-            <li><strong>D-Pad / Left stick / Right stick</strong> – Move selection in the grid</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Renaming genre tabs</h2>
-      <p>
-        From version 1.5 onwards you can rename the six genre tabs without recompiling the app.
-        OUYAlaunch writes a JSON file to internal storage on first start:
-      </p>
-      <div class="mono">
-sdcard/android/data/com.ast.ouyalaunch
-      </div>
-      <p>
-        Inside that folder you will find a JSON file similar to:
-      </p>
-      <div class="mono">
-{
-  "Favorites": "Favorites",
-  "Genre1": "Casual",
-  "Genre2": "Action",
-  "Genre3": "Racing",
-  "Genre4": "Simulation",
-  "Genre5": "RPG",
-  "Genre6": "Apps"
-}
-      </div>
-      <ul>
-        <li>Do not rename the keys (<code>"Genre1"</code> … <code>"Genre6"</code>).</li>
-        <li>Only change the values on the right side (for example <code>"Racing"</code>, <code>"Apps"</code>).</li>
-        <li>Edit the file directly on the OUYA with a file manager or on a PC and copy it back.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Installation</h2>
-      <div class="split">
-        <div>
-          <p class="small-heading">Ready-to-use APK</p>
-          <ol style="margin:0 0 10px 18px; padding:0; font-size:14px; line-height:1.7; color:var(--ouya-text-muted);">
-            <li>Download the latest APK from the
-              <a href="https://github.com/Andiweli/OUYAlaunch/releases/latest">Releases page</a>.
-            </li>
-            <li>Copy it to your OUYA (USB drive, network share or browser).</li>
-            <li>Install the APK on the console.</li>
-            <li>Press the OUYA / Home button and select <strong>OUYAlaunch</strong> as launcher
-              (optionally set it as default).
-            </li>
-          </ol>
-          <p>
-            You can check the detailed version history in the bundled
-            <code>changelog.txt</code> file or directly on GitHub.
-          </p>
-        </div>
-        <div>
-          <p class="small-heading">Build from source</p>
-          <p>
-            If you want to modify OUYAlaunch or build it yourself:
-          </p>
-          <ul>
-            <li>Minimum Android version: SDK 16 (Android 4.1.x – OUYA firmware)</li>
-            <li>IDE: Android Studio 4.0.1 or newer</li>
-            <li>Language: Java</li>
-          </ul>
-          <p class="small-heading" style="margin-top:10px;">Clone &amp; build</p>
-          <div class="mono">
-git clone https://github.com/Andiweli/OUYAlaunch.git
-cd OUYAlaunch
-# Open in Android Studio, let Gradle sync and build the APK
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      OUYAlaunch is an open-source side project by
-      <a href="https://github.com/andiweli">@andiweli</a>
-      to give the OUYA a modern, focused launcher while staying true to the original console look.
+    <footer class="footer-note">
+      OUYAlaunch is an open-source project by <a href="https://github.com/andiweli" target="_blank" rel="noopener">@andiweli</a>.
     </footer>
   </main>
 </body>
