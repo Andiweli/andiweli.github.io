@@ -453,6 +453,33 @@
             border-color: #ff6a28;
         }
 
+    /* Unreal-Farben für die Unreal-Highlight-Kachel */
+    .highlight-card-unreal {
+        background: rgba(13, 17, 23, 0.85);
+        border-color: #e2c849;
+    }
+
+    .highlight-card-unreal .highlight-label {
+        color: #e2c849;
+    }
+
+    .highlight-card-unreal .highlight-title {
+        color: #ffffff;
+    }
+
+    .highlight-card-unreal .highlight-link {
+        background: #e2c849;
+        border-color: #e2c849;
+        color: #111111;
+    }
+
+    .highlight-card-unreal .highlight-link:hover,
+    .highlight-card-unreal .highlight-link:focus-visible {
+        background: #edd86d;
+        border-color: #edd86d;
+        color: #111111;
+    }
+        
     </style>
 </head>
 
@@ -488,35 +515,48 @@
 
     <!-- Bestehende ZGloom-Highlight-Section + neue OUYAlaunch-Section
      gemeinsam in einen Wrapper legen: -->
-    <div class="highlight-grid">
-    <!-- Hervorgehobene ZGloom-Unterseite -->
-     <section class="highlight-card" aria-labelledby="zgloom-highlight">
-            <div class="highlight-label">Featured project</div>
-            <div id="zgloom-highlight" class="highlight-title">ZGloom Collection</div>
-            <p class="highlight-body">
-                Learn more about the modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS&nbsp;Vita,
-                including screenshots, feature overview and direct download links.
-            </p>
-            <a class="highlight-link" href="https://andiweli.github.io/zgloom/" rel="noopener">
-                Open ZGloom Ports
-            </a>
-    </section>
-
+<div class="highlight-grid">
     <!-- Featured OUYAlaunch project -->
-    <section class="highlight-card highlight-card-ouya" aria-labelledby="ouya-highlight">   
-            <div class="highlight-label">Featured project</div>
-            <div id="ouya-highlight" class="highlight-title">OUYAlaunch</div>
-            <p class="highlight-body">
-                Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs
-                and icon caching – designed to match the original OUYA look while keeping navigation fast
-                and controller-only.
-            </p>
-            <a class="highlight-link" href="https://andiweli.github.io/ouyalaunch/" rel="noopener">
-                Open OUYAlaunch
-            </a>
+    <section class="highlight-card highlight-card-ouya" aria-labelledby="ouya-highlight">
+        <div class="highlight-label">Featured project</div>
+        <div id="ouya-highlight" class="highlight-title">OUYAlaunch</div>
+        <p class="highlight-body">
+            Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs
+            and icon caching – designed to match the original OUYA look while keeping navigation fast
+            and controller-only.
+        </p>
+        <a class="highlight-link" href="https://andiweli.github.io/ouyalaunch/" rel="noopener">
+            Open OUYAlaunch
+        </a>
     </section>
-    </div>
 
+    <!-- Featured ZGloom project -->
+    <section class="highlight-card" aria-labelledby="zgloom-highlight">
+        <div class="highlight-label">Featured project</div>
+        <div id="zgloom-highlight" class="highlight-title">ZGloom Collection</div>
+        <p class="highlight-body">
+            Learn more about the modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS&nbsp;Vita,
+            including screenshots, feature overview and direct download links.
+        </p>
+        <a class="highlight-link" href="https://andiweli.github.io/zgloom/" rel="noopener">
+            Open ZGloom Ports
+        </a>
+    </section>
+
+    <!-- Featured Unreal Android project -->
+    <section class="highlight-card highlight-card-unreal" aria-labelledby="unreal-highlight">
+        <div class="highlight-label">Featured project</div>
+        <div id="unreal-highlight" class="highlight-title">Unreal Android</div>
+        <p class="highlight-body">
+            Discover the Android version of Unreal, including the modern Android 8 build and the specialised
+            OUYA edition with controller-focused support for classic hardware.
+        </p>
+        <a class="highlight-link" href="https://andiweli.github.io/unreal/" rel="noopener">
+            OPEN UNREAL ANDROID
+        </a>
+    </section>
+</div>
+    
 <section aria-labelledby="core-projects">
     <h2 id="core-projects">Core projects</h2>
     <p class="section-intro">
