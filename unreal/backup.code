@@ -253,6 +253,31 @@
       padding: 6px 0 clamp(30px, 5vw, 60px);
     }
 
+.site-footer {
+  margin-top: 0;
+  padding: 22px 0 30px;
+  border-top: 1px solid rgba(226, 200, 73, 0.42);
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.site-footer a {
+  color: #e2c849;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #f1dc6a;
+  text-decoration: underline;
+}
+    
     .card {
       min-height: 216px;
       padding: 1.7rem 1.75rem 1.6rem;
@@ -368,6 +393,24 @@
         width: 100%;
       }
     }
+
+.footer-note {
+  max-width: 920px;
+  margin: auto auto 3.6rem;
+  padding-top: 1.05rem;
+  border-top: 1px solid rgba(226, 200, 73, 0.42);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+  line-height: 1.55;
+  text-align: center;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.64);
+}
+
+.footer-note a {
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 700;
+}
+    
   </style>
 </head>
 
@@ -483,6 +526,11 @@
         </ul>
       </article>
     </section>
+
+<footer class="footer-note">
+  Unreal Android is an open-source project by <a href="https://github.com/andiweli" target="_blank" rel="noopener">@andiweli</a>.
+</footer>
+    
   </main>
 </body>
 </html>
