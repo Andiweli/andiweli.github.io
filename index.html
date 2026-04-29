@@ -885,8 +885,10 @@
     /* Fancy scroll reveal / lazy render */
     .reveal {
       opacity: 0;
-      transform: translateY(28px) scale(0.965);
-      filter: blur(6px);
+      /* transform: translateY(28px) scale(0.965); */
+      transform: translateY(42px) scale(0.94);
+      /* filter: blur(6px); */
+      filter: blur(8px);
       transition:
         opacity 680ms cubic-bezier(.2, .8, .2, 1),
         transform 680ms cubic-bezier(.2, .8, .2, 1),
@@ -1124,8 +1126,8 @@
       });
     }, {
       root: null,
-      threshold: 0.14,
-      rootMargin: '0px 0px -8% 0px'
+      threshold: 0.28,
+      rootMargin: '0px 0px -18% 0px'
     });
 
     revealItems.forEach(el => observer.observe(el));
