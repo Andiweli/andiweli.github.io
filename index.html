@@ -881,6 +881,52 @@
     .copyright {
       margin-bottom: 0;
     }
+
+    /* Fancy scroll reveal / lazy render */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px) scale(0.965);
+      filter: blur(6px);
+      transition:
+        opacity 680ms cubic-bezier(.2, .8, .2, 1),
+        transform 680ms cubic-bezier(.2, .8, .2, 1),
+        filter 680ms cubic-bezier(.2, .8, .2, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    /* Browser rendert Offscreen-Elemente später */
+    .feature-card,
+    .quote-card,
+    .repo-card,
+    .footer-box {
+      content-visibility: auto;
+      contain-intrinsic-size: 220px;
+    }
+
+    /* Sanfter Hover bleibt erhalten */
+    .feature-card,
+    .quote-card,
+    .repo-card,
+    .footer-box {
+      transform-origin: center center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+      }
+    }
+    
   </style>
 </head>
 <body>
