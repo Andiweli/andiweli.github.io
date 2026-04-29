@@ -914,7 +914,7 @@
         </div>
         <div class="portrait-wrap">
           <div class="portrait-card">
-            <img src="images/profile.png" alt="Illustrated portrait of Andreas Stürmer with an orange cat" />
+            <img src="images/profile.png" alt="Illustrated portrait of Andreas Stürmer with an orange cat" loading="eager" decoding="async" />
           </div>
           <div class="vertical-note">Design <span>•</span> Code <span>•</span> Restore <span>•</span> Play</div>
         </div>
@@ -936,7 +936,7 @@
               <p>A fast and elegant launcher for the OUYA console. Built for performance, controller-first navigation and a beautiful browsing experience.</p>
               <a class="card-btn" href="https://andiweli.github.io/ouyalaunch/">View project →</a>
             </div>
-            <div class="feature-media"><img src="images/teaser-ouyalaunch.png" alt="OUYALaunch preview" /></div>
+            <div class="feature-media"><img src="images/teaser-ouyalaunch.png" alt="OUYALaunch preview" loading="lazy" decoding="async" /></div>
           </article>
 
           <article class="feature-card zgloom">
@@ -947,7 +947,7 @@
               <p>Modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS Vita, including screenshots, features and downloads.</p>
               <a class="card-btn" href="https://andiweli.github.io/zgloom/">View project →</a>
             </div>
-            <div class="feature-media"><img src="images/teaser-zgloom.png" alt="ZGLOOM Collection preview" /></div>
+            <div class="feature-media"><img src="images/teaser-zgloom.png" alt="ZGLOOM Collection preview" loading="lazy" decoding="async" /></div>
           </article>
 
           <article class="feature-card unreal">
@@ -958,7 +958,7 @@
               <p>The Android version of Unreal, including the modern Android 8 build and the specialised OUYA edition with controller-focused support.</p>
               <a class="card-btn" href="https://andiweli.github.io/unreal/">View project →</a>
             </div>
-            <div class="feature-media"><img src="images/teaser-unrealandroid.png" alt="Unreal Android preview" /></div>
+            <div class="feature-media"><img src="images/teaser-unrealandroid.png" alt="Unreal Android preview" loading="lazy" decoding="async" /></div>
           </article>
 
           <aside class="quote-card">
@@ -1046,5 +1046,45 @@
       </div>
     </main>
   </div>
+
+<!-- Dynamic loader script -->
+<script>
+  (() => {
+    const revealItems = document.querySelectorAll([
+      '.section-head',
+      '.feature-card',
+      '.quote-card',
+      '.repo-card',
+      '.footer-box',
+      '.copyright'
+    ].join(','));
+
+    if (!('IntersectionObserver' in window)) {
+      revealItems.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    revealItems.forEach((el, index) => {
+      el.classList.add('reveal');
+      el.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 70}ms`);
+    });
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      });
+    }, {
+      root: null,
+      threshold: 0.14,
+      rootMargin: '0px 0px -8% 0px'
+    });
+
+    revealItems.forEach(el => observer.observe(el));
+  })();
+</script>
+  
 </body>
 </html>
