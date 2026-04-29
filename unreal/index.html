@@ -387,26 +387,31 @@
       }
     }
     
-    /* Mobile footer / viewport scroll fix */
-html,
-body {
-  min-height: 100%;
-  overflow-x: hidden;
-}
+    html {
+      min-height: 100%;
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
 
-body {
-  min-height: 100dvh;
-  overscroll-behavior-y: none;
-}
+    body {
+      min-height: 100dvh;
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior-y: auto;
+    }
 
-.page {
-  min-height: 100dvh;
-  padding-bottom: max(18px, env(safe-area-inset-bottom));
-}
+    .page {
+      min-height: 100dvh;
+      height: auto;
+      overflow: visible;
+      padding-bottom: max(18px, env(safe-area-inset-bottom));
+    }
 
-.footer-note {
-  margin: 0 auto 0;
-}
+    .footer-note {
+      margin: 0 auto 0;
+    }
   </style>
 </head>
 
