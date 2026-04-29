@@ -855,26 +855,32 @@
       }
     }
     
-    /* Mobile footer / overscroll fix */
-html,
-body {
-  min-height: 100%;
-  overflow-x: hidden;
-}
+    /* Footer / scroll fix */
+    html {
+      min-height: 100%;
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
 
-body {
-  min-height: 100dvh;
-  overscroll-behavior-y: none;
-}
+    body {
+      min-height: 100dvh;
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior-y: auto;
+    }
 
-.site {
-  min-height: 100dvh;
-  padding-bottom: max(18px, env(safe-area-inset-bottom));
-}
+    .site {
+      min-height: 100dvh;
+      height: auto;
+      overflow: visible;
+      padding-bottom: max(18px, env(safe-area-inset-bottom));
+    }
 
-.copyright {
-  margin-bottom: 0;
-}
+    .copyright {
+      margin-bottom: 0;
+    }
   </style>
 </head>
 <body>
