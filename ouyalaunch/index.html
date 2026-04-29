@@ -379,6 +379,27 @@
         width: 100%;
       }
     }
+    
+    /* Mobile footer / viewport scroll fix */
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100dvh;
+  overscroll-behavior-y: none;
+}
+
+.page {
+  min-height: 100dvh;
+  padding-bottom: max(18px, env(safe-area-inset-bottom));
+}
+
+.footer-note {
+  margin: 0 auto 0;
+}
   </style>
 </head>
 
