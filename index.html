@@ -854,6 +854,27 @@
         letter-spacing: -.055em;
       }
     }
+    
+    /* Mobile footer / overscroll fix */
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100dvh;
+  overscroll-behavior-y: none;
+}
+
+.site {
+  min-height: 100dvh;
+  padding-bottom: max(18px, env(safe-area-inset-bottom));
+}
+
+.copyright {
+  margin-bottom: 0;
+}
   </style>
 </head>
 <body>
