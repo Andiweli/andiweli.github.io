@@ -1,760 +1,1022 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Andreas “Andiweli” – Retro Gaming Ports, Launchers & Themes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta
-    name="description"
-    content="Overview of Andreas “Andiweli” Stürmer on GitHub – developer of ZGLOOM Amiga FPS ports, OUYAlaunch, HexFlow cover packs, GameStick assets, Sega EverDrive themes and more retro gaming projects."
-  >
-  <meta name="robots" content="index,follow">
-
-  <link rel="canonical" href="https://andiweli.github.io/">
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Andreas “Andiweli” Stürmer – Retro Gaming Ports, Launchers & Themes">
-  <meta
-    property="og:description"
-    content="Explore ZGLOOM Amiga FPS ports, OUYAlaunch, HexFlow cover packs, GameStick assets, Sega EverDrive themes and other retro gaming projects by Andreas “Andiweli”."
-  >
-  <meta property="og:url" content="https://andiweli.github.io/">
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/11447150?v=4">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Andreas “Andiweli” Stürmer – Retro Gaming Ports, Launchers & Themes">
-  <meta
-    name="twitter:description"
-    content="Amiga Gloom source ports, OUYA launcher, PS Vita cover packs, GameStick assets, Sega EverDrive themes and more retro projects."
-  >
-  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/11447150?v=4">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Andreas",
-    "alternateName": "Andiweli",
-    "url": "https://github.com/andiweli",
-    "sameAs": [
-      "https://github.com/andiweli",
-      "https://andiweli.github.io/zgloom/",
-      "https://andiweli.github.io/ouyalaunch/"
-    ],
-    "jobTitle": "Software Developer",
-    "description": "Developer of retro gaming ports, launchers, themes and asset packs for platforms like Amiga, OUYA, PS Vita, GameStick and Sega Mega Drive."
-  }
-  </script>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Andreas Stürmer — @andiweli</title>
+  <meta name="description" content="Retro gaming ports, launchers, themes and asset packs by Andreas Stürmer / @andiweli." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #050608;
-      --card-bg: rgba(13, 17, 23, 0.85);
-      --accent: #646464;
-      --accent-soft: rgba(100, 100, 100, 0.20);
-      --accent-dark: #3f8c45;
-      --accent-green: #6fd673;
-      --text-main: #f4f4f4;
-      --text-muted: #b7b7b7;
+      --bg: #fbfaf8;
+      --card: #ffffff;
+      --ink: #11151c;
+      --text: #30353d;
+      --muted: #7a8089;
+      --line: #e8e4df;
+      --soft: #f8f4f1;
+      --accent: #f25d49;
+      --accent-dark: #d94836;
+      --shadow: 0 22px 70px rgba(26, 22, 18, .075);
+      --radius: 20px;
+      --radius-lg: 32px;
+      --max: 1180px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      min-height: 100vh;
       margin: 0;
-      padding: 2.5rem 1.5rem;
-      display: flex;
-      justify-content: center;
-      overflow-x: hidden;
-      position: relative;
-      color: var(--text-main);
-      background-color: var(--bg);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(242,93,73,.06), transparent 32rem),
+        linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background-image: url("images/wallpaper.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: right top;
-      background-color: rgba(0, 0, 0, 0.30);
-      background-blend-mode: darken;
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .site {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 32px 0 24px;
     }
 
-    main {
-      width: 100%;
-      max-width: 1100px;
-    }
-
-    a {
-      color: var(--accent);
-    }
-
-    a:hover {
-      color: var(--accent-dark);
-    }
-
-    .hero {
-      margin-bottom: 2rem;
-      padding: 1.6rem 1.6rem 1.5rem;
-      border: 1px solid var(--accent-soft);
-      border-radius: 10px;
-      background: var(--card-bg);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
-    }
-
-    .hero-top {
+    .topbar {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.6rem;
+      justify-content: flex-end;
+      gap: 28px;
+      min-height: 46px;
+      margin-bottom: 22px;
     }
 
-    .hero-avatar {
-      flex: 0 0 auto;
-      width: 64px;
-      height: 64px;
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(22px, 3.6vw, 50px);
+      font-size: .98rem;
+      color: #1f242b;
+      margin-left: auto;
+    }
+
+    .nav a:not(.github-btn) {
+      position: relative;
+      padding: 10px 0;
+      white-space: nowrap;
+    }
+
+    .nav a:not(.github-btn)::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 2px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      transform: translateX(-50%);
+      transition: width .2s ease;
+    }
+
+    .nav a:hover { color: var(--accent); }
+    .nav a:hover::after { width: 24px; }
+
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 16px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff !important;
+      font-weight: 760;
+      box-shadow: 0 12px 26px rgba(242, 93, 73, .22);
+    }
+
+    .github-btn:hover { background: var(--accent-dark); }
+
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .88);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: clamp(28px, 5vw, 72px);
+      min-height: 440px;
+      padding: clamp(28px, 4.5vw, 54px);
+      position: relative;
       overflow: hidden;
-      border: 2px solid var(--accent-soft);
-      border-radius: 50%;
-      background: #000;
     }
 
-    .hero-avatar img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-text {
+    .hero-copy {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      max-width: 500px;
     }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: .78rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .kicker b { color: var(--accent); font-weight: 800; }
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: clamp(3rem, 5.8vw, 5rem);
+      line-height: .96;
+      letter-spacing: -.065em;
+      font-weight: 830;
     }
 
-    .hero-name span {
-      display: inline;
+    .handle {
+      margin-top: 14px;
+      color: var(--accent);
+      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+      font-weight: 760;
+      letter-spacing: -.035em;
     }
 
-    .hero-handle {
+    .rule {
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+      margin: 20px 0 18px;
+    }
+
+    .intro {
+      max-width: 430px;
       margin: 0;
-      color: var(--text-muted);
-      font-size: 1rem;
+      font-size: clamp(1rem, 1.7vw, 1.18rem);
+      color: #3d434d;
     }
 
-    .hero-subtitle {
-      margin: 0.4rem 0 0.8rem;
-      color: var(--text-muted);
-      font-size: 1.05rem;
-    }
-
-    .hero-keyline {
-      margin: 0.6rem 0 0;
-      font-size: 1rem;
-      font-style: italic;
-    }
-
-    .tags {
+    .pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.9rem;
+      gap: 10px;
+      margin-top: 28px;
     }
 
-    .tag {
-      padding: 0.15rem 0.65rem;
-      border: 1px solid var(--accent-soft);
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
+      background: #fff;
+      color: #2e333b;
+      font-size: .9rem;
+      box-shadow: 0 8px 24px rgba(20, 15, 10, .035);
     }
+    .pill svg { width: 17px; height: 17px; }
 
-    section {
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      margin: 0 0 0.6rem;
-      font-size: 1.45rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    p {
-      margin: 0 0 0.8rem;
-      font-size: 1.02rem;
-      line-height: 1.6;
-    }
-
-    .section-intro {
-      margin-bottom: 1rem;
-      color: var(--text-muted);
-      font-size: 0.98rem;
-    }
-
-    .grid,
-    .core-projects-grid,
-    .highlight-grid {
+    .portrait-wrap {
+      min-width: 0;
       display: grid;
-      gap: 1rem;
+      grid-template-columns: minmax(0, 1fr) 62px;
+      align-items: stretch;
+      gap: 20px;
     }
 
-    .grid {
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    .portrait-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      min-height: 400px;
+      background: var(--soft);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.68), 0 18px 42px rgba(26, 22, 18, .08);
+      isolation: isolate;
     }
 
-    .core-projects-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .portrait-card::before {
+      content: '';
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: 8%;
+      top: 20%;
+      border-radius: 50%;
+      background: rgba(242, 93, 73, .9);
+      z-index: 1;
+    }
+
+    .portrait-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(17,21,28,.18) 1px, transparent 1px);
+      background-size: 17px 17px;
+      opacity: .16;
+      z-index: 2;
+      pointer-events: none;
+      mask-image: linear-gradient(90deg, #000 0, transparent 48%);
+    }
+
+    .portrait-card img {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .vertical-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2f343c;
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .27em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+    .vertical-note span { color: var(--accent); margin: 14px 0; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 18px;
+      margin: 32px 0 20px;
+    }
+
+    .section-title {
+      margin: 0;
+      color: #1f252d;
+      font-size: .86rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      font-weight: 860;
+    }
+
+    .section-line { height: 1px; background: var(--line); }
+
+    .view-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-size: .94rem;
+      font-weight: 740;
+      white-space: nowrap;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .feature-card {
+      min-height: 270px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: 0 18px 55px rgba(26,22,18,.055);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      position: relative;
+    }
+
+    .feature-card.wide { grid-column: span 1; }
+
+    .feature-text {
+      padding: 27px 0 27px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+      z-index: 2;
+    }
+
+    .num {
+      color: var(--accent);
+      font-weight: 850;
+      font-size: .92rem;
+      letter-spacing: .03em;
+      margin-bottom: 12px;
+    }
+    .num::after {
+      content: '';
+      display: block;
+      width: 18px;
+      height: 1px;
+      background: var(--accent);
+      margin-top: 4px;
+    }
+
+    .feature-card h3 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(1.55rem, 2.4vw, 2.05rem);
+      line-height: 1.05;
+    }
+
+    .meta {
+      margin: 10px 0 12px;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 820;
+      letter-spacing: .04em;
+    }
+
+    .feature-card p {
+      margin: 0;
+      max-width: 300px;
+      color: #515862;
+      font-size: .92rem;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+      padding: 10px 14px;
+      border: 1px solid rgba(242,93,73,.35);
+      border-radius: 12px;
+      color: var(--accent);
+      font-size: .86rem;
+      font-weight: 780;
+      background: rgba(242,93,73,.035);
+    }
+
+    .feature-media {
+      position: relative;
+      min-height: 220px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      overflow: hidden;
+      padding: 18px;
+    }
+
+    .feature-media::before {
+      content: '';
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      right: 12px;
+      bottom: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(242,93,73,.09), rgba(242,93,73,0) 66%);
+    }
+
+    .feature-media img {
+      position: relative;
+      z-index: 1;
+      max-width: 112%;
+      max-height: 240px;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 28px rgba(20, 17, 14, .11));
+    }
+
+    .feature-card.zgloom .feature-media img {
+      width: 100%;
+      height: 100%;
+      max-height: none;
+      object-fit: contain;
+      object-position: right bottom;
+    }
+
+    .feature-card.unreal { grid-column: span 1; }
+
+    .quote-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #fff 0%, #fff 60%, rgba(242,93,73,.045) 100%);
+      box-shadow: 0 18px 55px rgba(26,22,18,.055);
+      padding: 40px 34px;
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .quote-mark {
+      font-size: 3rem;
+      line-height: .7;
+      color: var(--accent);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .quote-card p {
+      margin: 0;
+      max-width: 330px;
+      color: #25303a;
+      font-size: clamp(1.1rem, 1.7vw, 1.34rem);
+      line-height: 1.45;
+    }
+    .quote-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 28px;
+      color: #303641;
+      font-size: .9rem;
+    }
+    .quote-icons span { display: inline-flex; gap: 8px; align-items: center; }
+    .accent-dash { width: 34px; height: 2px; border-radius: 999px; background: var(--accent); margin-top: 30px; }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .list-card {
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--card);
+      box-shadow: 0 14px 42px rgba(26,22,18,.045);
+      padding: 20px;
+    }
+    .list-card h4 {
+      margin: 0 0 16px;
+      color: #1f252d;
+      font-size: .78rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .mini-item {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid #f0ece7;
+    }
+    .mini-item:first-of-type { border-top: 0; padding-top: 0; }
+    .mini-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: var(--soft);
+      color: #242a32;
+      overflow: hidden;
+      font-weight: 850;
+    }
+    .mini-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .mini-title { display: block; color: #1d232b; font-size: .94rem; font-weight: 830; line-height: 1.2; }
+    .mini-desc { display: block; color: #747b85; font-size: .78rem; line-height: 1.35; margin-top: 3px; }
+    .mini-arrow { color: #9aa1aa; font-weight: 900; }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
     }
 
     .repo-card {
+      min-height: 158px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--card);
+      padding: 20px;
+      box-shadow: 0 14px 42px rgba(26,22,18,.045);
       display: flex;
       flex-direction: column;
-      padding: 0.85rem 1rem 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 14px;
-      color: var(--text-main);
-      background: var(--card-bg);
-      text-decoration: none;
-      transition:
-        transform 0.12s ease-out,
-        box-shadow 0.12s ease-out,
-        border-color 0.12s ease-out;
+      gap: 10px;
     }
-
-    .repo-card:hover,
-    .repo-card:focus-visible {
-      transform: translateY(-2px);
-      border-color: var(--accent-soft);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8);
-      outline: none;
-    }
-
-    .repo-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.4rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .repo-name {
-      font-size: 0.98rem;
-      font-weight: 600;
-    }
-
-    .repo-pill {
-      display: inline-block;
-      align-self: flex-start;
-      flex: 0 0 auto;
-      width: auto;
-      max-width: none;
-      padding: 0.12rem 0.6rem;
-      border: 1px solid var(--accent-soft);
-      border-radius: 999px;
-      color: var(--text-muted);
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .repo-desc {
-      margin: 0.2rem 0 0.6rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
+    .repo-head { display: flex; align-items: center; gap: 12px; }
+    .repo-icon { width: 38px; height: 38px; border-radius: 11px; background: #f5f2ee; display: grid; place-items: center; color: var(--ink); font-weight: 900; }
+    .repo-card h4 { margin: 0; font-size: 1rem; color: #1d232b; line-height: 1.2; }
+    .repo-card p { margin: 0; color: #666e79; font-size: .86rem; line-height: 1.42; }
     .repo-meta {
       margin-top: auto;
-      color: var(--accent);
-      font-size: 0.8rem;
-    }
-
-    .highlight-grid {
-      gap: 16px;
-      margin-bottom: 2rem;
-    }
-
-    .highlight-card {
-      position: relative;
       display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      margin-bottom: 0;
-      padding: 1rem 1.1rem 1.1rem;
-      border: 1px solid var(--accent-green);
-      border-radius: 16px;
-      background: var(--card-bg);
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.8);
-      transition:
-        transform 0.12s ease-out,
-        box-shadow 0.12s ease-out;
-    }
-
-    .highlight-card:hover,
-    .highlight-card:focus-within {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.85);
-    }
-
-    .highlight-label {
-      margin-bottom: 0.4rem;
-      color: var(--accent-green);
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .highlight-title {
-      margin-bottom: 0.3rem;
-      font-size: 1.15rem;
-      font-weight: 600;
-    }
-
-    .highlight-body {
-      margin-bottom: 0.6rem;
-      color: var(--text-muted);
-      font-size: 0.96rem;
-    }
-
-    .highlight-footer {
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      margin-top: auto;
+      color: #8b929b;
+      font-size: .78rem;
     }
 
-    .highlight-link {
-      position: relative;
-      z-index: 2;
-      display: inline-flex;
-      flex: 0 0 auto;
+    .footer-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 28px;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    .footer-box {
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(255,255,255,.76);
+      min-height: 128px;
+      padding: 24px 26px;
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
       align-items: center;
-      justify-content: center;
-      min-height: 34px;
-      padding: 0.45rem 0.9rem;
-      border: 1px solid var(--accent-soft);
-      border-radius: 10px;
-      color: var(--accent-green);
-      background: #050708;
-      font-size: 0.86rem;
-      line-height: 1;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      text-transform: uppercase;
+    }
+    .footer-icon {
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: #fff;
+    }
+    .footer-box h4 { margin: 0 0 4px; color: #1d232b; font-size: 1rem; }
+    .footer-box p { margin: 0; color: #6e7580; font-size: .9rem; }
+    .footer-box a { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; color: var(--accent); font-weight: 800; font-size: .9rem; }
+    .footer-box.centered { grid-template-columns: 1fr; text-align: center; }
+    .footer-box.centered .heart { color: var(--accent); font-size: 1.35rem; margin-top: 8px; }
+
+    .copyright {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #8d939c;
+      font-size: .86rem;
+      margin-top: 18px;
+      padding: 0 18px;
+    }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-left: 8px; }
+
+    svg { flex: 0 0 auto; }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; min-height: 0; }
+      .portrait-wrap { grid-template-columns: 1fr; }
+      .vertical-note { display: none; }
+      .featured-grid, .columns, .core-grid, .footer-strip { grid-template-columns: 1fr; }
+      .feature-card, .feature-card.unreal { grid-column: auto; }
     }
 
-    .highlight-link:hover,
-    .highlight-link:focus-visible {
-      border-color: var(--accent);
-      color: var(--accent-dark);
-      outline: none;
+    @media (max-width: 720px) {
+      .site { width: min(100% - 24px, var(--max)); padding-top: 18px; }
+      .topbar { justify-content: center; }
+      .nav { gap: 16px; font-size: .85rem; flex-wrap: wrap; justify-content: center; }
+      .hero { padding: 26px 20px; border-radius: 18px; }
+      h1 { font-size: clamp(2.7rem, 15vw, 4rem); }
+      .portrait-card { min-height: 330px; border-radius: 28px; }
+      .feature-card { grid-template-columns: 1fr; }
+      .feature-text { padding: 24px; }
+      .feature-media { min-height: 190px; justify-content: center; padding: 0 18px 18px; }
+      .section-head { grid-template-columns: auto 1fr; }
+      .section-head .view-link { grid-column: 1 / -1; }
+      .copyright { flex-direction: column; align-items: center; text-align: center; }
     }
 
-    .highlight-subimg {
+    /* Requested layout refinements */
+    .hero {
+      grid-template-columns: minmax(0, 1.45fr) minmax(330px, .75fr);
+      min-height: 360px;
+      gap: clamp(24px, 3.4vw, 46px);
+      padding: clamp(28px, 3.8vw, 46px);
+    }
+    .hero-copy { max-width: 690px; }
+    .kicker { margin-bottom: 16px; color: var(--accent); }
+    h1 {
+      font-size: clamp(2.9rem, 4.2vw, 4.05rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      white-space: nowrap;
+    }
+    .intro { max-width: 560px; }
+    .portrait-wrap {
+      grid-template-columns: minmax(0, 380px) 46px;
+      justify-self: end;
+      align-self: center;
+      max-width: 450px;
+      width: 100%;
+      gap: 16px;
+    }
+    .portrait-card { min-height: 300px; border-radius: 34px; }
+    .portrait-card::before { width: 170px; height: 170px; right: 3%; top: 20%; }
+    .featured-grid { gap: 16px; }
+    .feature-card {
+      min-height: 188px;
+      /* Keep the compact card height, but give the copy area noticeably more room. */
+      grid-template-columns: minmax(0, 1.45fr) minmax(135px, .55fr);
+      grid-template-rows: 1fr;
+    }
+    .feature-text {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-rows: auto auto 1fr auto;
+      column-gap: 12px;
+      align-items: baseline;
+      padding: 21px 18px 20px 24px;
+      z-index: 3;
+      min-height: 188px;
+    }
+    .feature-text .num { margin: 0; grid-column: 1; grid-row: 1; line-height: 1.1; }
+    .feature-text .num::after { display: none; }
+    .feature-card h3 {
+      grid-column: 2;
+      grid-row: 1;
+      white-space: nowrap;
+      font-size: clamp(1.42rem, 2vw, 1.82rem);
+      line-height: 1.05;
+      min-width: 0;
+    }
+    .feature-text .meta { grid-column: 1 / -1; grid-row: 2; margin: 9px 0 9px; }
+    .feature-text p { grid-column: 1 / -1; grid-row: 3; max-width: none; font-size: .86rem; line-height: 1.48; }
+    .feature-text .card-btn { grid-column: 1 / -1; grid-row: 4; margin-top: 14px; padding: 8px 12px; border-radius: 10px; }
+    .feature-media { grid-column: 2; grid-row: 1; min-height: 188px; padding: 12px 14px 12px 0; z-index: 1; }
+    .feature-media img { max-height: 176px; max-width: 108%; }
+    .feature-card.zgloom .feature-media img { max-height: 176px; height: auto; width: 100%; object-fit: contain; }
+    .quote-card { min-height: 188px; padding: 28px 30px; justify-content: center; }
+    .quote-card p { max-width: none; width: 100%; }
+    .quote-icons { width: 100%; justify-content: flex-start; margin-top: 22px; }
+    .accent-dash { display: none; }
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .portrait-wrap { justify-self: stretch; max-width: none; grid-template-columns: 1fr; }
+      .portrait-card { min-height: 340px; }
+      h1 { white-space: normal; }
+    }
+    @media (max-width: 860px) {
+      .feature-card { grid-template-columns: minmax(0, 1.25fr) minmax(125px, .75fr); }
+      .feature-text { padding-right: 16px; }
+      .feature-media img { max-width: 104%; }
+    }
+    @media (max-width: 720px) {
+      .feature-card { grid-template-columns: 1fr; min-height: 0; }
+      .feature-text { padding: 22px; min-height: 0; }
+      .feature-card h3 { white-space: normal; }
+      .feature-media { grid-column: 1; grid-row: auto; min-height: 150px; padding: 0 18px 18px; }
+    }
+
+
+    /* v5: Featured project artwork as larger, softer background imagery + Inter everywhere */
+    body, button, input, textarea, select,
+    h1, h2, h3, h4, h5, h6,
+    .feature-card h3 {
+      font-family: var(--sans);
+    }
+
+    .feature-card {
+      grid-template-columns: 1fr;
+      isolation: isolate;
+      background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.88));
+    }
+
+    .feature-text {
+      grid-column: 1;
+      grid-row: 1;
+      width: min(100%, 68%);
       position: relative;
-      z-index: 1;
+      z-index: 3;
+      text-shadow: 0 1px 0 rgba(255,255,255,.75);
+    }
+
+    .feature-card.zgloom .feature-text,
+    .feature-card.unreal .feature-text {
+      width: min(100%, 62%);
+    }
+
+    .feature-media {
+      position: absolute;
+      inset: 0;
+      grid-column: auto;
+      grid-row: auto;
+      min-height: 0;
+      padding: 0;
       display: block;
-      width: clamp(140px, 34%, 260px);
-      height: auto;
-      margin-left: auto;
-      opacity: 0.55;
+      z-index: 1;
       pointer-events: none;
-      user-select: none;
+      opacity: .67;
     }
 
-    .highlight-card-ouya {
-      border-color: #ff4e00;
+    .feature-media::before {
+      display: none;
     }
 
-    .highlight-card-ouya .highlight-label {
-      color: #ff4e00;
+    .feature-media img {
+      width: 118%;
+      height: 118%;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      object-position: right center;
+      transform: translate(7%, 4%) scale(1.1);
+      filter: drop-shadow(0 20px 34px rgba(20, 17, 14, .12));
     }
 
-    .highlight-card-ouya .highlight-title,
-    .highlight-card-unreal .highlight-title {
-      color: #fff;
+    .feature-card.zgloom .feature-media img {
+      width: 112%;
+      height: 112%;
+      max-height: none;
+      object-fit: contain;
+      object-position: right bottom;
+      transform: translate(6%, 8%) scale(1.12);
     }
 
-    .highlight-card-ouya .highlight-link {
-      border-color: #ff4e00;
-      color: #fff;
-      background: #ff4e00;
+    .feature-card.unreal .feature-media img {
+      width: 120%;
+      height: 120%;
+      object-fit: contain;
+      object-position: right bottom;
+      transform: translate(8%, 9%) scale(1.12);
     }
 
-    .highlight-card-ouya .highlight-link:hover,
-    .highlight-card-ouya .highlight-link:focus-visible {
-      border-color: #ff6a28;
-      background: #ff6a28;
+    .feature-text .card-btn,
+    .card-btn {
+      width: max-content;
+      max-width: 100%;
+      justify-self: start;
+      align-self: end;
+      flex: 0 0 auto;
     }
 
-    .highlight-card-unreal {
-      border-color: #e2c849;
-    }
-
-    .highlight-card-unreal .highlight-label {
-      color: #e2c849;
-    }
-
-    .highlight-card-unreal .highlight-link {
-      border-color: #e2c849;
-      color: #111;
-      background: #e2c849;
-    }
-
-    .highlight-card-unreal .highlight-link:hover,
-    .highlight-card-unreal .highlight-link:focus-visible {
-      border-color: #edd86d;
-      color: #111;
-      background: #edd86d;
-    }
-
-    .highlight-card-unreal .highlight-subimg {
-      width: clamp(150px, 36%, 280px);
-    }
-
-    @media (min-width: 720px) {
-      .highlight-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: stretch;
+    @media (max-width: 720px) {
+      .feature-text,
+      .feature-card.zgloom .feature-text,
+      .feature-card.unreal .feature-text {
+        width: 100%;
+        padding-right: 120px;
+      }
+      .feature-media {
+        min-height: 0;
+      }
+      .feature-media img,
+      .feature-card.zgloom .feature-media img,
+      .feature-card.unreal .feature-media img {
+        width: 100%;
+        height: 100%;
+        transform: translate(22%, 8%) scale(1.12);
+        opacity: .86;
       }
     }
 
-    @media (max-width: 1024px) {
-      .core-projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* v6: readability halo over background artwork + proper project icons */
+    .feature-text,
+    .feature-card h3,
+    .feature-text .meta,
+    .feature-text p,
+    .feature-text .num {
+      text-shadow:
+        0 0 1px rgba(255,255,255,.98),
+        0 0 3px rgba(255,255,255,.96),
+        0 0 7px rgba(255,255,255,.92),
+        0 1px 12px rgba(255,255,255,.88);
+    }
+
+    .feature-text .card-btn {
+      text-shadow: none;
+      box-shadow: 0 0 0 4px rgba(255,255,255,.72), 0 10px 26px rgba(26,22,18,.05);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      background: rgba(255,255,255,.72);
+    }
+
+    .repo-icon { color: #242a32; background: #f1efec; }
+    .repo-icon svg { width: 22px; height: 22px; display: block; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .repo-icon svg.fill-icon { fill: currentColor; stroke: none; }
+    .repo-icon.android-icon { color: #3ddc84; }
+    .repo-icon.joystick-icon { color: #42526e; }
+    .repo-icon.solar-icon { color: #e4a21a; }
+    .repo-icon.controller-icon { color: #f25d49; }
+    .repo-icon.windows-icon { color: #1f8cff; }
+    .repo-icon.apple-icon { color: #11151c; }
+    .repo-icon.handheld-icon { color: #5865f2; }
+    .repo-icon.editor-icon { color: #11151c; }
+
+    @media (max-width: 720px) {
+      .feature-text,
+      .feature-card.zgloom .feature-text,
+      .feature-card.unreal .feature-text {
+        background: linear-gradient(90deg, rgba(255,255,255,.88) 0%, rgba(255,255,255,.68) 62%, rgba(255,255,255,0) 100%);
+        border-radius: 16px;
       }
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 1.8rem 1.1rem;
+    @media (max-width: 720px) {
+      .hero-copy h1 {
+        font-size: clamp(2.05rem, 9.2vw, 2.75rem);
+        line-height: 1.04;
+        letter-spacing: -.05em;
+        white-space: nowrap;
       }
     }
 
-    @media (max-width: 640px) {
-      .hero-top {
-        align-items: center;
-      }
 
-      .hero-avatar {
-        width: 96px;
-        height: 96px;
-      }
+    /* v8: left-aligned menu with right GitHub button + single-line ZGLOOM title on mobile */
+    .topbar { justify-content: stretch; }
+    .nav { width: 100%; margin-left: 0; justify-content: flex-start; }
+    .github-btn { margin-left: auto; }
+    .feature-card.zgloom h3 { white-space: nowrap; }
 
-      .hero-text {
-        min-height: 96px;
+    @media (max-width: 720px) {
+      .topbar { justify-content: stretch; }
+      .nav {
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 14px;
+        font-size: .8rem;
       }
-
-      .hero-name {
-        display: flex;
-        flex-direction: column;
-        gap: 0.08rem;
-        font-size: 1.9rem;
-        line-height: 0.98;
-        letter-spacing: 0.06em;
-      }
-
-      .hero-name span {
-        display: block;
-      }
-
-      .hero-handle {
-        margin-top: 0.35rem;
-        font-size: 0.98rem;
-        line-height: 1.1;
-      }
-
-      .core-projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .highlight-footer {
-        gap: 0.75rem;
-      }
-
-      .highlight-subimg {
-        width: clamp(110px, 42%, 190px);
+      .nav a:not(.github-btn) { padding: 9px 0; }
+      .github-btn { margin-left: auto; padding: 9px 12px; border-radius: 11px; }
+      .github-btn svg { width: 15px; height: 15px; }
+      .feature-card.zgloom .feature-text { column-gap: 9px; padding-right: 92px; }
+      .feature-card.zgloom .feature-text .num { font-size: .75rem; }
+      .feature-card.zgloom h3 {
+        white-space: nowrap;
+        font-size: clamp(1.08rem, 5.1vw, 1.32rem);
+        letter-spacing: -.055em;
       }
     }
   </style>
 </head>
-
 <body>
-  <main>
-    <header class="hero">
-      <div class="hero-top">
-        <div class="hero-avatar">
-          <img src="https://avatars.githubusercontent.com/u/11447150?v=4" alt="Andreas GitHub avatar">
-        </div>
-
-        <div class="hero-text">
-          <h1 class="hero-name">
-            <span>Andreas</span>
-            <span>Stürmer</span>
-          </h1>
-          <div class="hero-handle">@andiweli on GitHub</div>
-        </div>
-      </div>
-
-      <p class="hero-subtitle">
-        Retro gaming ports, launchers, themes and asset packs for PC, macOS, Android, PS&nbsp;Vita, Sega Mega Drive and more.
-      </p>
-
-      <p class="hero-keyline">
-        "Retro gaming ports, launchers and assets built for the hardware that still matters."
-      </p>
-
-      <div class="tags">
-        <span class="tag">Android</span>
-        <span class="tag">OUYA</span>
-        <span class="tag">GameStick</span>
-        <span class="tag">PS Vita</span>
-        <span class="tag">PC x86</span>
-        <span class="tag">macOS Silicon</span>
-      </div>
+  <div class="site">
+    <header class="topbar" aria-label="Site header">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#featured">Featured Projects</a>
+        <a href="#core">Core projects</a>
+        <a class="github-btn" href="https://github.com/andiweli" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.57.1.78-.25.78-.55v-2.16c-3.18.7-3.85-1.35-3.85-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.7.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.73-1.53-2.54-.29-5.2-1.27-5.2-5.64 0-1.25.44-2.27 1.17-3.07-.12-.29-.51-1.46.11-3.03 0 0 .97-.31 3.13 1.17a10.8 10.8 0 0 1 5.7 0c2.16-1.48 3.12-1.17 3.12-1.17.63 1.57.24 2.74.12 3.03.73.8 1.17 1.82 1.17 3.07 0 4.38-2.67 5.35-5.22 5.63.42.36.79 1.07.79 2.17v3.12c0 .3.2.66.8.55A11.3 11.3 0 0 0 12 .7Z"/></svg>
+          GitHub
+        </a>
+      </nav>
     </header>
 
-    <div class="highlight-grid">
-      <section class="highlight-card highlight-card-ouya" aria-labelledby="ouya-highlight">
-        <div class="highlight-label">Featured project</div>
-        <div id="ouya-highlight" class="highlight-title">OUYAlaunch</div>
-        <p class="highlight-body">
-          Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs
-          and icon caching – designed to match the original OUYA look while keeping navigation fast
-          and controller-only.
-        </p>
-
-        <div class="highlight-footer">
-          <a class="highlight-link" href="https://andiweli.github.io/ouyalaunch/" rel="noopener">
-            OUYAlaunch ❯
-          </a>
-          <img class="highlight-subimg" src="images/sub_ouyalaunch.png" alt="" aria-hidden="true">
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-copy">
+          <div class="kicker">Home</div>
+          <h1>Andreas Stürmer</h1>
+          <div class="handle">@andiweli</div>
+          <div class="rule"></div>
+          <p class="intro">I build retro gaming ports, launchers, themes and asset packs with a focus on quality, usability and platform love.</p>
+          <div class="pills" aria-label="Platforms">
+            <span class="pill"><svg viewBox="0 0 24 24"><path fill="#64b743" d="M17.6 9H6.4v8.7c0 .7.6 1.3 1.3 1.3h.9v2.1c0 .6.5 1.1 1.1 1.1s1.1-.5 1.1-1.1V19h2.4v2.1c0 .6.5 1.1 1.1 1.1s1.1-.5 1.1-1.1V19h.9c.7 0 1.3-.6 1.3-1.3V9ZM5.2 9C4.5 9 4 9.5 4 10.2v5.4c0 .7.5 1.2 1.2 1.2s1.2-.5 1.2-1.2v-5.4C6.4 9.5 5.9 9 5.2 9Zm13.6 0c-.7 0-1.2.5-1.2 1.2v5.4c0 .7.5 1.2 1.2 1.2s1.2-.5 1.2-1.2v-5.4c0-.7-.5-1.2-1.2-1.2ZM8.1 3.4 6.9 1.6l-.8.5 1.3 1.9A5.8 5.8 0 0 0 6.4 7.8h11.2c-.1-1.5-.9-2.8-2-3.8l1.3-1.9-.8-.5-1.2 1.8A6.2 6.2 0 0 0 12 2.7c-1.4 0-2.7.3-3.9.7ZM9.3 6.3a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4Zm5.4 0a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4Z"/></svg>Android</span>
+            <span class="pill"><svg viewBox="0 0 24 24"><path fill="#2297ee" d="m3 5.1 7.8-1.1v7.6H3V5.1Zm9-1.3L21 2.5v9.1h-9V3.8ZM3 12.8h7.8v7.3L3 19v-6.2Zm9 0h9v8.7l-9-1.2v-7.5Z"/></svg>Windows</span>
+            <span class="pill"><svg viewBox="0 0 24 24"><path fill="#111" d="M16.8 16.7c-.3-1.1-1-2.2-1.6-3.2-.4-.6-.7-1.2-.8-1.9-.1-.5.1-1.2.1-1.9 0-2.6-1.1-4.5-2.5-4.5s-2.5 1.9-2.5 4.5c0 .7.2 1.4.1 1.9-.1.7-.4 1.3-.8 1.9-.6 1-1.3 2.1-1.6 3.2-.6 2.2.9 3.3 2.6 2.4.8.8 1.7 1.2 2.7 1.2s1.9-.4 2.7-1.2c1.7.9 3.2-.2 2.6-2.4Z"/><path fill="#f7c62f" d="M9 16.8c.2.8 1.4 1.4 3 1.4s2.8-.6 3-1.4c-.5.7-1.5 1.1-3 1.1s-2.5-.4-3-1.1Z"/><path fill="#fff" d="M10.7 8.1a.7.7 0 1 0 0-1.4.7.7 0 0 0 0 1.4Zm2.6 0a.7.7 0 1 0 0-1.4.7.7 0 0 0 0 1.4Z"/></svg>macOS</span>
+            <span class="pill"><svg viewBox="0 0 24 24"><path fill="#f25d49" d="M4 8.5a8 8 0 0 1 16 0V17a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8.5Zm2 0V17c0 .6.4 1 1 1h10c.6 0 1-.4 1-1V8.5a6 6 0 0 0-12 0Z"/></svg>OUYA</span>
+          </div>
+        </div>
+        <div class="portrait-wrap">
+          <div class="portrait-card">
+            <img src="images/profile.png" alt="Illustrated portrait of Andreas Stürmer with an orange cat" />
+          </div>
+          <div class="vertical-note">Design <span>•</span> Code <span>•</span> Restore <span>•</span> Play</div>
         </div>
       </section>
 
-      <section class="highlight-card" aria-labelledby="zgloom-highlight">
-        <div class="highlight-label">Featured project</div>
-        <div id="zgloom-highlight" class="highlight-title">ZGLOOM Collection</div>
-        <p class="highlight-body">
-          Learn more about the modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS&nbsp;Vita,
-          including screenshots, feature overview and direct download links.
-        </p>
+      <section id="featured" aria-labelledby="featured-title">
+        <div class="section-head">
+          <h2 id="featured-title" class="section-title">Featured Projects</h2>
+          <div class="section-line"></div>
+          <a class="view-link" href="https://github.com/Andiweli?tab=repositories" target="_blank" rel="noopener">View all projects →</a>
+        </div>
 
-        <div class="highlight-footer">
-          <a class="highlight-link" href="https://andiweli.github.io/zgloom/" rel="noopener">
-            ZGLOOM Collection ❯
-          </a>
-          <img class="highlight-subimg" src="images/sub_gloom.png" alt="" aria-hidden="true">
+        <div class="featured-grid">
+          <article class="feature-card">
+            <div class="feature-text">
+              <div class="num">01</div>
+              <h3>OUYALaunch</h3>
+              <div class="meta">Launcher&nbsp;&nbsp;•&nbsp;&nbsp;OUYA</div>
+              <p>A fast and elegant launcher for the OUYA console. Built for performance, controller-first navigation and a beautiful browsing experience.</p>
+              <a class="card-btn" href="https://andiweli.github.io/ouyalaunch/">View project →</a>
+            </div>
+            <div class="feature-media"><img src="images/teaser-ouyalaunch.png" alt="OUYALaunch preview" /></div>
+          </article>
+
+          <article class="feature-card zgloom">
+            <div class="feature-text">
+              <div class="num">02</div>
+              <h3>ZGLOOM Collection</h3>
+              <div class="meta">Game&nbsp;&nbsp;•&nbsp;&nbsp;Port</div>
+              <p>Modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS Vita, including screenshots, features and downloads.</p>
+              <a class="card-btn" href="https://andiweli.github.io/zgloom/">View project →</a>
+            </div>
+            <div class="feature-media"><img src="images/teaser-zgloom.png" alt="ZGLOOM Collection preview" /></div>
+          </article>
+
+          <article class="feature-card unreal">
+            <div class="feature-text">
+              <div class="num">03</div>
+              <h3>Unreal Android</h3>
+              <div class="meta">Engine&nbsp;&nbsp;•&nbsp;&nbsp;Port</div>
+              <p>The Android version of Unreal, including the modern Android 8 build and the specialised OUYA edition with controller-focused support.</p>
+              <a class="card-btn" href="https://andiweli.github.io/unreal/">View project →</a>
+            </div>
+            <div class="feature-media"><img src="images/teaser-unrealandroid.png" alt="Unreal Android preview" /></div>
+          </article>
+
+          <aside class="quote-card">
+            <div class="quote-mark">“</div>
+            <p>I love bringing classic experiences to new platforms and devices.</p>
+            <div class="quote-icons">
+              <span>🎮 Play</span>
+              <span>⌘ Build</span>
+              <span>♡ Restore</span>
+            </div>
+            <div class="accent-dash"></div>
+          </aside>
         </div>
       </section>
 
-      <section class="highlight-card highlight-card-unreal" aria-labelledby="unreal-highlight">
-        <div class="highlight-label">Featured project</div>
-        <div id="unreal-highlight" class="highlight-title">Unreal Android</div>
-        <p class="highlight-body">
-          Discover the Android version of Unreal, including the modern Android 8 build and the specialised
-          OUYA edition with controller-focused support for classic hardware.
-        </p>
+      <section id="core" aria-labelledby="core-title">
+        <div class="section-head">
+          <h2 id="core-title" class="section-title">Core Projects</h2>
+          <div class="section-line"></div>
+          <a class="view-link" href="https://github.com/Andiweli?tab=repositories" target="_blank" rel="noopener">View all repositories on GitHub →</a>
+        </div>
 
-        <div class="highlight-footer">
-          <a class="highlight-link" href="https://andiweli.github.io/unreal/" rel="noopener">
-            Unreal Android ❯
+        <div class="core-grid">
+          <a class="repo-card" href="https://github.com/andiweli/Unreal-Android" target="_blank" rel="noopener">
+            <div class="repo-head"><span class="repo-icon android-icon"><svg class="fill-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9.5h10v6.1c0 .9-.7 1.6-1.6 1.6H8.6c-.9 0-1.6-.7-1.6-1.6V9.5Zm2.2-2.1L7.7 4.8a.8.8 0 0 1 1.4-.8l1.5 2.6a6.7 6.7 0 0 1 2.8 0L14.9 4a.8.8 0 1 1 1.4.8l-1.5 2.6H9.2ZM9 12.1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm6 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 10h1v5H5c-.6 0-1-.4-1-1v-3c0-.6.4-1 1-1Zm13 0h1c.6 0 1 .4 1 1v3c0 .6-.4 1-1 1h-1v-5Z"/></svg></span><h4>Unreal Android Port</h4></div>
+            <p>Android port of the classic Unreal Engine 1 game, focused on SDL2/OpenGL ES rendering, mobile compatibility and retro Android devices.</p>
+            <div class="repo-meta"><span>UE1 Android port</span><span>C++ / SDL2</span></div>
           </a>
-          <img class="highlight-subimg" src="images/sub_unreal.png" alt="" aria-hidden="true">
+          <a class="repo-card" href="https://github.com/andiweli/EKA2L1-DualStick" target="_blank" rel="noopener">
+            <div class="repo-head"><span class="repo-icon joystick-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16v-2.2M17 16v-2.2M9.5 8.5h5A5.5 5.5 0 0 1 20 14v1.2a2.3 2.3 0 0 1-4.1 1.4L14.8 15H9.2l-1.1 1.6A2.3 2.3 0 0 1 4 15.2V14a5.5 5.5 0 0 1 5.5-5.5Z"/><path d="M7.5 12h3M9 10.5v3M14.7 11.2h.01M16.9 13.2h.01"/></svg></span><h4>EKA2L1-DualStick</h4></div>
+            <p>Android-focused fork of EKA2L1 with proper dual-analog-stick support for Symbian OS and N-Gage games on modern handhelds.</p>
+            <div class="repo-meta"><span>EKA2L1 dual-stick fork</span><span>C++</span></div>
+          </a>
+          <a class="repo-card" href="https://github.com/andiweli/Zendure-IP" target="_blank" rel="noopener">
+            <div class="repo-head"><span class="repo-icon solar-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16.5h16M6 16.5l2.6-7.8h6.8l2.6 7.8M9 8.7 10.4 5h3.2L15 8.7M8.2 12.5h7.6M7 19h10"/></svg></span><h4>Zendure-IP</h4></div>
+            <p>ioBroker local Zendure polling adapter with optional HEMS aggregation and a curated, compact state set.</p>
+            <div class="repo-meta"><span>Zendure local polling</span><span>JavaScript</span></div>
+          </a>
+          <a class="repo-card" href="https://github.com/andiweli/OUYAlaunch" target="_blank" rel="noopener">
+            <div class="repo-head"><span class="repo-icon controller-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16v-2M17 16v-2M8.5 8h7A5.5 5.5 0 0 1 21 13.5v.8a2.7 2.7 0 0 1-4.8 1.7l-1.3-1.6H9.1L7.8 16A2.7 2.7 0 0 1 3 14.3v-.8A5.5 5.5 0 0 1 8.5 8Z"/><path d="M8 11.5h3M9.5 10v3M15 11.5h.01M17 11.5h.01"/></svg></span><h4>OUYAlaunch</h4></div>
+            <p>Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs and icon caching.</p>
+            <div class="repo-meta"><span>Android launcher</span><span>Java</span></div>
+          </a>
+          <a class="repo-card" href="https://github.com/andiweli/ZGloom-Android" target="_blank" rel="noopener">
+            <div class="repo-head"><span class="repo-icon android-icon"><svg class="fill-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9.5h10v6.1c0 .9-.7 1.6-1.6 1.6H8.6c-.9 0-1.6-.7-1.6-1.6V9.5Zm2.2-2.1L7.7 4.8a.8.8 0 0 1 1.4-.8l1.5 2.6a6.7 6.7 0 0 1 2.8 0L14.9 4a.8.8 0 1 1 1.4.8l-1.5 2.6H9.2ZM9 12.1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm6 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 10h1v5H5c-.6 0-1-.4-1-1v-3c0-.6.4-1 1-1Zm13 0h1c.6 0 1 .4 1 1v3c0 .6-.4 1-1 1h-1v-5Z"/></svg></span><h4>ZGLOOM-Android</h4></div>
+            <p>Modern source port of the Amiga FPS Gloom for Android with focus on OUYA and Android TV-style boxes.</p>
+            <div class="repo-meta"><span>Android build of Amiga Gloom</span><span>C</span></div>
+          </a>
+          <a class="repo-card" href="https://github.com/andiweli/ZGloom-x86" target="_blank" rel="noopener">
+            <div class="repo-head"><span class="repo-icon windows-icon"><svg class="fill-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.2 10.7 4v7.5H3V5.2Zm8.7-1.35L21 2.5v9h-9.3V3.85ZM3 12.5h7.7V20L3 18.8v-6.3Zm8.7 0H21v9l-9.3-1.35V12.5Z"/></svg></span><h4>ZGLOOM-x86</h4></div>
+            <p>Windows x86 port of ZGLOOM with improved renderer, extended in-game options and subtle post-processing effects.</p>
+            <div class="repo-meta"><span>PC x86 build of Amiga Gloom</span><span>C</span></div>
+          </a>
+          <a class="repo-card" href="https://github.com/andiweli/ZGloom-macOS" target="_blank" rel="noopener">
+            <div class="repo-head"><span class="repo-icon apple-icon"><svg class="fill-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.9 12.5c0-2 1.7-3 1.8-3.1-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.8-3.1.8-.7 0-1.7-.8-2.8-.8-1.4 0-2.8.9-3.5 2.2-1.5 2.6-.4 6.4 1.1 8.5.7 1 1.6 2.2 2.7 2.1 1.1 0 1.5-.7 2.8-.7s1.7.7 2.9.7c1.2 0 2-1 2.7-2.1.8-1.2 1.1-2.3 1.1-2.4 0 0-2.7-1-2.7-3.6ZM14.8 6.4c.6-.8 1-1.8.9-2.9-.9 0-1.9.6-2.5 1.3-.6.7-1 1.8-.9 2.8.9.1 1.9-.5 2.5-1.2Z"/></svg></span><h4>ZGLOOM-macOS</h4></div>
+            <p>A macOS build of ZGLOOM bringing the full Amiga Gloom collection to Apple Silicon Macs.</p>
+            <div class="repo-meta"><span>MacOS Silicon build of Amiga Gloom</span><span>C</span></div>
+          </a>
+          <a class="repo-card" href="https://github.com/andiweli/ZGloom-Vita-Vita2D" target="_blank" rel="noopener">
+            <div class="repo-head"><span class="repo-icon handheld-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="11" rx="3"/><path d="M8 17h8M9 20h6M7.2 9.5h3.2M8.8 8v3M15.2 9.5h.01M17.4 11.4h.01"/></svg></span><h4>ZGLOOM-Vita-Vita2D</h4></div>
+            <p>GPU-accelerated Vita2D port of Gloom, Gloom Deluxe, Gloom 3 and Zombie Massacre for PS Vita / PSTV.</p>
+            <div class="repo-meta"><span>PS Vita build of Gloom</span><span>C</span></div>
+          </a>
+          <a class="repo-card" href="https://github.com/andiweli/Gloom-LevelEditor" target="_blank" rel="noopener">
+            <div class="repo-head"><span class="repo-icon editor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="12.5" height="12.5" rx="2"/><path d="M4 8h12.5M8 12h4.5M15 15l5 2-2.2 1.1L19 21l-1.6.7-1.2-2.9-2.2 1.1 1-4.9Z"/></svg></span><h4>Gloom-LevelEditor</h4></div>
+            <p>Standalone Win32/x86 editor prototype for creating, inspecting and editing Gloom-compatible maps.</p>
+            <div class="repo-meta"><span>Level editor</span><span>C++</span></div>
+          </a>
         </div>
       </section>
-    </div>
 
-    <section aria-labelledby="core-projects">
-      <h2 id="core-projects">Core projects</h2>
-      <p class="section-intro">
-        Selected repositories that define my work around Android ports, emulation,
-        smart-home energy integrations, launchers and classic systems.
-      </p>
+      <footer class="footer-strip" aria-label="Footer">
+        <div class="footer-box">
+          <div class="footer-icon"><svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.57.1.78-.25.78-.55v-2.16c-3.18.7-3.85-1.35-3.85-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.7.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.73-1.53-2.54-.29-5.2-1.27-5.2-5.64 0-1.25.44-2.27 1.17-3.07-.12-.29-.51-1.46.11-3.03 0 0 .97-.31 3.13 1.17a10.8 10.8 0 0 1 5.7 0c2.16-1.48 3.12-1.17 3.12-1.17.63 1.57.24 2.74.12 3.03.73.8 1.17 1.82 1.17 3.07 0 4.38-2.67 5.35-5.22 5.63.42.36.79 1.07.79 2.17v3.12c0 .3.2.66.8.55A11.3 11.3 0 0 0 12 .7Z"/></svg></div>
+          <div><h4>GitHub</h4><p>Explore source code, tools and more projects.</p><a href="https://github.com/andiweli" target="_blank" rel="noopener">github.com/andiweli ↗</a></div>
+        </div>
+        <div class="footer-box centered">
+          <div><h4>Crafted with passion.</h4><p>For the love of retro.</p><div class="heart">♥</div></div>
+        </div>
+      </footer>
 
-      <div class="core-projects-grid">
-        <a class="repo-card" href="https://github.com/Andiweli/Unreal-Android" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">Unreal Android Port</div>
-            <div class="repo-pill">Android</div>
-          </div>
-          <p class="repo-desc">
-            Android port of the classic Unreal Engine 1 game, focused on SDL2/OpenGL ES rendering,
-            mobile compatibility and retro Android devices.
-          </p>
-          <div class="repo-meta">UE1 Android port ・ C++ / SDL2</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/EKA2L1-DualStick" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">EKA2L1-DualStick</div>
-            <div class="repo-pill">Android</div>
-          </div>
-          <p class="repo-desc">
-            Android-focused fork of EKA2L1 with proper dual-analog-stick support for Symbian OS
-            and N-Gage games on modern handhelds.
-          </p>
-          <div class="repo-meta">EKA2L1 dual-stick fork ・ C++</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/ioBroker.zendure-ip" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">Zendure-IP</div>
-            <div class="repo-pill">ioBroker</div>
-          </div>
-          <p class="repo-desc">
-            Local Zendure polling adapter for ioBroker with optional HEMS aggregation and a curated,
-            compact state set.
-          </p>
-          <div class="repo-meta">Zendure local polling ・ JavaScript</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/OUYAlaunch" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">OUYAlaunch</div>
-            <div class="repo-pill">OUYA</div>
-          </div>
-          <p class="repo-desc">
-            Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs and icon caching.
-          </p>
-          <div class="repo-meta">Android launcher ・ Java</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/ZGloom-Android" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">ZGloom-Android</div>
-            <div class="repo-pill">Android</div>
-          </div>
-          <p class="repo-desc">
-            Modern source port of the Amiga FPS Gloom for Android with focus on OUYA and Android TV-style boxes.
-          </p>
-          <div class="repo-meta">Android build of Amiga Gloom ・ C</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/ZGloom-x86" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">ZGloom-x86</div>
-            <div class="repo-pill">Windows</div>
-          </div>
-          <p class="repo-desc">
-            Windows x86 port of ZGLOOM with improved renderer, extended in-game options and subtle post-processing effects.
-          </p>
-          <div class="repo-meta">PC x86 build of Amiga Gloom ・ C</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/ZGloom-macOS" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">ZGloom-macOS</div>
-            <div class="repo-pill">macOS</div>
-          </div>
-          <p class="repo-desc">
-            A macOS build of ZGLOOM bringing the full Amiga Gloom collection to Apple Silicon Macs.
-          </p>
-          <div class="repo-meta">MacOS Silicon build of Amiga Gloom ・ C</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/ZGloom-Vita-Vita2D" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">ZGloom-Vita-Vita2D</div>
-            <div class="repo-pill">PS&nbsp;Vita</div>
-          </div>
-          <p class="repo-desc">
-            GPU-accelerated Vita2D port of Gloom, Gloom Deluxe, Gloom&nbsp;3 and Zombie Massacre for PS&nbsp;Vita / PSTV.
-          </p>
-          <div class="repo-meta">PS Vita build of Amiga Gloom ・ C</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/Gloom-LevelEditor" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">Gloom-LevelEditor</div>
-            <div class="repo-pill">Windows</div>
-          </div>
-          <p class="repo-desc">
-            Standalone Win32/x86 editor prototype for creating, inspecting and editing Gloom-compatible maps.
-          </p>
-          <div class="repo-meta">Level editor ・ C++</div>
-        </a>
+      <div class="copyright">
+        <span>© 2025 Andreas Stürmer — @andiweli</span>
+        <span>Built with passion.<i class="dot"></i></span>
       </div>
-    </section>
-
-    <section aria-labelledby="media-packs-themes">
-      <h2 id="media-packs-themes">Some other projects</h2>
-      <p class="section-intro">
-        Covers, themes, asset packs and visual content for GameStick, PS&nbsp;Vita launchers,
-        Sega EverDrive and other classic systems.
-      </p>
-
-      <div class="grid">
-        <a class="repo-card" href="https://github.com/Andiweli/GameStick-Assets" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">GameStick-Assets</div>
-          </div>
-          <p class="repo-desc">
-            Forwarders, cover images and metadata for PlayJam GameStick games, prepared for use on OUYA.
-          </p>
-          <div class="repo-pill">GameStick</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/HexFlow-Covers" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">HexFlow-Covers</div>
-          </div>
-          <p class="repo-desc">
-            Cover, background and music database for HexFlow / RetroFlow launchers on PS&nbsp;Vita.
-          </p>
-          <div class="repo-pill">PS&nbsp;Vita</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/Sega-EverDrive-Themes" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">Sega-EverDrive-Themes</div>
-          </div>
-          <p class="repo-desc">
-            Static and animated themes for Krikzz’s Mega EverDrive Pro on Sega MD / Genesis.
-          </p>
-          <div class="repo-pill">MegaDrive</div>
-        </a>
-
-        <a class="repo-card" href="https://github.com/Andiweli/OPL-Theme-PS2pops" rel="noopener">
-          <div class="repo-header">
-            <div class="repo-name">OPL-Theme-PS2pops</div>
-          </div>
-          <p class="repo-desc">
-            “PS2/POPS” theme for Open PS2 Loader with optimised graphics and HD layout.
-          </p>
-          <div class="repo-pill">PS2</div>
-        </a>
-      </div>
-    </section>
-
-    <section aria-labelledby="github-link">
-      <h2 id="github-link">Find me on GitHub</h2>
-      <p>
-        Full list of repositories, forks and contributions:
-        <a href="https://github.com/andiweli" rel="noopener">github.com/andiweli</a>
-      </p>
-    </section>
-  </main>
+    </main>
+  </div>
 </body>
 </html>
