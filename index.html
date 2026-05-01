@@ -854,6 +854,73 @@
         letter-spacing: -.055em;
       }
     }
+
+    /* Current News block */
+    .news-card {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at top right, rgba(242,93,73,.08), transparent 22rem),
+        rgba(255, 255, 255, .9);
+      box-shadow: 0 18px 55px rgba(26,22,18,.055);
+      padding: clamp(22px, 3vw, 32px);
+      overflow: hidden;
+    }
+
+    .news-card h3 {
+      margin: 0 0 14px;
+      color: var(--ink);
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
+      line-height: 1.1;
+      letter-spacing: -.045em;
+      font-weight: 840;
+    }
+
+    .news-list {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: #444b55;
+      font-size: clamp(.96rem, 1.2vw, 1.04rem);
+      line-height: 1.65;
+    }
+
+    .news-list li {
+      padding-left: .25rem;
+      margin: .3rem 0;
+    }
+
+    .news-list li::marker {
+      color: var(--accent);
+    }
+
+    .news-placeholder {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      color: #747b85;
+      font-size: clamp(.96rem, 1.2vw, 1.04rem);
+    }
+
+    .news-list:empty {
+      display: none;
+    }
+
+    .news-list:empty + .news-placeholder {
+      display: flex;
+    }
+
+    .news-placeholder .emoji {
+      font-size: 1.35rem;
+    }
+
+    @media (max-width: 720px) {
+      .news-card {
+        padding: 22px;
+        border-radius: 18px;
+      }
+    }
     
     /* Footer / scroll fix */
     html {
@@ -887,8 +954,9 @@
   <div class="site">
     <header class="topbar" aria-label="Site header">
       <nav class="nav" aria-label="Main navigation">
-        <a href="#featured">Featured Projects</a>
-        <a href="#core">Core projects</a>
+        <a href="#news">News</a>
+        <a href="#featured">Featured</a>
+        <a href="#core">Core</a>
         <a class="github-btn" href="https://github.com/andiweli" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22.03c.57.1.78-.25.78-.55v-2.16c-3.18.7-3.85-1.35-3.85-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.7.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.73-1.53-2.54-.29-5.2-1.27-5.2-5.64 0-1.25.44-2.27 1.17-3.07-.12-.29-.51-1.46.11-3.03 0 0 .97-.31 3.13 1.17a10.8 10.8 0 0 1 5.7 0c2.16-1.48 3.12-1.17 3.12-1.17.63 1.57.24 2.74.12 3.03.73.8 1.17 1.82 1.17 3.07 0 4.38-2.67 5.35-5.22 5.63.42.36.79 1.07.79 2.17v3.12c0 .3.2.66.8.55A11.3 11.3 0 0 0 12 .7Z"/></svg>
           GitHub
@@ -920,6 +988,24 @@
         </div>
       </section>
 
+      <section id="news" aria-labelledby="news-title">
+        <div class="section-head">
+          <h2 id="news-title" class="section-title">Current News</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="news-card">
+          <h3>Current News</h3>
+
+          <ul class="news-list"></ul>
+
+          <p class="news-placeholder">
+            <span class="emoji" aria-hidden="true">🕹️</span>
+            Nothing listed yet — probably busy teaching old hardware new tricks.
+          </p>
+        </div>
+      </section>
+      
       <section id="featured" aria-labelledby="featured-title">
         <div class="section-head">
           <h2 id="featured-title" class="section-title">Featured Projects</h2>
