@@ -968,11 +968,27 @@
       font-size: 1.15rem;
     }
 
+    .news-card > .news-list > li > span {
+      grid-column: 2;
+      min-width: 0;
+    }
+
+    .news-card > .news-list a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .news-card > .news-list a:hover {
+      text-decoration: underline;
+    }
+    
     @media (max-width: 720px) {
       .news-card {
         padding: 22px;
         border-radius: 18px;
       }
+
     }
     
   </style>
