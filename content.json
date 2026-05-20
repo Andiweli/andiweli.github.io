@@ -22,14 +22,14 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "Fixed the Teleport animation-effect for all ZGLOOM variants and added Universal support for macOS.",
-        "url": "https://github.com/Andiweli?tab=repositories&q=ZGLOOM&type=&language=&sort=",
-        "linkLabel": "all ZGLOOM variants"
-      },
-      {
         "text": "Unreal (1998) and Unreal Tournament '99 Android have been updated recently. Controller detection should now be widely possible.",
         "url": "https://github.com/Andiweli?tab=repositories&q=Unreal&type=&language=&sort=",
         "linkLabel": "Check it out"
+      },
+      {
+        "text": "Fixed the Teleport animation-effect for all ZGLOOM variants and added Universal support for macOS.",
+        "url": "https://github.com/Andiweli?tab=repositories&q=ZGLOOM&type=&language=&sort=",
+        "linkLabel": "all ZGLOOM variants"
       },
       {
         "text": "Extending the Gloom Level Editor for Windows: Edit walls, snap-on at edges, fix clipping errors and other glitches. Release version 1.1.0 available now!",
@@ -88,7 +88,7 @@
     "items": [
       {
         "title": "Unreal Tournament '99",
-        "description": "Android port of the classic Unreal Engine 1 Multiplayer FPS, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
+        "description": "Android port of the classic Multiplayer FPS, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
         "subtitle": "UT99 Android port",
         "tech": "Tech",
         "url": "https://github.com/Andiweli/UT99-Android",
@@ -96,7 +96,7 @@
       },
       {
         "title": "Unreal Android",
-        "description": "Android port of the classic Unreal Engine 1 game, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
+        "description": "Android port of the classic FPS, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
         "subtitle": "Unreal (1998) Android port",
         "tech": "C++ / SDL2",
         "url": "https://github.com/andiweli/Unreal-Android",
