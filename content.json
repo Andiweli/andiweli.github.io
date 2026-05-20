@@ -82,14 +82,6 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
-        "title": "Sega EverDrive Themes",
-        "description": "Some custom made themes for Krikzz' EverDrive cartridge. You need at least Firmware MEGAOS 4.07 to use custom themesets.",
-        "subtitle": "EverDrive",
-        "tech": "Custom",
-        "url": "https://github.com/Andiweli/Sega-EverDrive-Themes",
-        "icon": "controller"
-      },
-      {
         "title": "Unreal Tournament '99",
         "description": "Android port of the classic Multiplayer FPS, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
         "subtitle": "UT99 Android port",
@@ -176,6 +168,14 @@
         "tech": "Tech",
         "url": "https://github.com/Andiweli/HexFlow-Covers",
         "icon": "vita"
+      },
+      {
+        "title": "Sega EverDrive Themes",
+        "description": "Some custom made themes for Krikzz' EverDrive cartridge. You need at least Firmware MEGAOS 4.07 to use custom themesets.",
+        "subtitle": "EverDrive",
+        "tech": "Custom",
+        "url": "https://github.com/Andiweli/Sega-EverDrive-Themes",
+        "icon": "controller"
       }
     ]
   }
