@@ -7,7 +7,13 @@
     "profileImage": "images/profile.png",
     "profileAlt": "Illustrated portrait of Andreas Stürmer with an orange cat",
     "verticalNote": "Design • Code • Restore • Play",
-    "tags": ["Android", "Windows", "macOS", "OUYA", "Smarthome"],
+    "tags": [
+      "Android",
+      "Windows",
+      "macOS",
+      "OUYA",
+      "Smarthome"
+    ],
     "footerYear": "2026"
   },
   "news": {
@@ -37,12 +43,16 @@
     "viewAllLabel": "View all projects →",
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "quote": "I love bringing classic experiences to new platforms and devices.",
-    "quoteTags": ["🎮 Play", "⌘ Build", "♡ Restore"],
+    "quoteTags": [
+      "🎮 Play",
+      "⌘ Build",
+      "♡ Restore"
+    ],
     "items": [
       {
         "title": "OUYALaunch",
         "meta": "Launcher  •  OUYA",
-        "description": "A fast and elegant launcher for the OUYA console. Built for performance, controller-first navigation and a beautiful browsing experience.",
+        "description": "A fast and elegant launcher for the OUYA console. Built for performance, controller-navigation and a beautiful browsing experience.",
         "url": "https://andiweli.github.io/ouyalaunch/",
         "button": "View project →",
         "image": "images/teaser-ouyalaunch.png",
@@ -77,8 +87,16 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
+        "title": "Unreal Tournament '99",
+        "description": "Android port of the classic Unreal Engine 1 Multiplayer FPS, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
+        "subtitle": "UT99 Android port",
+        "tech": "Tech",
+        "url": "https://github.com/Andiweli/UT99-Android",
+        "icon": "android"
+      },
+      {
         "title": "Unreal Android",
-        "description": "Android port of the classic Unreal Engine 1 game, focused on SDL2/OpenGL ES rendering, mobile compatibility and retro Android devices.",
+        "description": "Android port of the classic Unreal Engine 1 game, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
         "subtitle": "Unreal (1998) Android port",
         "tech": "C++ / SDL2",
         "url": "https://github.com/andiweli/Unreal-Android",
