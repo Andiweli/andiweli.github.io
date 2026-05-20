@@ -167,8 +167,8 @@
         "icon": "vita"
       },
       {
-        "title": "HexFlow-Covers",
-        "description": "The official HEXFlow database - Cover images, background pictures and background music for RetroFlow-Launcher and HexFlow-Launcher for PS VITA.",
+        "title": "The official HEXFlow database",
+        "description": "Cover images, background pictures and background music for RetroFlow-Launcher and HexFlow-Launcher for PS VITA.",
         "subtitle": "PS VITA Database",
         "tech": "Tech",
         "url": "https://github.com/Andiweli/HexFlow-Covers",
