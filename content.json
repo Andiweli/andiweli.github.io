@@ -1,0 +1,153 @@
+{
+  "site": {
+    "title": "Andreas Stürmer",
+    "handle": "@andiweli",
+    "kicker": "Home",
+    "intro": "I build retro gaming ports, launchers, themes and asset packs with a focus on quality, usability and platform love.",
+    "profileImage": "images/profile.png",
+    "profileAlt": "Illustrated portrait of Andreas Stürmer with an orange cat",
+    "verticalNote": "Design • Code • Restore • Play",
+    "tags": ["Android", "Windows", "macOS", "OUYA", "Smarthome"],
+    "footerYear": "2026"
+  },
+  "news": {
+    "title": "Current News",
+    "headline": "Currently working on...",
+    "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
+    "items": [
+      {
+        "text": "Fixed the Teleport animation-effect for all ZGLOOM variants and added Universal support for macOS.",
+        "url": "https://github.com/Andiweli?tab=repositories&q=ZGLOOM&type=&language=&sort=",
+        "linkLabel": "all ZGLOOM variants"
+      },
+      {
+        "text": "Unreal (1998) and Unreal Tournament '99 Android have been updated recently. Controller detection should now be widely possible.",
+        "url": "https://github.com/Andiweli?tab=repositories&q=Unreal&type=&language=&sort=",
+        "linkLabel": "Check it out"
+      },
+      {
+        "text": "Extending the Gloom Level Editor for Windows: Edit walls, snap-on at edges, fix clipping errors and other glitches. Release version 1.1.0 available now!",
+        "url": "https://github.com/Andiweli/ZGloom-Editor",
+        "linkLabel": "available now"
+      }
+    ]
+  },
+  "featured": {
+    "title": "Featured Projects",
+    "viewAllLabel": "View all projects →",
+    "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
+    "quote": "I love bringing classic experiences to new platforms and devices.",
+    "quoteTags": ["🎮 Play", "⌘ Build", "♡ Restore"],
+    "items": [
+      {
+        "title": "OUYALaunch",
+        "meta": "Launcher  •  OUYA",
+        "description": "A fast and elegant launcher for the OUYA console. Built for performance, controller-first navigation and a beautiful browsing experience.",
+        "url": "https://andiweli.github.io/ouyalaunch/",
+        "button": "View project →",
+        "image": "images/teaser-ouyalaunch.png",
+        "alt": "OUYALaunch preview",
+        "className": ""
+      },
+      {
+        "title": "ZGLOOM Collection",
+        "meta": "Game  •  Port",
+        "description": "Modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS Vita, including screenshots, features and downloads.",
+        "url": "https://andiweli.github.io/zgloom/",
+        "button": "View project →",
+        "image": "images/teaser-zgloom.png",
+        "alt": "ZGLOOM Collection preview",
+        "className": "zgloom"
+      },
+      {
+        "title": "Unreal for Android",
+        "meta": "Game  •  Port",
+        "description": "Android versions of Unreal (1998) and Unreal Tournament '99 (armeabi-v7a/32bit) with controller-focused support.",
+        "url": "https://andiweli.github.io/unreal/",
+        "button": "View project →",
+        "image": "images/teaser-unrealandroid.png",
+        "alt": "Unreal Android preview",
+        "className": "unreal"
+      }
+    ]
+  },
+  "core": {
+    "title": "Core Projects",
+    "viewAllLabel": "View all repositories on GitHub →",
+    "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
+    "items": [
+      {
+        "title": "Unreal Android",
+        "description": "Android port of the classic Unreal Engine 1 game, focused on SDL2/OpenGL ES rendering, mobile compatibility and retro Android devices.",
+        "subtitle": "Unreal (1998) Android port",
+        "tech": "C++ / SDL2",
+        "url": "https://github.com/andiweli/Unreal-Android",
+        "icon": "android"
+      },
+      {
+        "title": "EKA2L1-DualStick",
+        "description": "Android-focused fork of EKA2L1 with proper dual-analog-stick support for Symbian OS and N-Gage games on modern handhelds.",
+        "subtitle": "EKA2L1 dual-stick fork",
+        "tech": "C++",
+        "url": "https://github.com/andiweli/EKA2L1-DualStick",
+        "icon": "controller"
+      },
+      {
+        "title": "ZGLOOM-Editor",
+        "description": "Standalone Win32/x86 editor for creating, inspecting and editing maps for the FPS Gloom / ZGLOOM.",
+        "subtitle": "Level editor for Gloom/ZGLOOM (FPS)",
+        "tech": "C++",
+        "url": "https://github.com/andiweli/ZGloom-Editor",
+        "icon": "editor"
+      },
+      {
+        "title": "Zendure-IP",
+        "description": "ioBroker local Zendure polling adapter with optional HEMS aggregation and a curated, compact state set.",
+        "subtitle": "Zendure local polling",
+        "tech": "JavaScript",
+        "url": "https://github.com/andiweli/Zendure-IP",
+        "icon": "solar"
+      },
+      {
+        "title": "OUYAlaunch",
+        "description": "Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs and icon caching.",
+        "subtitle": "Game-Launcher for OUYA microconsole",
+        "tech": "Java",
+        "url": "https://github.com/andiweli/OUYAlaunch",
+        "icon": "ouya"
+      },
+      {
+        "title": "ZGLOOM-Android",
+        "description": "Modern source port of the Amiga FPS Gloom for Android with focus on OUYA and Android TV-style boxes.",
+        "subtitle": "Android build of Amiga Gloom",
+        "tech": "C",
+        "url": "https://github.com/andiweli/ZGloom-Android",
+        "icon": "android"
+      },
+      {
+        "title": "ZGLOOM-x86",
+        "description": "Windows x86 port of ZGLOOM with improved renderer, extended in-game options and subtle post-processing effects.",
+        "subtitle": "PC x86 build of Amiga Gloom",
+        "tech": "C",
+        "url": "https://github.com/andiweli/ZGloom-x86",
+        "icon": "windows"
+      },
+      {
+        "title": "ZGLOOM-macOS (Universal)",
+        "description": "A macOS build of ZGLOOM bringing the full Amiga Gloom collection to Apple Universal Macs.",
+        "subtitle": "MacOS Silicon build of Amiga Gloom",
+        "tech": "C",
+        "url": "https://github.com/andiweli/ZGloom-macOS",
+        "icon": "apple"
+      },
+      {
+        "title": "ZGLOOM-Vita (Vita2D)",
+        "description": "GPU-accelerated Vita2D port of Gloom, Gloom Deluxe, Gloom 3 and Zombie Massacre for PS Vita / PSTV.",
+        "subtitle": "PS Vita build of Gloom",
+        "tech": "C",
+        "url": "https://github.com/andiweli/ZGloom-Vita-Vita2D",
+        "icon": "vita"
+      }
+    ]
+  }
+}
