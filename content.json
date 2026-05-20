@@ -12,7 +12,9 @@
       "Windows",
       "macOS",
       "OUYA",
-      "Smarthome"
+      "PS Vita",
+      "Retro Consoles",
+      "ioBroker"
     ],
     "footerYear": "2026"
   },
@@ -27,7 +29,7 @@
         "linkLabel": "Check it out"
       },
       {
-        "text": "Extending the Gloom Level Editor for Windows: Edit walls, snap-on at edges, fix clipping errors and other glitches. Release version 1.1.0 available now!",
+        "text": "The Gloom Editor for Windows is now a full blown campaign editor: Edit maps, edit textures, edit the whole gamescript - even make your own Gloom-based game! Release version 1.1.0 available now!",
         "url": "https://github.com/Andiweli/ZGloom-Editor",
         "linkLabel": "available now"
       }
