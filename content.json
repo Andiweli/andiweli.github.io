@@ -27,11 +27,6 @@
         "linkLabel": "Check it out"
       },
       {
-        "text": "Fixed the Teleport animation-effect for all ZGLOOM variants and added Universal support for macOS.",
-        "url": "https://github.com/Andiweli?tab=repositories&q=ZGLOOM&type=&language=&sort=",
-        "linkLabel": "all ZGLOOM variants"
-      },
-      {
         "text": "Extending the Gloom Level Editor for Windows: Edit walls, snap-on at edges, fix clipping errors and other glitches. Release version 1.1.0 available now!",
         "url": "https://github.com/Andiweli/ZGloom-Editor",
         "linkLabel": "available now"
@@ -87,10 +82,18 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
+        "title": "Sega EverDrive Themes",
+        "description": "Some custom made themes for Krikzz' EverDrive cartridge. You need at least Firmware MEGAOS 4.07 to use custom themesets.",
+        "subtitle": "EverDrive",
+        "tech": "Custom",
+        "url": "https://github.com/Andiweli/Sega-EverDrive-Themes",
+        "icon": "controller"
+      },
+      {
         "title": "Unreal Tournament '99",
         "description": "Android port of the classic Multiplayer FPS, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
         "subtitle": "UT99 Android port",
-        "tech": "Tech",
+        "tech": "C++ / SDL2",
         "url": "https://github.com/Andiweli/UT99-Android",
         "icon": "android"
       },
