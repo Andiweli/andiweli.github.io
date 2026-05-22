@@ -24,12 +24,12 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "Unreal (1998) and Unreal Tournament '99 Android have been updated recently. Controller detection should now be widely possible.",
+        "text": "Unreal (1998) and Unreal Tournament '99 Android have been updated recently. Check it out!",
         "url": "https://github.com/Andiweli?tab=repositories&q=Unreal&type=&language=&sort=",
         "linkLabel": "Check it out"
       },
       {
-        "text": "The Gloom Editor for Windows is now a full blown campaign editor: Edit maps, edit textures, edit the whole gamescript - even make your own Gloom-based game! Release version 1.1.0 available now!",
+        "text": "The ZGloom Editor for Windows is now a full blown campaign editor: Edit maps, edit textures, edit the whole gamescript - even make your own Gloom-based game! Release 1.1.0 available now!",
         "url": "https://github.com/Andiweli/ZGloom-Editor",
         "linkLabel": "available now"
       }
