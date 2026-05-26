@@ -19,7 +19,7 @@
     "footerYear": "2026"
   },
   "news": {
-    "title": "Current News",
+    "title": "Latest News",
     "headline": "Currently working on...",
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
