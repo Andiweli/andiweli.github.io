@@ -24,7 +24,7 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "OUYAlaunch optimized - Fix for detection of tv.ouya.intent.category.GAME and reduced automatic background scanning for slightly better performance. Check it out!",
+        "text": "OUYAlaunch optimized - Better game detection and reduced automatic background scanning for slightly better performance. Check it out!",
         "url": "https://github.com/Andiweli/OUYAlaunch/releases",
         "linkLabel": "Check it out"
       },
