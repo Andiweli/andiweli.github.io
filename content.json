@@ -24,6 +24,11 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
+        "text": "OUYAlaunch optimized - Fix for detection of tv.ouya.intent.category.GAME and reduced automatic background scanning for slightly better performance. Check it out!",
+        "url": "https://github.com/Andiweli/OUYAlaunch/releases",
+        "linkLabel": "Check it out"
+      },
+      {
         "text": "Unreal (1998) and Unreal Tournament '99 Android have been updated recently with Touch controls and the latest bugfixes. Check it out!",
         "url": "https://github.com/Andiweli?tab=repositories&q=Unreal&type=&language=&sort=",
         "linkLabel": "Check it out"
