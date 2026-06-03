@@ -24,6 +24,11 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
+        "text": "Yesterday I started to work in an Amiga classic as a \"Refurbished\" game. Let's see what comes of it... there will be more to read soon (hopefully).",
+        "url": "",
+        "linkLabel": ""
+      },
+      {
         "text": "OUYAlaunch optimized - Better game detection and reduced automatic background scanning for slightly better performance. Check it out!",
         "url": "https://github.com/Andiweli/OUYAlaunch/releases",
         "linkLabel": "Check it out"
