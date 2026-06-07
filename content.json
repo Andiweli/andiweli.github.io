@@ -94,14 +94,6 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
-        "title": "Plugins4AmigaAMP",
-        "description": "This repository includes a few Plugins for the well known Mediaplayer 'AmigaAMP' for Amiga OS.",
-        "subtitle": "Plugins",
-        "tech": "C",
-        "url": "https://github.com/Andiweli/Plugins4AmigaAMP",
-        "icon": "amiga"
-      },
-      {
         "title": "Unreal Android",
         "description": "Android port of the classic FPS, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
         "subtitle": "Unreal (1998) Android port",
@@ -196,6 +188,14 @@
         "tech": "Themes",
         "url": "https://github.com/Andiweli/Sega-EverDrive-Themes",
         "icon": "controller"
+      },
+      {
+        "title": "Plugins4AmigaAMP",
+        "description": "This repository includes a few Plugins for the well known Mediaplayer 'AmigaAMP' for Amiga OS.",
+        "subtitle": "Plugins",
+        "tech": "C",
+        "url": "https://github.com/Andiweli/Plugins4AmigaAMP",
+        "icon": "amiga"
       }
     ]
   }
