@@ -94,12 +94,12 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
-        "title": "Unreal Tournament '99",
-        "description": "Android port of the classic Multiplayer FPS, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
-        "subtitle": "UT99 Android port",
-        "tech": "C++ / SDL2",
-        "url": "https://github.com/Andiweli/UT99-Android",
-        "icon": "android"
+        "title": "Plugins4AmigaAMP",
+        "description": "This repository includes a few Plugins for the well known Mediaplayer 'AmigaAMP' for Amiga OS.",
+        "subtitle": "Plugins",
+        "tech": "C",
+        "url": "https://github.com/Andiweli/Plugins4AmigaAMP",
+        "icon": "amiga"
       },
       {
         "title": "Unreal Android",
@@ -107,6 +107,14 @@
         "subtitle": "Unreal (1998) Android port",
         "tech": "C++ / SDL2",
         "url": "https://github.com/andiweli/Unreal-Android",
+        "icon": "android"
+      },
+      {
+        "title": "Unreal Tournament '99",
+        "description": "Android port of the classic Multiplayer FPS, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
+        "subtitle": "UT99 Android port",
+        "tech": "C++ / SDL2",
+        "url": "https://github.com/Andiweli/UT99-Android",
         "icon": "android"
       },
       {
