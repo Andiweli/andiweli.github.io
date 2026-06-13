@@ -94,6 +94,14 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
+        "title": "GloomReforged",
+        "description": "A modern version of the Gloom Engine for Gloom (Classic), Gloom Deluxe, Gloom3 and Zombie Massacre. Needs quite good Amiga CPU and RAM.",
+        "subtitle": "Modern Gloom for AmigaOS",
+        "tech": "Assembler",
+        "url": "https://github.com/Andiweli/GloomReforged",
+        "icon": "amiga"
+      },
+      {
         "title": "Unreal Android",
         "description": "Android port of the classic FPS, focused on SDL2/OpenGL ES rendering, mobile compatibility and Android devices using a controller.",
         "subtitle": "Unreal (1998) Android port",
