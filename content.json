@@ -95,7 +95,7 @@
     "items": [
       {
         "title": "GloomReforged",
-        "description": "A modern version of the Gloom Engine for Gloom (Classic), Gloom Deluxe, Gloom3 and Zombie Massacre. Needs quite good Amiga CPU and RAM.",
+        "description": "A modern version of the Gloom Engine for Gloom (Classic), Gloom Deluxe, Gloom3 and Zombie Massacre. Needs AGA, a quite good Amiga CPU and RAM.",
         "subtitle": "Modern Gloom for AmigaOS",
         "tech": "Assembler",
         "url": "https://github.com/Andiweli/GloomReforged",
@@ -103,7 +103,7 @@
       },
       {
         "title": "Plugins4AmigaAMP",
-        "description": "This repository includes a few Plugins for the well known Mediaplayer 'AmigaAMP' for Amiga OS.",
+        "description": "This repository includes a few Plugins for the well known Mediaplayer 'AmigaAMP' for Amiga OS. P96 graphicmode needed!",
         "subtitle": "Plugins",
         "tech": "C",
         "url": "https://github.com/Andiweli/Plugins4AmigaAMP",
