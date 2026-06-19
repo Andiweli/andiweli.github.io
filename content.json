@@ -25,9 +25,9 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "A few days ago I started to work on an Amiga classic named GLOOM as a \"Reforged\" version with many new features. First release is out now. Check out GloomReforged!",
-        "url": "https://github.com/Andiweli/GloomReforged",
-        "linkLabel": "Check out GloomReforged"
+        "text": "A few days ago I started to work on an Amiga classic named GLOOM as a \"Reforged\" version with new features and optimizations. Latest release with fixed Splitscreen Multiplayer is out now. Check out Gloom Reforged!",
+        "url": "https://github.com/Andiweli/Gloom-Reforged",
+        "linkLabel": "Check out Gloom Reforged"
       },
       {
         "text": "OUYAlaunch optimized - Better game detection and reduced automatic background scanning for slightly better performance. Check it out!",
