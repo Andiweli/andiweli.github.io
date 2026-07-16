@@ -25,6 +25,11 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
+        "text": "I am currently working on an ioBroker adapter for ConnectLife air conditioners (e.g., from Hisense). A first test version is already available. Check it out!",
+        "url": "https://github.com/Andiweli/ioBroker.connectlife",
+        "linkLabel": "Check it out"
+      },
+      {
         "text": "Some time ago I started to work on an Amiga classic named GLOOM as a \"Reforged\" version with new features and optimizations. Latest release with fixed Splitscreen Multiplayer is out now. Check out Gloom Reforged!",
         "url": "https://github.com/Andiweli/Gloom-Reforged",
         "linkLabel": "Check out Gloom Reforged"
@@ -38,11 +43,6 @@
         "text": "Unreal (1998) and Unreal Tournament '99 Android have been updated recently with Touch controls and the latest bugfixes. Check it out!",
         "url": "https://github.com/Andiweli?tab=repositories&q=Unreal&type=&language=&sort=",
         "linkLabel": "Check it out"
-      },
-      {
-        "text": "The ZGloom Editor for Windows is now a full blown campaign editor: Edit maps, edit textures, edit the whole gamescript - even make your own Gloom-based game! Release 1.1.0 available now!",
-        "url": "https://github.com/Andiweli/ZGloom-Editor",
-        "linkLabel": "available now"
       }
     ]
   },
