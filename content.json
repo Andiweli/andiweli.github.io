@@ -95,16 +95,8 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
-        "title": "ioBroker.ConnectLife",
-        "description": "An ioBroker adapter for ConnectLife air conditioners (e.g., from Hisense). Currently in an experimental state to test.",
-        "subtitle": "Adapter for Air conditioner",
-        "tech": "JavaScript",
-        "url": "https://github.com/Andiweli/ioBroker.connectlife",
-        "icon": "solar"
-      },
-      {
         "title": "GloomReforged",
-        "description": "A modern version of the Gloom Engine for Gloom (Classic), Gloom Deluxe, Gloom3 and Zombie Massacre. Needs AGA, a quite good Amiga CPU and RAM.",
+        "description": "A modern version of the Gloom Engine for Gloom (Classic), Gloom Deluxe, Gloom3 and Zombie Massacre. Needs AGA and a fast CPU.",
         "subtitle": "Modern Gloom for AmigaOS",
         "tech": "Assembler",
         "url": "https://github.com/Andiweli/GloomReforged",
@@ -151,7 +143,15 @@
         "icon": "editor"
       },
       {
-        "title": "Zendure-IP",
+        "title": "ioBroker.ConnectLife",
+        "description": "An ioBroker adapter for ConnectLife air conditioners (e.g., from Hisense). Currently in an experimental state to test.",
+        "subtitle": "Adapter for Air conditioner",
+        "tech": "JavaScript",
+        "url": "https://github.com/Andiweli/ioBroker.connectlife",
+        "icon": "solar"
+      },
+      {
+        "title": "iobroker.Zendure-IP",
         "description": "ioBroker local Zendure polling adapter with optional HEMS aggregation and a curated, compact state set.",
         "subtitle": "Zendure local polling",
         "tech": "JavaScript",
