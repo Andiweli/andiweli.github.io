@@ -95,6 +95,14 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
+        "title": "ioBroker.ConnectLife",
+        "description": "An ioBroker adapter for ConnectLife air conditioners (e.g., from Hisense). Currently in an experimental state to test.",
+        "subtitle": "Adapter for Air conditioner",
+        "tech": "JavaScript",
+        "url": "https://github.com/Andiweli/ioBroker.connectlife",
+        "icon": "solar"
+      },
+      {
         "title": "GloomReforged",
         "description": "A modern version of the Gloom Engine for Gloom (Classic), Gloom Deluxe, Gloom3 and Zombie Massacre. Needs AGA, a quite good Amiga CPU and RAM.",
         "subtitle": "Modern Gloom for AmigaOS",
