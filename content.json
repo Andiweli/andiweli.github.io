@@ -30,18 +30,13 @@
         "linkLabel": "Check it out"
       },
       {
-        "text": "GLOOM Reforged for AmigaOS now with new features and speed optimizations. Latest release with full ECS and AGA support and an experimental P96 mode is out now. Check out Gloom Reforged!",
+        "text": "GLOOM Reforged for AmigaOS now with new features and speed optimizations. Latest release with full ECS and AGA support and an experimental P96 mode is out now. Real P96 mode is in testing and coming soon! Check out Gloom Reforged!",
         "url": "https://github.com/Andiweli/Gloom-Reforged",
         "linkLabel": "Check out Gloom Reforged"
       },
       {
-        "text": "I am currently working on an ioBroker adapter for ConnectLife air conditioners (e.g., from Hisense). A first test version is already available. Check it out!",
+        "text": "Currently I am working on an ioBroker adapter for ConnectLife air conditioners (e.g., from Hisense). A first test version is already available. Check it out!",
         "url": "https://github.com/Andiweli/ioBroker.connectlife",
-        "linkLabel": "Check it out"
-      },
-      {
-        "text": "OUYAlaunch optimized - Better game detection and reduced automatic background scanning for slightly better performance. Check it out!",
-        "url": "https://github.com/Andiweli/OUYAlaunch/releases",
         "linkLabel": "Check it out"
       }
     ]
@@ -95,7 +90,7 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
-        "title": "GloomReforged",
+        "title": "GLOOM Reforged",
         "description": "A modern version of the Gloom Engine for Gloom (Classic), Gloom Deluxe, Gloom3 and Zombie Massacre. Compatible with ECS/AGA but needs a fast CPU.",
         "subtitle": "Modern Gloom for AmigaOS",
         "tech": "Assembler",
