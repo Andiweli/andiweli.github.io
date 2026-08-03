@@ -25,7 +25,12 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "Unreal (1998) for Android has been updated recently with 64 bit (arm-v8a) support and latest bugfixes. Check it out!",
+        "text": "Fixed the Save-Bug and several other small issues in the 7-year-old - presumably no longer under care - PS Vita Port of Blake Stone.",
+        "url": "https://github.com/Andiweli/BlakeStone-Vita",
+        "linkLabel": "Check it out!"
+      },
+      {
+        "text": "Unreal (1998) for Android has been updated recently with 64 bit (arm-v8a) support and some bugfixes. Check it out!",
         "url": "https://github.com/Andiweli/Unreal-Android",
         "linkLabel": "Check it out"
       },
