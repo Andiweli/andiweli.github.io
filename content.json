@@ -25,7 +25,7 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "GLOOM Reforged for AmigaOS now with new features. Latest release with full ECS, AGA and P96  support is out now. Check out Gloom Reforged!",
+        "text": "GLOOM Reforged for AmigaOS now with new features. Latest release with full ECS, AGA and P96 support is out now. Check out Gloom Reforged!",
         "url": "https://github.com/Andiweli/Gloom-Reforged",
         "linkLabel": "Check out Gloom Reforged"
       },
@@ -45,7 +45,7 @@
         "linkLabel": "Check it out!"
       },
       {
-        "text": "Currently I am working on an ioBroker adapter for ConnectLife air conditioners (e.g., from Hisense). A first test version is already available. Check it out!",
+        "text": "First testbuild release of an ioBroker Adapter for ConnectLife air conditioners (e.g., from Hisense). Check it out!",
         "url": "https://github.com/Andiweli/ioBroker.connectlife",
         "linkLabel": "Check it out"
       }
