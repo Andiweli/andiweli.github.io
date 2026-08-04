@@ -25,13 +25,18 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "GLOOM Reforged for AmigaOS now with new features and speed optimizations. Latest release with full ECS, AGA and P96  support is out now. Check out Gloom Reforged!",
+        "text": "GLOOM Reforged for AmigaOS now with new features. Latest release with full ECS, AGA and P96  support is out now. Check out Gloom Reforged!",
         "url": "https://github.com/Andiweli/Gloom-Reforged",
         "linkLabel": "Check out Gloom Reforged"
       },
       {
         "text": "Unreal (1998) for Android has been updated recently with 64bit (arm64-v8a) support and some bugfixes. Check it out!",
         "url": "https://github.com/Andiweli/Unreal-Android",
+        "linkLabel": "Check it out"
+      },
+      {
+        "text": "Unreal Tournament '99 for Android has been updated recently with 64bit (arm64-v8a) support and some bugfixes. Check it out!",
+        "url": "https://github.com/Andiweli/UT99-Android",
         "linkLabel": "Check it out"
       },
       {
