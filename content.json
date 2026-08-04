@@ -25,19 +25,19 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "Fixed the Save-Bug and several other small issues in the 7-year-old - presumably no longer under care - PS Vita Port of Blake Stone.",
-        "url": "https://github.com/Andiweli/BlakeStone-Vita",
-        "linkLabel": "Check it out!"
+        "text": "GLOOM Reforged for AmigaOS now with new features and speed optimizations. Latest release with full ECS, AGA and P96  support is out now. Check out Gloom Reforged!",
+        "url": "https://github.com/Andiweli/Gloom-Reforged",
+        "linkLabel": "Check out Gloom Reforged"
       },
       {
-        "text": "Unreal (1998) for Android has been updated recently with 64 bit (arm-v8a) support and some bugfixes. Check it out!",
+        "text": "Unreal (1998) for Android has been updated recently with 64bit (arm64-v8a) support and some bugfixes. Check it out!",
         "url": "https://github.com/Andiweli/Unreal-Android",
         "linkLabel": "Check it out"
       },
       {
-        "text": "GLOOM Reforged for AmigaOS now with new features and speed optimizations. Latest release with full ECS and AGA support and an experimental P96 mode is out now. Real P96 mode is in testing and coming soon! Check out Gloom Reforged!",
-        "url": "https://github.com/Andiweli/Gloom-Reforged",
-        "linkLabel": "Check out Gloom Reforged"
+        "text": "Fixed the Save-Bug and several other small issues in the 7-year-old - presumably no longer under care - PS Vita Port of Blake Stone.",
+        "url": "https://github.com/Andiweli/BlakeStone-Vita",
+        "linkLabel": "Check it out!"
       },
       {
         "text": "Currently I am working on an ioBroker adapter for ConnectLife air conditioners (e.g., from Hisense). A first test version is already available. Check it out!",
