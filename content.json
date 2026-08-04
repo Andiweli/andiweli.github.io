@@ -78,9 +78,9 @@
         "className": "zgloom"
       },
       {
-        "title": "Unreal for Android",
+        "title": "Unreal and UT99 Android",
         "meta": "Game  •  Port",
-        "description": "Android versions of Unreal (1998) and Unreal Tournament '99 (armeabi-v7a/32bit) with controller-focused support.",
+        "description": "Android versions of Unreal (1998) and Unreal Tournament '99 (32/64bit) with controller-focused support.",
         "url": "https://andiweli.github.io/unreal/",
         "button": "View project →",
         "image": "images/teaser-unrealandroid.png",
