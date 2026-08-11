@@ -105,6 +105,14 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
+        "title": "Neues Core Project",
+        "description": "OpenMW (Morrowind) for Android based on version 0.50 with OMWFX shaders, fixed shadows and bugs sorted out.",
+        "subtitle": "Morrowind for Android",
+        "tech": "Kotlin/Java",
+        "url": "https://github.com/Andiweli/OpenMW-Android",
+        "icon": "android"
+      },
+      {
         "title": "GLOOM Reforged",
         "description": "A modern version of the Gloom Engine for Gloom, Gloom Deluxe, Gloom3 and Zombie Massacre. Compatible with ECS/AGA/P96 - needs a fast CPU.",
         "subtitle": "Modern Gloom for AmigaOS",
