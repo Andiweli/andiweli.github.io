@@ -100,14 +100,6 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
-        "title": "OpenMW Android",
-        "description": "Another OpenMW clone, but based on CaveBros' port with a clean launcher, OMWFX shader and bug fixes.",
-        "subtitle": "Morrowind for Android",
-        "tech": "Tech",
-        "url": "https://github.com/Andiweli/OpenMW-Android",
-        "icon": "android"
-      },
-      {
         "title": "GLOOM Reforged",
         "description": "A modern version of the Gloom Engine for Gloom, Gloom Deluxe, Gloom3 and Zombie Massacre. Compatible with ECS/AGA/P96 - needs a fast CPU.",
         "subtitle": "Modern Gloom for AmigaOS",
