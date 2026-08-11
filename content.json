@@ -25,7 +25,12 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "GLOOM Reforged for AmigaOS now with new features. Latest release with full ECS, AGA and P96 support is out now. Check out Gloom Reforged!",
+        "text": "OpenMW Android for 64bit based on official OpenMW 0.51 available now. OMWFX shader has been added and the shadow artifacts (hopefully) removed. Check it out!",
+        "url": "https://github.com/Andiweli/OpenMW-Android",
+        "linkLabel": "Check it out"
+      },
+      {
+        "text": "GLOOM Reforged for AmigaOS now with new features! Latest release with full ECS, AGA and P96 support is out now. Check out Gloom Reforged!",
         "url": "https://github.com/Andiweli/Gloom-Reforged",
         "linkLabel": "Check out Gloom Reforged"
       },
@@ -99,6 +104,14 @@
     "viewAllLabel": "View all repositories on GitHub →",
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
+      {
+        "title": "OpenMW Android",
+        "description": "Another OpenMW clone, but based on CaveBros' port with a clean launcher, OMWFX shader and bug fixes.",
+        "subtitle": "Morrowind for Android",
+        "tech": "Tech",
+        "url": "https://github.com/Andiweli/OpenMW-Android",
+        "icon": "android"
+      },
       {
         "title": "GLOOM Reforged",
         "description": "A modern version of the Gloom Engine for Gloom, Gloom Deluxe, Gloom3 and Zombie Massacre. Compatible with ECS/AGA/P96 - needs a fast CPU.",
