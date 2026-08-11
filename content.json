@@ -105,7 +105,7 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
-        "title": "Neues Core Project",
+        "title": "OpenMW Android",
         "description": "OpenMW (Morrowind) for Android based on version 0.50 with OMWFX shaders, fixed shadows and bugs sorted out.",
         "subtitle": "Morrowind for Android",
         "tech": "Kotlin/Java",
@@ -169,14 +169,6 @@
         "icon": "solar"
       },
       {
-        "title": "iobroker.Zendure-IP",
-        "description": "ioBroker local Zendure polling adapter with optional HEMS aggregation and a curated, compact state set.",
-        "subtitle": "Zendure local polling",
-        "tech": "JavaScript",
-        "url": "https://github.com/andiweli/Zendure-IP",
-        "icon": "solar"
-      },
-      {
         "title": "OUYAlaunch",
         "description": "Fast, OUYA-themed Android launcher for the OUYA micro-console with favourites, genre tabs and icon caching.",
         "subtitle": "Game-Launcher for OUYA microconsole",
@@ -223,14 +215,6 @@
         "tech": "Graphics",
         "url": "https://github.com/Andiweli/HexFlow-Covers",
         "icon": "vita"
-      },
-      {
-        "title": "Sega EverDrive Themes",
-        "description": "Some custom made themes for Krikzz' EverDrive cartridge. You need at least Firmware MEGAOS 4.07 to use my custom themesets.",
-        "subtitle": "EverDrive",
-        "tech": "Themes",
-        "url": "https://github.com/Andiweli/Sega-EverDrive-Themes",
-        "icon": "controller"
       }
     ]
   }
