@@ -25,11 +25,6 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "OpenMW Android for 64bit based on official OpenMW 0.51 available now. OMWFX shader has been added and the shadow artifacts (hopefully) removed. Check it out!",
-        "url": "https://github.com/Andiweli/OpenMW-Android",
-        "linkLabel": "Check it out"
-      },
-      {
         "text": "GLOOM Reforged for AmigaOS now with new features! Latest release with full ECS, AGA and P96 support is out now. Check out Gloom Reforged!",
         "url": "https://github.com/Andiweli/Gloom-Reforged",
         "linkLabel": "Check out Gloom Reforged"
