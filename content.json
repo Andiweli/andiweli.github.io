@@ -110,6 +110,14 @@
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
+        "title": "AmiGmail",
+        "description": "The first Gmail client for AmigaOS 3.2+! Access your Gmail emails via IMAP, manage your emails, write and reply to friends.",
+        "subtitle": "Gmail Client for Amiga",
+        "tech": "C",
+        "url": "https://github.com/Andiweli/AmiGmail",
+        "icon": "amiga"
+      },
+      {
         "title": "OpenMW Android",
         "description": "OpenMW (Morrowind) for Android based on version 0.50 with OMWFX shaders, fixed shadows and bugs sorted out.",
         "subtitle": "Morrowind for Android",
