@@ -25,6 +25,11 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
+        "text": "AmiGmail - the first Gmail client for AmigaOS 3.2+ - is now available. AmiSSL5 and ReAction are required, as well as an internet connection. Check it out!",
+        "url": "https://github.com/Andiweli/AmiGmail",
+        "linkLabel": "Check it out"
+      },
+      {
         "text": "Another OpenMW port for Android is now available! Based on version 0.50 with OMWFX shaders and bug fixes. Check it out!",
         "url": "https://github.com/Andiweli/OpenMW-Android",
         "linkLabel": "Check it out"
