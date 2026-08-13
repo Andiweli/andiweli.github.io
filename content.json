@@ -73,14 +73,14 @@
     ],
     "items": [
       {
-        "title": "OUYALaunch",
-        "meta": "Launcher  •  OUYA",
-        "description": "A fast and elegant launcher for the OUYA console. Built for performance, controller-navigation and a beautiful browsing experience.",
-        "url": "https://andiweli.github.io/ouyalaunch/",
+        "title": "Unreal for Android",
+        "meta": "Game  •  Port",
+        "description": "Android versions of Unreal (1998) and Unreal Tournament '99 (both 32/64bit) with controller-focused support.",
+        "url": "https://andiweli.github.io/unreal/",
         "button": "View project →",
-        "image": "images/teaser-ouyalaunch.png",
-        "alt": "OUYALaunch preview",
-        "className": ""
+        "image": "images/teaser-unrealandroid.png",
+        "alt": "Unreal Android preview",
+        "className": "unreal"
       },
       {
         "title": "ZGLOOM Collection",
@@ -93,14 +93,14 @@
         "className": "zgloom"
       },
       {
-        "title": "Unreal for Android",
-        "meta": "Game  •  Port",
-        "description": "Android versions of Unreal (1998) and Unreal Tournament '99 (both 32/64bit) with controller-focused support.",
-        "url": "https://andiweli.github.io/unreal/",
+        "title": "OUYALaunch",
+        "meta": "Launcher  •  OUYA",
+        "description": "A fast and elegant launcher for the OUYA console. Built for performance, controller-navigation and a beautiful browsing experience.",
+        "url": "https://andiweli.github.io/ouyalaunch/",
         "button": "View project →",
-        "image": "images/teaser-unrealandroid.png",
-        "alt": "Unreal Android preview",
-        "className": "unreal"
+        "image": "images/teaser-ouyalaunch.png",
+        "alt": "OUYALaunch preview",
+        "className": ""
       }
     ]
   },
