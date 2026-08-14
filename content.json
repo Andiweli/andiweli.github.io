@@ -30,7 +30,7 @@
         "linkLabel": "Check it out"
       },
       {
-        "text": "Another OpenMW port for Android is now available! Based on version 0.50 with OMWFX shaders and bug fixes. Check it out!",
+        "text": "Another OpenMW port for Android is now available! Based on version 0.51 with OMWFX shaders and bug fixes. Check it out!",
         "url": "https://github.com/Andiweli/OpenMW-Android",
         "linkLabel": "Check it out"
       },
@@ -119,7 +119,7 @@
       },
       {
         "title": "OpenMW Android",
-        "description": "OpenMW (Morrowind) for Android based on version 0.50 with OMWFX shaders, fixed shadows and bugs sorted out.",
+        "description": "OpenMW (Morrowind) for Android based on version 0.51 with OMWFX shaders, fixed shadows and bugs sorted out.",
         "subtitle": "Morrowind for Android",
         "tech": "Kotlin/Java",
         "url": "https://github.com/Andiweli/OpenMW-Android",
