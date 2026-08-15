@@ -25,7 +25,7 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "AmiGmail and AmiMAIL - Gmail/Mail clients for AmigaOS 3.2+ - are now available. AmiSSL5, ReAction and an internet connection are required. Check it out!",
+        "text": "AmiGmail & AmiMAIL - Gmail/Mail clients for AmigaOS 3.2+ now available. AmiSSL5, ReAction and an internet connection are required. Check it out!",
         "url": "https://github.com/Andiweli?tab=repositories&q=mail&type=&language=&sort=",
         "linkLabel": "Check it out"
       },
