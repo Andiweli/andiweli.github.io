@@ -25,8 +25,8 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "AmiGmail - the first Gmail client for AmigaOS 3.2+ - is now available. AmiSSL5 and ReAction are required, as well as an internet connection. Check it out!",
-        "url": "https://github.com/Andiweli/AmiGmail",
+        "text": "AmiGmail and AmiMAIL - the first Gmail/Mail clients for AmigaOS 3.2+ - are now available. AmiSSL5 and ReAction are required, as well as an internet connection. Check it out!",
+        "url": "https://github.com/Andiweli?tab=repositories&q=mail&type=&language=&sort=",
         "linkLabel": "Check it out"
       },
       {
@@ -115,6 +115,14 @@
         "subtitle": "Gmail Client for Amiga",
         "tech": "C",
         "url": "https://github.com/Andiweli/AmiGmail",
+        "icon": "amiga"
+      },
+      {
+        "title": "AmiMAIL",
+        "description": "A new IMAP-Email client for AmigaOS 3.2+! Access your Emails via IMAP, manage your emails, write and reply to friends.",
+        "subtitle": "IMAP Client for Amiga",
+        "tech": "C",
+        "url": "https://github.com/Andiweli/AmiMAIL",
         "icon": "amiga"
       },
       {
