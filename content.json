@@ -25,6 +25,11 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
+        "text": "Breathless Android now available! The classic Amiga FPS is now playable on Android controller devices, Touchscreen coming soon! Check it out!",
+        "url": "https://github.com/Andiweli/Breathless-Android",
+        "linkLabel": "Check it out"
+      },
+      {
         "text": "AmiGmail & AmiMAIL - Gmail/Mail clients for AmigaOS 3.2+ now available. AmiSSL5, ReAction and an internet connection are required. Check it out!",
         "url": "https://github.com/Andiweli?tab=repositories&q=mail&type=&language=&sort=",
         "linkLabel": "Check it out"
@@ -38,26 +43,6 @@
         "text": "GLOOM Reforged for AmigaOS now with new features! Latest release with full ECS, AGA and P96 support is out now. Check out Gloom Reforged!",
         "url": "https://github.com/Andiweli/Gloom-Reforged",
         "linkLabel": "Check out Gloom Reforged"
-      },
-      {
-        "text": "Unreal (1998) for Android has been updated recently with 64bit (arm64-v8a) support and some bugfixes. Check it out!",
-        "url": "https://github.com/Andiweli/Unreal-Android",
-        "linkLabel": "Check it out"
-      },
-      {
-        "text": "Unreal Tournament '99 for Android has been updated recently with 64bit (arm64-v8a) support and some bugfixes. Check it out!",
-        "url": "https://github.com/Andiweli/UT99-Android",
-        "linkLabel": "Check it out"
-      },
-      {
-        "text": "Fixed the Save-Bug and several other small issues in the 7-year-old - presumably no longer under care - PS Vita Port of Blake Stone.",
-        "url": "https://github.com/Andiweli/BlakeStone-Vita",
-        "linkLabel": "Check it out!"
-      },
-      {
-        "text": "First testbuild release of an ioBroker Adapter for ConnectLife air conditioners (e.g., from Hisense). Check it out!",
-        "url": "https://github.com/Andiweli/ioBroker.connectlife",
-        "linkLabel": "Check it out"
       }
     ]
   },
