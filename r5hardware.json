@@ -1,0 +1,566 @@
+{
+  "app": "AAOS HW Check",
+  "version": "1.0.1",
+  "flavor": "automotive",
+  "hardwareCapturedAtEpochMs": 1788850931262,
+  "exportedAtEpochMs": 1788850960994,
+  "sections": [
+    {
+      "title": "Prozessor",
+      "rows": [
+        {
+          "label": "SoC-Hersteller",
+          "value": "QTI",
+          "status": "Ausgelesen",
+          "source": "Build.SOC_MANUFACTURER"
+        },
+        {
+          "label": "SoC-Modell",
+          "value": "SA8155P",
+          "status": "Ausgelesen",
+          "source": "Build.SOC_MODEL"
+        },
+        {
+          "label": "CPU-Modell",
+          "value": "0",
+          "status": "Ausgelesen",
+          "source": "\/proc\/cpuinfo"
+        },
+        {
+          "label": "Hardware \/ Board",
+          "value": "aivi2_r_full_dom \/ msmnile",
+          "status": "Ausgelesen",
+          "source": "Build"
+        },
+        {
+          "label": "Unterstützte ABIs",
+          "value": "arm64-v8a",
+          "status": "Ausgelesen",
+          "source": "Build.SUPPORTED_ABIS"
+        },
+        {
+          "label": "App-Prozess",
+          "value": "64 Bit",
+          "status": "Ausgelesen",
+          "source": "Process.is64Bit"
+        },
+        {
+          "label": "Für App verfügbare CPUs",
+          "value": "8",
+          "status": "Ausgelesen",
+          "source": "Runtime; kann durch CPU-Zuteilung begrenzt sein"
+        },
+        {
+          "label": "Vorhandene logische Kerne",
+          "value": "8",
+          "status": "Ausgelesen",
+          "source": "\/sys\/devices\/system\/cpu\/present"
+        },
+        {
+          "label": "Online-Kerne (IDs)",
+          "value": "0-7",
+          "status": "Ausgelesen",
+          "source": "Linux sysfs"
+        },
+        {
+          "label": "Kern 0",
+          "value": "Momentaufnahme 1,79 GHz\nHardwarebereich 0,30 GHz – 1,79 GHz\nAktuelles Policy-Limit 1,79 GHz",
+          "status": "Ausgelesen",
+          "source": "\/sys\/devices\/system\/cpu\/cpu0\/cpufreq\/scaling_cur_freq (Treiberwert, nicht zwingend gemessen)"
+        },
+        {
+          "label": "Kern 1",
+          "value": "Momentaufnahme 1,79 GHz\nHardwarebereich 0,30 GHz – 1,79 GHz\nAktuelles Policy-Limit 1,79 GHz",
+          "status": "Ausgelesen",
+          "source": "\/sys\/devices\/system\/cpu\/cpu1\/cpufreq\/scaling_cur_freq (Treiberwert, nicht zwingend gemessen)"
+        },
+        {
+          "label": "Kern 2",
+          "value": "Momentaufnahme 1,79 GHz\nHardwarebereich 0,30 GHz – 1,79 GHz\nAktuelles Policy-Limit 1,79 GHz",
+          "status": "Ausgelesen",
+          "source": "\/sys\/devices\/system\/cpu\/cpu2\/cpufreq\/scaling_cur_freq (Treiberwert, nicht zwingend gemessen)"
+        },
+        {
+          "label": "Kern 3",
+          "value": "Momentaufnahme 1,79 GHz\nHardwarebereich 0,30 GHz – 1,79 GHz\nAktuelles Policy-Limit 1,79 GHz",
+          "status": "Ausgelesen",
+          "source": "\/sys\/devices\/system\/cpu\/cpu3\/cpufreq\/scaling_cur_freq (Treiberwert, nicht zwingend gemessen)"
+        },
+        {
+          "label": "Kern 4",
+          "value": "Momentaufnahme 1,92 GHz\nHardwarebereich 0,71 GHz – 2,13 GHz\nAktuelles Policy-Limit 1,92 GHz",
+          "status": "Ausgelesen",
+          "source": "\/sys\/devices\/system\/cpu\/cpu4\/cpufreq\/scaling_cur_freq (Treiberwert, nicht zwingend gemessen)"
+        },
+        {
+          "label": "Kern 5",
+          "value": "Momentaufnahme 1,92 GHz\nHardwarebereich 0,71 GHz – 2,13 GHz\nAktuelles Policy-Limit 1,92 GHz",
+          "status": "Ausgelesen",
+          "source": "\/sys\/devices\/system\/cpu\/cpu5\/cpufreq\/scaling_cur_freq (Treiberwert, nicht zwingend gemessen)"
+        },
+        {
+          "label": "Kern 6",
+          "value": "Momentaufnahme 1,92 GHz\nHardwarebereich 0,71 GHz – 2,13 GHz\nAktuelles Policy-Limit 1,92 GHz",
+          "status": "Ausgelesen",
+          "source": "\/sys\/devices\/system\/cpu\/cpu6\/cpufreq\/scaling_cur_freq (Treiberwert, nicht zwingend gemessen)"
+        },
+        {
+          "label": "Kern 7",
+          "value": "Momentaufnahme 1,17 GHz\nHardwarebereich 0,83 GHz – 2,42 GHz\nAktuelles Policy-Limit 2,23 GHz",
+          "status": "Ausgelesen",
+          "source": "\/sys\/devices\/system\/cpu\/cpu7\/cpufreq\/scaling_cur_freq (Treiberwert, nicht zwingend gemessen)"
+        },
+        {
+          "label": "Taktwerte",
+          "value": "Momentaufnahme, kein Benchmark. Dynamische Regelung, Temperatur und Offline-Kerne beeinflussen die Werte.",
+          "status": "Hinweis",
+          "source": "Hinweis"
+        }
+      ]
+    },
+    {
+      "title": "Arbeitsspeicher",
+      "rows": [
+        {
+          "label": "Für Android nutzbarer RAM",
+          "value": "8,00 GB · 7,45 GiB",
+          "status": "Ausgelesen",
+          "source": "ActivityManager.totalMem; reservierter Hardware-RAM fehlt"
+        },
+        {
+          "label": "Verfügbar",
+          "value": "4,88 GB · 4,54 GiB",
+          "status": "Ausgelesen",
+          "source": "ActivityManager.availMem; inklusive wiederverwendbarem Cache"
+        },
+        {
+          "label": "Derzeit belegt \/ nicht verfügbar",
+          "value": "3,12 GB · 2,91 GiB",
+          "status": "Ausgelesen",
+          "source": "totalMem − availMem"
+        },
+        {
+          "label": "Speicherdruck",
+          "value": "Normal",
+          "status": "Ausgelesen",
+          "source": "ActivityManager.lowMemory"
+        },
+        {
+          "label": "RAM-Typ (LPDDR3\/4\/4X\/5 …)",
+          "value": "Nicht verfügbar",
+          "status": "Nicht verfügbar",
+          "source": "Keine öffentliche Standard-API und keine eindeutige lesbare OEM-Angabe; keine Ableitung aus dem SoC"
+        },
+        {
+          "label": "Physisch verbauter RAM",
+          "value": "Nicht verfügbar",
+          "status": "Nicht verfügbar",
+          "source": "Android meldet nutzbaren RAM, nicht die bestückte Chipkapazität"
+        },
+        {
+          "label": "Swap gesamt",
+          "value": "6,44 GB · 6,00 GiB",
+          "status": "Ausgelesen",
+          "source": "\/proc\/meminfo; kein zusätzlicher physischer RAM"
+        },
+        {
+          "label": "Swap frei",
+          "value": "5,35 GB · 4,98 GiB",
+          "status": "Ausgelesen",
+          "source": "\/proc\/meminfo"
+        },
+        {
+          "label": "Java-Heap-Klasse pro App",
+          "value": "512 MB",
+          "status": "Ausgelesen",
+          "source": "ActivityManager.getMemoryClass; nicht Gesamt-RAM"
+        }
+      ]
+    },
+    {
+      "title": "Festspeicher",
+      "rows": [
+        {
+          "label": "Datenpartition · Kapazität",
+          "value": "95,54 GB · 88,98 GiB",
+          "status": "Ausgelesen",
+          "source": "StatFs(\/data); ohne separate Systempartitionen"
+        },
+        {
+          "label": "Datenpartition · für Apps frei",
+          "value": "53,03 GB · 49,39 GiB",
+          "status": "Ausgelesen",
+          "source": "StatFs.getAvailableBytes"
+        },
+        {
+          "label": "Datenpartition · belegte Blöcke",
+          "value": "42,51 GB · 39,59 GiB",
+          "status": "Ausgelesen",
+          "source": "Gesamt − freie Blöcke; reservierte freie Blöcke nicht als belegt gezählt"
+        },
+        {
+          "label": "Interner Speicher · Android-Kapazität",
+          "value": "128,00 GB · 119,21 GiB",
+          "status": "Ausgelesen",
+          "source": "StorageStatsManager.UUID_DEFAULT; ggf. auf Herstellergröße gerundet, kein Chipnachweis"
+        },
+        {
+          "label": "App-Dateisystem",
+          "value": "f2fs",
+          "status": "Ausgelesen",
+          "source": "\/proc\/self\/mountinfo"
+        },
+        {
+          "label": "Eingehängtes Blockgerät",
+          "value": "\/dev\/block\/dm-15",
+          "status": "Ausgelesen",
+          "source": "Mount \/data\/user\/10\/com.ast.aaoshwcheck · 253:15"
+        },
+        {
+          "label": "Festspeichertyp (eMMC \/ UFS \/ NVMe)",
+          "value": "Nicht verfügbar",
+          "status": "Nicht verfügbar",
+          "source": "Blockgerät hinter \/data nicht öffentlich auflösbar; keine Vermutung anhand der Größe"
+        },
+        {
+          "label": "Physische Speicherkapazität",
+          "value": "Nicht verfügbar",
+          "status": "Nicht verfügbar",
+          "source": "Blockgeräte-Topologie gesperrt oder nicht vorhanden"
+        },
+        {
+          "label": "Einheiten",
+          "value": "GB = 1.000.000.000 Byte; GiB = 1.073.741.824 Byte. Datenpartition, UFS-LUN und gesamte Chipkapazität sind verschiedene Größen.",
+          "status": "Hinweis",
+          "source": "Hinweis"
+        }
+      ]
+    },
+    {
+      "title": "System",
+      "rows": [
+        {
+          "label": "Plattform",
+          "value": "Android Automotive OS (AAOS)",
+          "status": "Ausgelesen",
+          "source": "PackageManager.FEATURE_AUTOMOTIVE"
+        },
+        {
+          "label": "AAOS · Android-Basis",
+          "value": "12 · API 32",
+          "status": "Ausgelesen",
+          "source": "Build.VERSION"
+        },
+        {
+          "label": "Hersteller-Softwareversion",
+          "value": "Die Android-Version ist nicht die Versionsnummer des Fahrzeug-Infotainments. Build-ID und Display-Build stehen unten.",
+          "status": "Hinweis",
+          "source": "Hinweis"
+        },
+        {
+          "label": "Gerätehersteller",
+          "value": "LG Electronics",
+          "status": "Ausgelesen",
+          "source": "Build; Hersteller der Headunit, nicht zwingend Fahrzeugmarke"
+        },
+        {
+          "label": "Gerätemarke \/ Modell",
+          "value": "renault \/ AIVI2 R FULL DOM",
+          "status": "Ausgelesen",
+          "source": "Build; nicht als Fahrzeugmodell interpretiert"
+        },
+        {
+          "label": "Produkt \/ Gerät",
+          "value": "car-rdom-160-gas \/ aivi2_r_full_dom",
+          "status": "Ausgelesen",
+          "source": "Build"
+        },
+        {
+          "label": "Sicherheitspatch",
+          "value": "2025-04-01",
+          "status": "Ausgelesen",
+          "source": "Build.VERSION.SECURITY_PATCH"
+        },
+        {
+          "label": "Build-ID",
+          "value": "SQ3A.220705.003.A1",
+          "status": "Ausgelesen",
+          "source": "Build.ID"
+        },
+        {
+          "label": "Display-Build",
+          "value": "SQ3A.220705.003.A1",
+          "status": "Ausgelesen",
+          "source": "Build.DISPLAY"
+        },
+        {
+          "label": "Build-Fingerprint",
+          "value": "renault\/car-rdom-160-gas\/aivi2_r_full_dom:12\/SQ3A.220705.003.A1\/DOM.18.73.31.12S.sit-b0ddbc640:user\/release-keys",
+          "status": "Ausgelesen",
+          "source": "Build.FINGERPRINT; Software-Buildkennung"
+        },
+        {
+          "label": "Kernel",
+          "value": "5.4.254-qgki-g6ab1251e5f81-dirty · aarch64",
+          "status": "Ausgelesen",
+          "source": "Os.uname"
+        },
+        {
+          "label": "Seit Systemstart",
+          "value": "2 h 00 min",
+          "status": "Ausgelesen",
+          "source": "SystemClock.elapsedRealtime; inklusive Standby"
+        },
+        {
+          "label": "App",
+          "value": "1.0.1 · automotive",
+          "status": "Ausgelesen",
+          "source": "BuildConfig"
+        }
+      ]
+    },
+    {
+      "title": "Grafik & Sensoren",
+      "rows": [
+        {
+          "label": "GPU-Hersteller",
+          "value": "Qualcomm",
+          "status": "Ausgelesen",
+          "source": "OpenGL ES GL_VENDOR"
+        },
+        {
+          "label": "GPU \/ Renderer",
+          "value": "Adreno (TM) 640",
+          "status": "Ausgelesen",
+          "source": "OpenGL ES GL_RENDERER"
+        },
+        {
+          "label": "OpenGL ES · Testkontext",
+          "value": "OpenGL ES 3.2 V@0649.0 (GIT@76a2a978e8, If59854bea3, 1704394427) (Date:01\/04\/24)",
+          "status": "Ausgelesen",
+          "source": "GL_VERSION eines ES2-Kontexts; nicht zwingend Maximum"
+        },
+        {
+          "label": "Shader-Sprache",
+          "value": "OpenGL ES GLSL ES 3.20",
+          "status": "Ausgelesen",
+          "source": "GL_SHADING_LANGUAGE_VERSION"
+        },
+        {
+          "label": "Maximale Texturkante",
+          "value": "16384 px",
+          "status": "Ausgelesen",
+          "source": "GL_MAX_TEXTURE_SIZE; keine Displayauflösung"
+        },
+        {
+          "label": "Vulkan-Version",
+          "value": "1.1.0",
+          "status": "Ausgelesen",
+          "source": "PackageManager Feature; kein Vulkan-Laufzeittest"
+        },
+        {
+          "label": "Thermischer Zustand",
+          "value": "Keine Drosselung gemeldet",
+          "status": "Ausgelesen",
+          "source": "PowerManager; keine CPU-Temperatur"
+        },
+        {
+          "label": "Energiesparmodus",
+          "value": "Inaktiv",
+          "status": "Ausgelesen",
+          "source": "PowerManager"
+        },
+        {
+          "label": "Für Apps sichtbare Sensoren",
+          "value": "7",
+          "status": "Ausgelesen",
+          "source": "SensorManager; keine vollständige Fahrzeug-Sensorliste"
+        },
+        {
+          "label": "u-blox Accelerometer",
+          "value": "u-blox AG - Switzerland · android.sensor.accelerometer",
+          "status": "Ausgelesen",
+          "source": "SensorManager"
+        },
+        {
+          "label": "u-blox Accelerometer Uncalibrated",
+          "value": "u-blox AG - Switzerland · android.sensor.accelerometer_uncalibrated",
+          "status": "Ausgelesen",
+          "source": "SensorManager"
+        },
+        {
+          "label": "u-blox Gyroscope",
+          "value": "u-blox AG - Switzerland · android.sensor.gyroscope",
+          "status": "Ausgelesen",
+          "source": "SensorManager"
+        },
+        {
+          "label": "u-blox Gyroscope Uncalibrated",
+          "value": "u-blox AG - Switzerland · android.sensor.gyroscope_uncalibrated",
+          "status": "Ausgelesen",
+          "source": "SensorManager"
+        },
+        {
+          "label": "u-blox Gravity",
+          "value": "u-blox AG - Switzerland · android.sensor.gravity",
+          "status": "Ausgelesen",
+          "source": "SensorManager"
+        },
+        {
+          "label": "u-blox Linear Acceleration",
+          "value": "u-blox AG - Switzerland · android.sensor.linear_acceleration",
+          "status": "Ausgelesen",
+          "source": "SensorManager"
+        },
+        {
+          "label": "Game Rotation Vector Sensor",
+          "value": "AOSP · android.sensor.game_rotation_vector",
+          "status": "Ausgelesen",
+          "source": "SensorManager"
+        }
+      ]
+    },
+    {
+      "title": "Fahrzeug",
+      "rows": [
+        {
+          "label": "Fahrzeughersteller",
+          "value": "Renault",
+          "status": "Ausgelesen",
+          "source": "CarPropertyManager · 0x11100101 · CAR_INFO"
+        },
+        {
+          "label": "Fahrzeugmodell",
+          "value": "X1316",
+          "status": "Ausgelesen",
+          "source": "CarPropertyManager · 0x11100102 · CAR_INFO"
+        },
+        {
+          "label": "Modelljahr",
+          "value": "2022",
+          "status": "Ausgelesen",
+          "source": "CarPropertyManager · 0x11400103 · CAR_INFO"
+        },
+        {
+          "label": "Quelle",
+          "value": "Vom Fahrzeug bereitgestellte CAR_INFO-Eigenschaften. Fehlende Werte werden nicht durch Headunit-Modellnamen ersetzt.",
+          "status": "Hinweis",
+          "source": "Hinweis"
+        }
+      ]
+    },
+    {
+      "title": "Display & Vollbild",
+      "rows": [
+        {
+          "label": "Aktives Display",
+          "value": "Integrierter Bildschirm · ID 0",
+          "status": "Ausgelesen",
+          "source": "View.getDisplay"
+        },
+        {
+          "label": "Aktueller Displaymodus",
+          "value": "1280 × 720 px · 60,00 Hz",
+          "status": "Ausgelesen",
+          "source": "Display.Mode; kann vom gesamten Hersteller-Panel abweichen"
+        },
+        {
+          "label": "Größter gemeldeter Auflösungsmodus",
+          "value": "1280 × 720 px · 60,00 Hz",
+          "status": "Ausgelesen",
+          "source": "Display.getSupportedModes; nach Pixelzahl, kein Nachweis der kompletten Panelauflösung"
+        },
+        {
+          "label": "Höchste gemeldete Bildrate",
+          "value": "60,00 Hz",
+          "status": "Ausgelesen",
+          "source": "Maximum aller Modi; ggf. bei anderer Auflösung"
+        },
+        {
+          "label": "Alle gemeldeten Modi",
+          "value": "1280 × 720 px · 60,00 Hz",
+          "status": "Ausgelesen",
+          "source": "Display.getSupportedModes"
+        },
+        {
+          "label": "Logisches Displayraster",
+          "value": "1280 × 720 px",
+          "status": "Ausgelesen",
+          "source": "Display.getRealMetrics; kann durch OEM oder Kompatibilitätsmodus begrenzt sein"
+        },
+        {
+          "label": "UI-Dichte",
+          "value": "160 dpi · Faktor 1.0",
+          "status": "Ausgelesen",
+          "source": "DisplayMetrics; nicht physische Pixeldichte"
+        },
+        {
+          "label": "Vom System gemeldete X\/Y-DPI",
+          "value": "145,1 \/ 144,0 dpi",
+          "status": "Ausgelesen",
+          "source": "DisplayMetrics.xdpi \/ ydpi; OEM-Angaben können ungenau sein"
+        },
+        {
+          "label": "Displaydiagonale",
+          "value": "ca. 10,1 Zoll · 25,7 cm",
+          "status": "Schätzung",
+          "source": "Aus logischem Raster und gemeldeten X\/Y-DPI; kann erheblich von der echten Panelgröße abweichen"
+        },
+        {
+          "label": "Aktuelle Fenstergrenzen",
+          "value": "1280 × 720 px · Position 0, 0",
+          "status": "Ausgelesen",
+          "source": "WindowManager.currentWindowMetrics; inklusive möglicher Systemleisten"
+        },
+        {
+          "label": "Maximale App-Fenstergrenzen",
+          "value": "1280 × 720 px · Position 0, 0",
+          "status": "Ausgelesen",
+          "source": "WindowManager.maximumWindowMetrics; OEM-reservierte Bereiche können ausgeschlossen bleiben"
+        },
+        {
+          "label": "Maximalfenster abzüglich Leisten\/Ausschnitt",
+          "value": "1168 × 580 px",
+          "status": "Ausgelesen",
+          "source": "MaximumWindowMetrics minus Insets (unabhängig von Sichtbarkeit)"
+        },
+        {
+          "label": "Aktuelle sichere App-Fläche",
+          "value": "1168 × 580 px",
+          "status": "Ausgelesen",
+          "source": "Gemessene Root-View ohne System-\/Cutout-Inset-Padding"
+        },
+        {
+          "label": "Aktuelle System-\/Cutout-Insets",
+          "value": "L 112 · O 44 · R 0 · U 96 px",
+          "status": "Ausgelesen",
+          "source": "RootWindowInsets"
+        },
+        {
+          "label": "Android-Systemleisten",
+          "value": "Statusleiste sichtbar · Navigation sichtbar",
+          "status": "Ausgelesen",
+          "source": "WindowInsets.isVisible; separate OEM-Overlays nicht abgedeckt"
+        },
+        {
+          "label": "Vollbildtest",
+          "value": "Noch nicht getestet. „Vollbild testen“ vergleicht die nutzbare App-Fläche.",
+          "status": "Hinweis",
+          "source": "Hinweis"
+        },
+        {
+          "label": "AAOS-Overlay \/ gesamte Panelgröße",
+          "value": "Der Test nutzt die öffentliche Vollbild-API. Separate Herstellerleisten, Klimabedienung und reservierte Displaybereiche können sichtbar bleiben, auch wenn Android seine Systemleisten als verborgen meldet. Deren Ausblendbarkeit und die volle physische Panelgröße sind nicht allgemein abfragbar.",
+          "status": "Hinweis",
+          "source": "Hinweis"
+        },
+        {
+          "label": "Für Apps sichtbare Displays",
+          "value": "1",
+          "status": "Ausgelesen",
+          "source": "DisplayManager; geschützte Displays können fehlen"
+        }
+      ]
+    }
+  ]
+}
