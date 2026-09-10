@@ -68,16 +68,6 @@
         "className": ""
       },
       {
-        "title": "Gloom Reforged",
-        "meta": "Game • AmigaOS",
-        "description": "Gloom Reforged is compatible with ECS and AGA Amigas as well as with Picasso96 graphicscards.",
-        "url": "https://github.com/Andiweli/Gloom-Reforged",
-        "button": "View project →",
-        "image": "images/teaser-gloomreforged.png",
-        "alt": "Gloom Reforged preview",
-        "className": ""
-      },
-      {
         "title": "Unreal for Android",
         "meta": "Game • Port",
         "description": "Android versions of Unreal (1998) and Unreal Tournament '99 (both 32/64bit) with controller-focused support.",
@@ -85,6 +75,16 @@
         "button": "View project →",
         "image": "images/teaser-unreal-ut99.png",
         "alt": "Unreal Android preview",
+        "className": ""
+      },
+      {
+        "title": "Gloom Reforged",
+        "meta": "Game • AmigaOS",
+        "description": "Gloom Reforged is compatible with ECS and AGA Amigas as well as with Picasso96 graphicscards.",
+        "url": "https://github.com/Andiweli/Gloom-Reforged",
+        "button": "View project →",
+        "image": "images/teaser-gloomreforged.png",
+        "alt": "Gloom Reforged preview",
         "className": ""
       },
       {
