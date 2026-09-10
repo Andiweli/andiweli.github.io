@@ -58,6 +58,16 @@
     ],
     "items": [
       {
+        "title": "AmiMAIL",
+        "meta": "Application • AmigaOS",
+        "description": "Amiga Mailclient for AmigaOS 3.2+ using ReAction Interface and AmiSSL, connects through IMAP/SMTP. No mails are stored locally. Modern Mail access on a real Amiga.",
+        "url": "https://github.com/Andiweli/AmiMAIL",
+        "button": "View project →",
+        "image": "images/teaser-amimail.png",
+        "alt": "AmiMAIL mockup preview",
+        "className": ""
+      },
+      {
         "title": "Gloom Reforged",
         "meta": "Game • AmigaOS",
         "description": "Gloom Reforged is compatible with ECS and AGA Amigas as well as with Picasso96 graphicscards.",
@@ -75,7 +85,7 @@
         "button": "View project →",
         "image": "images/teaser-unreal-ut99.png",
         "alt": "Unreal Android preview",
-        "className": "unreal"
+        "className": ""
       },
       {
         "title": "ZGLOOM Collection",
@@ -85,7 +95,7 @@
         "button": "View project →",
         "image": "images/teaser-gloomcollection.png",
         "alt": "ZGLOOM Collection preview",
-        "className": "zgloom"
+        "className": ""
       },
       {
         "title": "OUYALaunch",
