@@ -73,7 +73,7 @@
         "description": "Modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS Vita, including screenshots, features and downloads.",
         "url": "https://andiweli.github.io/zgloom/",
         "button": "View project →",
-        "image": "images/teaser-zgloom.png",
+        "image": "images/teaser-gloomcollection.png",
         "alt": "ZGLOOM Collection preview",
         "className": "zgloom"
       },
