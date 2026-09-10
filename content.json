@@ -78,16 +78,6 @@
         "className": ""
       },
       {
-        "title": "Gloom Reforged",
-        "meta": "Game • AmigaOS",
-        "description": "Gloom Reforged is compatible with ECS and AGA Amigas as well as with Picasso96 graphicscards.",
-        "url": "https://github.com/Andiweli/Gloom-Reforged",
-        "button": "View project →",
-        "image": "images/teaser-gloomreforged.png",
-        "alt": "Gloom Reforged preview",
-        "className": ""
-      },
-      {
         "title": "ZGLOOM Collection",
         "meta": "Game  •  Port",
         "description": "Modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS Vita, including screenshots, features and downloads.",
@@ -95,6 +85,16 @@
         "button": "View project →",
         "image": "images/teaser-gloomcollection.png",
         "alt": "ZGLOOM Collection preview",
+        "className": ""
+      },
+      {
+        "title": "Gloom Reforged",
+        "meta": "Game • AmigaOS",
+        "description": "Gloom Reforged is compatible with ECS and AGA Amigas as well as with Picasso96 graphicscards.",
+        "url": "https://github.com/Andiweli/Gloom-Reforged",
+        "button": "View project →",
+        "image": "images/teaser-gloomreforged.png",
+        "alt": "Gloom Reforged preview",
         "className": ""
       },
       {
@@ -114,6 +114,22 @@
     "viewAllLabel": "View all repositories on GitHub →",
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
+      {
+        "title": "RetroTouch",
+        "description": "An engine-agnostic Android touch-controls library for games and source ports. Lightweight, configurable and reusable touch-control overlay for Android games.",
+        "subtitle": "Kurzbeschreibung",
+        "tech": "Library",
+        "url": "https://github.com/Andiweli/RetroTouch",
+        "icon": "android"
+      },
+      {
+        "title": "Breathless Android",
+        "description": "Breathless is a sci-fi first-person shooter originally for Amiga. Explore hostile environments, fight enemies, collect weapons and find your way to the exit.",
+        "subtitle": "Amiga FPS on Android",
+        "tech": "Assembly/C/C++",
+        "url": "https://github.com/Andiweli/Breathless-Android",
+        "icon": "android"
+      },
       {
         "title": "AmiMAIL",
         "description": "A new IMAP-Email client for AmigaOS 3.2+! Access your Emails via IMAP, manage your emails, write and reply to friends.",
