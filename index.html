@@ -395,17 +395,23 @@
     
     .quote-mark { font-size: 3rem; line-height: .7; color: var(--accent); font-weight: 900; margin-bottom: 16px; }
     .quote-card p { margin: 0; max-width: none; color: #25303a; font-size: clamp(1.1rem, 1.7vw, 1.34rem); line-height: 1.45; }
-    .quote-icons { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 22px; color: #303641; font-size: .9rem; }
+.quote-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 22px;
+  color: #303641;
+  font-size: .9rem;
+}
 
+/* Breite Quote-Kachel nur bei gerader Anzahl Featured Projects */
 @media (min-width: 981px) {
   .featured-grid > .quote-card:nth-child(odd) {
     grid-column: 1 / -1;
     min-height: 125px;
     padding: 20px 30px;
-
     background: rgba(255,255,255,.76);
   }
-}
 
   .featured-grid > .quote-card:nth-child(odd) .quote-mark {
     font-size: 2.5rem;
@@ -416,8 +422,15 @@
     margin-top: 12px;
   }
 }
+
+/* Core Projects bleiben am Desktop dreispaltig */
+.core-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
     
-    .core-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
     .repo-card {
       min-height: 158px;
       border: 1px solid var(--line);
@@ -467,8 +480,14 @@
       .portrait-card { min-height: 340px; }
       .vertical-note { display: none; }
       h1 { white-space: normal; }
-      .featured-grid, .core-grid, .footer-strip { grid-template-columns: 1fr; }
-    }
+      .featured-grid,
+      .footer-strip {
+        grid-template-columns: 1fr;
+      }
+
+.core-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}    }
     @media (max-width: 720px) {
       .site { width: min(100% - 24px, var(--max)); padding-top: 18px; }
       .topbar { justify-content: center; }
@@ -484,6 +503,7 @@
       .feature-media img, .feature-card.zgloom .feature-media img, .feature-card.unreal .feature-media img { width: 100%; height: 100%; transform: translate(22%, 8%) scale(1.12); opacity: .86; }
       .repo-meta { flex-direction: column; gap: 4px; }
       .copyright { flex-direction: column; align-items: center; text-align: center; }
+      .core-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
