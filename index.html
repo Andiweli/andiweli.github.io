@@ -275,6 +275,22 @@
       position: relative;
       isolation: isolate;
     }
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    background: linear-gradient(
+      90deg,
+      rgba(255,255,255,.97) 0%,
+      rgba(255,255,255,.94) 38%,
+      rgba(255,255,255,.80) 58%,
+      rgba(255,255,255,.42) 72%,
+      rgba(255,255,255,0) 88%
+    );
+  }
     .feature-text {
       grid-column: 1;
       grid-row: 1;
