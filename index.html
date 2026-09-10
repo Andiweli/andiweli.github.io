@@ -364,9 +364,16 @@
       text-shadow: none;
     }
     .feature-media { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .67; }
-    .feature-media img { width: 118%; height: 118%; max-width: none; max-height: none; object-fit: contain; object-position: right center; transform: translate(7%, 4%) scale(1.1); filter: drop-shadow(0 20px 34px rgba(20, 17, 14, .12)); }
-    .feature-card.zgloom .feature-media img { width: 112%; height: 112%; object-position: right bottom; transform: translate(6%, 8%) scale(1.12); }
-    .feature-card.unreal .feature-media img { width: 120%; height: 120%; object-position: right bottom; transform: translate(8%, 9%) scale(1.12); }
+    .feature-media img {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      object-position: right center;
+      transform: none;
+      filter: drop-shadow(0 20px 34px rgba(20, 17, 14, .12));
+    }
 
     .quote-card {
       border: 1px solid var(--line);
