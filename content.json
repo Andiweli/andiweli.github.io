@@ -63,7 +63,7 @@
         "description": "Android versions of Unreal (1998) and Unreal Tournament '99 (both 32/64bit) with controller-focused support.",
         "url": "https://andiweli.github.io/unreal/",
         "button": "View project →",
-        "image": "images/teaser-unrealandroid.png",
+        "image": "images/teaser-unreal-ut99.png",
         "alt": "Unreal Android preview",
         "className": "unreal"
       },
