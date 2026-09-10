@@ -25,24 +25,19 @@
     "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "Breathless Android now available! The classic Amiga FPS is now playable on Android controller devices, Touchscreen coming soon! Check it out!",
-        "url": "https://github.com/Andiweli/Breathless-Android",
+        "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 2.0 with tons of new features und bugfixes. Needs AmiSSL5, ReAction and internet. Check it out!",
+        "url": "https://github.com/Andiweli?tab=repositories&q=mail&type=&language=&sort=",
         "linkLabel": "Check it out"
       },
       {
-        "text": "AmiGmail & AmiMAIL - Gmail/Mail clients for AmigaOS 3.2+ now available. AmiSSL5, ReAction and an internet connection are required. Check it out!",
-        "url": "https://github.com/Andiweli?tab=repositories&q=mail&type=&language=&sort=",
+        "text": "Breathless Android now available! The classic Amiga FPS is now playable on Android controller devices, Touchscreen coming soon! Check it out!",
+        "url": "https://github.com/Andiweli/Breathless-Android",
         "linkLabel": "Check it out"
       },
       {
         "text": "Another OpenMW port for Android is now available! Based on version 0.51 with OMWFX shaders and bug fixes. Check it out!",
         "url": "https://github.com/Andiweli/OpenMW-Android",
         "linkLabel": "Check it out"
-      },
-      {
-        "text": "GLOOM Reforged for AmigaOS now with new features! Latest release with full ECS, AGA and P96 support is out now. Check out Gloom Reforged!",
-        "url": "https://github.com/Andiweli/Gloom-Reforged",
-        "linkLabel": "Check out Gloom Reforged"
       }
     ]
   },
@@ -116,7 +111,7 @@
     "items": [
       {
         "title": "RetroTouch",
-        "description": "An engine-agnostic Android touch-controls library for games and source ports. Lightweight, configurable and reusable touch-control overlay for Android games.",
+        "description": "An engine-agnostic touch-controls library for games. Lightweight, configurable and reusable touch-control overlay for Android games.",
         "subtitle": "Kurzbeschreibung",
         "tech": "Library",
         "url": "https://github.com/Andiweli/RetroTouch",
@@ -124,7 +119,7 @@
       },
       {
         "title": "Breathless Android",
-        "description": "Breathless is a sci-fi first-person shooter originally for Amiga. Explore hostile environments, fight enemies, collect weapons and find your way to the exit.",
+        "description": "Breathless is a first-person shooter originally for Amiga. Explore hostile environments, fight enemies, collect weapons, find your way to the exit.",
         "subtitle": "Amiga FPS on Android",
         "tech": "Assembly/C/C++",
         "url": "https://github.com/Andiweli/Breathless-Android",
