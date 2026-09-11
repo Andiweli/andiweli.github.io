@@ -22,7 +22,7 @@
   "news": {
     "title": "Latest News",
     "headline": "Currently working on...",
-    "emptyText": "Nothing listed yet — probably busy teaching old hardware new tricks.",
+    "emptyText": "Nothing listed yet – probably busy teaching old hardware new tricks.",
     "items": [
       {
         "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 2.0 with tons of new features und bugfixes. Needs AmiSSL5, ReAction and internet. Check it out!",
