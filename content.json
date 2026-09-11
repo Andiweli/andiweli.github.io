@@ -106,7 +106,7 @@
   },
   "core": {
     "title": "Core Projects",
-    "viewAllLabel": "View all repositories on GitHub →",
+    "viewAllLabel": "View all repositories on GitHub ⏵",
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "items": [
       {
