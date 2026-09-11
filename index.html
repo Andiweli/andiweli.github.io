@@ -679,7 +679,7 @@
       const news = data.news || DEFAULT_CONTENT.news;
       const featured = data.featured || DEFAULT_CONTENT.featured;
       const core = data.core || DEFAULT_CONTENT.core;
-      document.title = `${site.title || 'Andreas Stürmer'} — ${site.handle || '@andiweli'}`;
+      document.title = `${site.title || 'Andreas Stürmer'} – ${site.handle || '@andiweli'}`;
 
       const featuredCards = (featured.items || []).map((item, index) => `
         <article class="feature-card ${escapeHtml(item.className || '')}">
