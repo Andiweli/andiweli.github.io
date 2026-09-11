@@ -43,7 +43,7 @@
   },
   "featured": {
     "title": "Featured Projects",
-    "viewAllLabel": "View all projects →",
+    "viewAllLabel": "View all projects ⏵",
     "viewAllUrl": "https://github.com/Andiweli?tab=repositories",
     "quote": "I love bringing classic experiences to new platforms and devices.",
     "quoteTags": [
@@ -57,7 +57,7 @@
         "meta": "Application • AmigaOS",
         "description": "Amiga Mailclient for AmigaOS 3.2+ using ReAction and AmiSSL. Connects through IMAP/SMTP. No mails stored locally. Modern Mail access on Amiga!",
         "url": "https://github.com/Andiweli/AmiMAIL",
-        "button": "View project →",
+        "button": "View project ⏵",
         "image": "images/teaser-amimail.png",
         "alt": "AmiMAIL mockup preview",
         "className": ""
@@ -67,7 +67,7 @@
         "meta": "Game • Port",
         "description": "Android versions of Unreal (1998) and Unreal Tournament '99 (both 32/64bit) with controller-focused support.",
         "url": "https://andiweli.github.io/unreal/",
-        "button": "View project →",
+        "button": "View project ⏵",
         "image": "images/teaser-unreal-ut99.png",
         "alt": "Unreal Android preview",
         "className": ""
@@ -77,7 +77,7 @@
         "meta": "Game  •  Port",
         "description": "Modern Amiga Gloom source ports for Windows, macOS, Android/OUYA and PS Vita, including screenshots, features and downloads.",
         "url": "https://andiweli.github.io/zgloom/",
-        "button": "View project →",
+        "button": "View project ⏵",
         "image": "images/teaser-gloomcollection.png",
         "alt": "ZGLOOM Collection preview",
         "className": ""
@@ -87,7 +87,7 @@
         "meta": "Game • AmigaOS",
         "description": "Gloom Reforged is a reinterpretation of Gloom. It is compatible with ECS and AGA Amigas as well as with Picasso96 graphicscards.",
         "url": "https://github.com/Andiweli/Gloom-Reforged",
-        "button": "View project →",
+        "button": "View project ⏵",
         "image": "images/teaser-gloomreforged.png",
         "alt": "Gloom Reforged preview",
         "className": ""
@@ -97,7 +97,7 @@
         "meta": "Launcher  •  OUYA",
         "description": "A fast and elegant launcher for the OUYA console. Built for performance, controller-navigation and a beautiful browsing experience.",
         "url": "https://andiweli.github.io/ouyalaunch/",
-        "button": "View project →",
+        "button": "View project ⏵",
         "image": "images/teaser-ouyalaunch.png",
         "alt": "OUYALaunch preview",
         "className": ""
