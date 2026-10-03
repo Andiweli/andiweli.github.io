@@ -25,7 +25,12 @@
     "emptyText": "Nothing listed yet – probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 2.0 with tons of new features und bugfixes. Needs AmiSSL5, ReAction and internet. Check it out!",
+        "text": "I started a port of Halo CE for Android and AAOS. Halo Decomp is available since last week.",
+        "url": "https://github.com/Andiweli/HaloCE-Android-AAOS",
+        "linkLabel": "Check it out"
+      },
+      {
+        "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 2.3 with tons of new features und bugfixes. Needs AmiSSL5, ReAction and internet. Check it out!",
         "url": "https://github.com/Andiweli?tab=repositories&q=mail&type=&language=&sort=",
         "linkLabel": "Check it out"
       },
