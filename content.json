@@ -30,19 +30,19 @@
         "linkLabel": "Check it out"
       },
       {
-        "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 2.2.1 with tons of new features und bugfixes. Needs AmiSSL5, ReAction and internet. Check it out!",
+        "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 2.2.1 with tons of new features und bugfixes. Needs AmiSSL5, ReAction and internet. Read more",
         "url": "https://github.com/Andiweli/AmiMAIL",
-        "linkLabel": "Check it out"
+        "linkLabel": "Read more"
       },
       {
-        "text": "Breathless Android now available! The classic Amiga FPS is now playable on Android controller devices, Touchscreen coming soon! Check it out!",
+        "text": "Breathless Android now available! The classic Amiga FPS is now playable on Android controller devices, Touchscreen coming soon! Read more",
         "url": "https://github.com/Andiweli/Breathless-Android",
-        "linkLabel": "Check it out"
+        "linkLabel": "Read more"
       },
       {
-        "text": "Another OpenMW port for Android is now available! Based on version 0.51 with OMWFX shaders and bug fixes. Check it out!",
+        "text": "Another OpenMW port for Android is now available! Based on version 0.51 with OMWFX shaders and bug fixes. Read more",
         "url": "https://github.com/Andiweli/OpenMW-Android",
-        "linkLabel": "Check it out"
+        "linkLabel": "Read more"
       }
     ]
   },
