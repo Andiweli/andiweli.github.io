@@ -25,9 +25,9 @@
     "emptyText": "Nothing listed yet – probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "I started a port of Halo CE for Android and AAOS. Halo Decomp is available since last week.",
+        "text": "I started a port of Halo CE for Android and AAOS. Halo Decomp is available since last week. Read more",
         "url": "https://github.com/Andiweli/HaloCE-Android-AAOS",
-        "linkLabel": "Check it out"
+        "linkLabel": "Read more"
       },
       {
         "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 2.2.1 with tons of new features und bugfixes. Needs AmiSSL5, ReAction and internet. Read more",
