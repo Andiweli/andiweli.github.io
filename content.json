@@ -25,6 +25,11 @@
     "emptyText": "Nothing listed yet – probably busy teaching old hardware new tricks.",
     "items": [
       {
+        "text": "A time-consuming and challenging project right now is the porting of Resident Evil 4 (GameCube) to Android... stay frosty.",
+        "url": "",
+        "linkLabel": ""
+      },
+      {
         "text": "I started a port of Halo CE for Android and AAOS. Halo Decomp is available since last week. Read more",
         "url": "https://github.com/Andiweli/HaloCE-Android-AAOS",
         "linkLabel": "Read more"
