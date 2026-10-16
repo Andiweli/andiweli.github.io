@@ -88,13 +88,13 @@
       margin-left: auto;
     }
 
-    .nav a:not(.github-btn) {
+    .nav a:not(.github-btn):not(.itch-btn) {
       position: relative;
       padding: 10px 0;
       white-space: nowrap;
     }
 
-    .nav a:not(.github-btn)::after {
+    .nav a:not(.github-btn):not(.itch-btn)::after {
       content: '';
       position: absolute;
       left: 50%;
@@ -110,6 +110,22 @@
     .nav a:hover { color: var(--accent); }
     .nav a:hover::after { width: 24px; }
 
+    .github-btn, .itch-btn {
+      height: calc(1em * 1.55 + 22px);
+      flex-shrink: 0;
+    }
+
+    .itch-btn {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .itch-btn img {
+      height: 100%;
+      width: auto;
+      max-width: none;
+    }
+    
     .github-btn {
       display: inline-flex;
       align-items: center;
@@ -623,6 +639,7 @@
         <a href="#news">News</a>
         <a href="#featured">Featured</a>
         <a href="#core">Core</a>
+        <a class="itch-btn" href="https://andiweli.itch.io/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Andiweli/andiweli.github.io/21e22c47e78104160a9810a07dec1cefe845c3d6/images/badge-color.svg" alt="itch.io" /></a>
         <a class="github-btn" href="https://github.com/andiweli" target="_blank" rel="noopener">GitHub</a>
       </nav>
     </header>
