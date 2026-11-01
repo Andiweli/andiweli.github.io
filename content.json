@@ -25,24 +25,24 @@
     "emptyText": "Nothing listed yet – probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 3.1.1 with tons of new features und bugfixes. Needs AmiSSL5, ReAction and internet. Read more",
+        "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 3.1.1 with tons of new features und bugfixes. Needs AmiSSL5, ReAction and internet. Explore now ⏵",
         "url": "https://andiweli.itch.io/amimail",
-        "linkLabel": "Read more"
+        "linkLabel": "Explore now ⏵"
       },
       {
-        "text": "Gloom Reforged has been updated to 3.1 with new features and some Bugfixes. Explore now!",
+        "text": "Gloom Reforged has been updated to 3.1 with new features and some Bugfixes. Explore now ⏵",
         "url": "https://andiweli.itch.io/gloom-reforged",
-        "linkLabel": "Explore now"
+        "linkLabel": "Explore now ⏵"
       },
       {
-        "text": "Port of CubeEvil4 (GameCube's Resident Evil 4) to Android... Latest Beta available, many extras and post effects! Read more",
+        "text": "Port of CubeEvil4 (GameCube's Resident Evil 4) to Android... Latest Beta available, many extras and post effects! Explore now ⏵",
         "url": "https://github.com/Andiweli/CubeEvil4-Android",
-        "linkLabel": "Read more"
+        "linkLabel": "Explore now ⏵"
       },
       {
-        "text": "I started a port of Halo CE for Android and AAOS. Halo Decomp is available now for Android and AAOS. Read more",
+        "text": "I started a port of Halo CE for Android and AAOS. Halo Decomp is available now for Android and AAOS. Explore now ⏵",
         "url": "https://github.com/Andiweli/HaloCE-Android-AAOS",
-        "linkLabel": "Read more"
+        "linkLabel": "Explore now ⏵"
       }
     ]
   },
