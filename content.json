@@ -5,7 +5,7 @@
     "kicker": "Home",
     "intro": "I develop native AmigaOS applications, enhanced classic Amiga games, Android and OUYA ports, and retro gaming launchers. Explore my projects, including AmiMAIL, Gloom Reforged, ZGLOOM and OUYAlaunch.",
     "profileImage": "images/profile.png",
-    "profileAlt": "Illustrated portrait of Andreas Stürmer with an orange cat",
+    "profileAlt": "Illustrated portrait of me with an orange cat",
     "verticalNote": "Design • Code • Restore • Play",
     "tags": [
       "Android",
@@ -25,17 +25,17 @@
     "emptyText": "Nothing listed yet – probably busy teaching old hardware new tricks.",
     "items": [
       {
-        "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 3.3.0 with AmigaOS 3.9 compatibility. Needs AmiSSL5+, ReAction and internet. Explore now ⏵",
+        "text": "AmiMAIL IMAP client for AmigaOS 3.2+ now updated to 3.3.1 with AmigaOS 3.9 compatibility. Needs AmiSSL5+, ReAction and internet. Explore now ⏵",
         "url": "https://andiweli.itch.io/amimail",
         "linkLabel": "Explore now ⏵"
       },
       {
-        "text": "Gloom Reforged has been updated to 3.1 with new features and some Bugfixes. Explore now ⏵",
+        "text": "Gloom Reforged has been updated to 3.2 with new features and some Bugfixes. Explore now ⏵",
         "url": "https://andiweli.itch.io/gloom-reforged",
         "linkLabel": "Explore now ⏵"
       },
       {
-        "text": "Port of CubeEvil4 (GameCube's Resident Evil 4) to Android... Latest Beta available, many extras and post effects! Explore now ⏵",
+        "text": "Port of CubeEvil4 (GameCube's Resident Evil 4) to Android... Latest release available, many extras and post effects! Explore now ⏵",
         "url": "https://github.com/Andiweli/CubeEvil4-Android",
         "linkLabel": "Explore now ⏵"
       },
